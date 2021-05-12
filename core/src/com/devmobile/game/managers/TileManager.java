@@ -10,17 +10,16 @@ import com.badlogic.gdx.utils.ObjectMap;
 public class TileManager {
     private TextureAtlas textureAtlas;
     private ObjectMap<String, TextureAtlas.AtlasRegion> tiles;
-    private Animation animation01, animation02;
 
     public TileManager(){
-        textureAtlas = new TextureAtlas(Gdx.files.internal("sprites.txt"));
+        textureAtlas = new TextureAtlas(Gdx.files.internal("Terrenos_Teste.txt"));
         tiles = new ObjectMap<>();
 
-        animation01 = new Animation(0.33f, textureAtlas.findRegions("tile"));
-        animation02 = new Animation(0.33f, textureAtlas.findRegions("tilee"));
+
+        //Bioma Grassland
 
 
-        //Adicionando tiles
+
         tiles.put("floor", textureAtlas.findRegion("tile014"));
         tiles.put("one", textureAtlas.findRegion("tile096"));
         tiles.put("two", textureAtlas.findRegion("tile097"));
@@ -31,15 +30,16 @@ public class TileManager {
         return tiles.get(string);
     }
 
-    public Animation getAnimation(String string) {
-        if(string.equals("tile")) {
-            return animation01;
-        }
-        else if (string.equals("tilee")){
-            return animation02;
-        }
-        return null;
-    }
+// Exemplo do método para retornar a animação baseado na string passada
+//    public Animation getAnimation(String string) {
+//        if(string.equals("tile")) {
+//            return animation01;
+//        }
+//        else if (string.equals("tilee")){
+//            return animation02;
+//        }
+//        return null;
+//    }
 
     public int getSize(){
         return tiles.size;

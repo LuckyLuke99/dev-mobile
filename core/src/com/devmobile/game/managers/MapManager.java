@@ -9,7 +9,7 @@ import com.devmobile.game.tiles.GenericTile;
 
 public class MapManager {
     TileManager tileManager;
-    RandomManager random;
+    RandomTileManager randomTile;
     GenericTile[][] tiles;
 
     int sizeX, sizeY;
@@ -22,8 +22,7 @@ public class MapManager {
         currentX = 0;
         currentY = 0;
 
-        random = new RandomManager();
-        //Inciando o tileMap
+        randomTile = new RandomTileManager(); //Controla qual vai ser o tileGerado
         tileManager = new TileManager();
 
         //Criando o mapa
@@ -34,7 +33,7 @@ public class MapManager {
     public void startMap(){
         for (int x = 0; x < sizeX; x++) {
             for (int y = 0; y < sizeY; y++) {
-                tiles[x][y] = random.newTile();
+                tiles[x][y] = randomTile.newTile();
                 tiles[x][y].setPosition(currentX, currentY);
                 currentY += GameInfo.sizeTexture;
             }

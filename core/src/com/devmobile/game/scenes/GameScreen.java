@@ -20,12 +20,12 @@ public class GameScreen implements Screen {
     private OrthographicCamera mainCamera;
     private Viewport gameViewport;
 
-    MapManager mapManager;
+    MapManager mapManager; //Parte que vai gerando o mapa do jogo
 
     public GameScreen (final DevMobile game){
         this.game = game;
 
-        //Configuração da câmera
+        //Configuração da camera e do viewport da tela
         mainCamera = new OrthographicCamera(GameInfo.WIDHT, GameInfo.HEIGHT);
         mainCamera.position.set(GameInfo.WIDHT/2f, GameInfo.HEIGHT/2f, 0f);
         gameViewport = new StretchViewport(GameInfo.WIDHT, GameInfo.HEIGHT, mainCamera);
@@ -44,6 +44,8 @@ public class GameScreen implements Screen {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         mainCamera.position.x += 3;
+
+        //Parte da configuração da camera
         game.batch.setProjectionMatrix(mainCamera.combined);
         mainCamera.update();
 

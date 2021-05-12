@@ -9,15 +9,17 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ObjectMap;
 import com.devmobile.game.tiles.GenericTile;
 
-public class RandomManager {
+//Classe retorna qual vai ser o próximo tile gerado baseado na posição atual do gerador
+public class RandomTileManager {
     private TileManager tileManager;
     private ObjectMap<Integer, String> randomTile;
     private int randNumber;
 
-    public RandomManager (){
+    public RandomTileManager (){
         tileManager = new TileManager();
         randomTile = new ObjectMap<>();
 
+        ;
         randomTile.put(0, "tile");
         randomTile.put(1, "tilee");
     }
@@ -29,6 +31,6 @@ public class RandomManager {
 
     private Animation randomTile(){
         randNumber = MathUtils.random(0, randomTile.size - 1);
-        return tileManager.getAnimation(randomTile.get(randNumber));
+        return tileManager.getTexture(randomTile.get(randNumber));
     }
 }
