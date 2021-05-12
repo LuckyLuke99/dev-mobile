@@ -2,6 +2,7 @@ package com.devmobile.game.managers;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.utils.Array;
@@ -17,11 +18,8 @@ public class RandomManager {
         tileManager = new TileManager();
         randomTile = new ObjectMap<>();
 
-        randomTile.put(0, "floor");
-        randomTile.put(1, "one");
-        randomTile.put(2, "two");
-        randomTile.put(3, "three");
-        randomTile.put(4, "four");
+        randomTile.put(0, "tile");
+        randomTile.put(1, "tilee");
     }
 
     public GenericTile newTile(){
@@ -29,8 +27,8 @@ public class RandomManager {
         return genericTile;
     }
 
-    private TextureAtlas.AtlasRegion randomTile(){
-        randNumber = MathUtils.random(0, tileManager.getSize() - 1);
-        return tileManager.getTexture(randomTile.get(randNumber));
+    private Animation randomTile(){
+        randNumber = MathUtils.random(0, randomTile.size - 1);
+        return tileManager.getAnimation(randomTile.get(randNumber));
     }
 }
