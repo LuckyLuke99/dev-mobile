@@ -1,8 +1,6 @@
 package com.devmobile.game.managers;
 
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.devmobile.game.helpers.GameInfo;
 import com.devmobile.game.tiles.GenericTile;
@@ -31,6 +29,7 @@ public class MapManager {
     }
 
     public void startMap(){
+        // Popula todos os tiles para iniciar o jogo
         for (int x = 0; x < sizeX; x++) {
             for (int y = 0; y < sizeY; y++) {
                 tiles[x][y] = randomTile.newTile();

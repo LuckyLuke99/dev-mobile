@@ -1,27 +1,36 @@
 package com.devmobile.game.managers;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ObjectMap;
 import com.devmobile.game.tiles.GenericTile;
 
 //Classe retorna qual vai ser o próximo tile gerado baseado na posição atual do gerador
 public class RandomTileManager {
     private TileManager tileManager;
-    private ObjectMap<Integer, String> randomTile;
+    private ObjectMap<String, Float> randomTile;
     private int randNumber;
+    String grasslandTerrain, grasslandTerrainName;
 
     public RandomTileManager (){
         tileManager = new TileManager();
         randomTile = new ObjectMap<>();
 
-        ;
-        randomTile.put(0, "tile");
-        randomTile.put(1, "tilee");
+        //Grassland
+        grasslandTerrain = "Grassland/Terrain/";
+        grasslandTerrainName = "Grassland_Terrain_";
+
+        randomTile.put(grasslandTerrainName + "01", 1f);
+        randomTile.put(grasslandTerrainName + "02", 1f);
+        randomTile.put(grasslandTerrainName + "03", 1f);
+        randomTile.put(grasslandTerrainName + "04", 1f);
+        randomTile.put(grasslandTerrainName + "05", 1f);
+        randomTile.put(grasslandTerrainName + "06", 1f);
+        randomTile.put(grasslandTerrainName + "07", 1f);
+        randomTile.put(grasslandTerrainName + "08", 1f);
+        randomTile.put(grasslandTerrainName + "09", 1f);
+        randomTile.put(grasslandTerrainName + "10", 1f);
+        randomTile.put(grasslandTerrainName + "11", 1f);
     }
 
     public GenericTile newTile(){
@@ -29,8 +38,19 @@ public class RandomTileManager {
         return genericTile;
     }
 
-    private Animation randomTile(){
-        randNumber = MathUtils.random(0, randomTile.size - 1);
-        return tileManager.getTexture(randomTile.get(randNumber));
+    private TextureAtlas.AtlasRegion randomTile(){
+        float num = 0f;
+        String tileName = "";
+
+        for (String key: randomTile.keys()){
+            float randomNum = MathUtils.random(0f, 1f);
+            randomNum *= randomTile.get(key);
+            if(randomNum > num){
+                num = randomNum;
+                tileName = key;
+            }
+        }
+        System.out.println(tileName);
+        return tileManager.getTexture(tileName);
     }
 }
