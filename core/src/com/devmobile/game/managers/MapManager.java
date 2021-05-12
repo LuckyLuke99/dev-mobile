@@ -6,7 +6,6 @@ import com.devmobile.game.helpers.GameInfo;
 import com.devmobile.game.tiles.GenericTile;
 
 public class MapManager {
-    TileManager tileManager;
     RandomTileManager randomTile;
     GenericTile[][] tiles;
 
@@ -17,11 +16,12 @@ public class MapManager {
         //Tamanho do mapa
         sizeX = Math.round((GameInfo.WIDHT / GameInfo.sizeTexture)*2);
         sizeY = Math.round((GameInfo.HEIGHT / GameInfo.sizeTexture)*2);
+
+        //Qual vai ser a próxima posição do tile
         currentX = 0;
         currentY = 0;
 
-        randomTile = new RandomTileManager(); //Controla qual vai ser o tileGerado
-        tileManager = new TileManager();
+        randomTile = new RandomTileManager(); //Controla qual vai ser o tile gerado
 
         //Criando o mapa
         tiles = new GenericTile[sizeX][sizeY];
