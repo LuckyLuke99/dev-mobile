@@ -2,11 +2,13 @@ package com.devmobile.game.managers;
 
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.devmobile.game.helpers.GameInfo;
 import com.devmobile.game.tiles.GenericTile;
 
 public class MapManager {
-    //TileManager tileManager;
+    TileManager tileManager;
     RandomManager random;
     GenericTile[][] tiles;
 
@@ -22,7 +24,7 @@ public class MapManager {
 
         random = new RandomManager();
         //Inciando o tileMap
-        //tileManager = new TileManager();
+        tileManager = new TileManager();
 
         //Criando o mapa
         tiles = new GenericTile[sizeX][sizeY];
@@ -54,7 +56,7 @@ public class MapManager {
         }
     }
 
-    public void draw(Batch batch, OrthographicCamera camera){
+    public void draw(SpriteBatch batch, OrthographicCamera camera){
         for (int x = 0; x < sizeX; x++) {
             for (int y = 0; y < sizeY; y++) {
                 tiles[x][y].draw(batch);
