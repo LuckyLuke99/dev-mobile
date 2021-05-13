@@ -9,6 +9,8 @@ public class MapManager {
     RandomTileManager randomTile;
     GenericTile[][] tiles;
 
+    TileManager tileManager;
+
     int sizeX, sizeY;
     float currentX, currentY;
 
@@ -22,6 +24,8 @@ public class MapManager {
         currentY = 0;
 
         randomTile = new RandomTileManager(); //Controla qual vai ser o tile gerado
+        //tileManager = new TileManager();
+
 
         //Criando o mapa
         tiles = new GenericTile[sizeX][sizeY];
@@ -32,7 +36,7 @@ public class MapManager {
         // Popula todos os tiles para iniciar o jogo
         for (int x = 0; x < sizeX; x++) {
             for (int y = 0; y < sizeY; y++) {
-                tiles[x][y] = randomTile.newTile();
+                tiles[x][y] =randomTile.newTile(currentY);
                 tiles[x][y].setPosition(currentX, currentY);
                 currentY += GameInfo.sizeTexture;
             }

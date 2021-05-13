@@ -1,6 +1,6 @@
 package com.devmobile.game.tiles;
 
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Rectangle;
 
@@ -11,8 +11,7 @@ public class GenericTile extends Rectangle {
         this.texture = texture;
     }
 
-    public void draw (SpriteBatch batch){
-        System.out.println(texture);
+    public void draw (Batch batch){
         batch.draw(texture, getX(), getY());
     }
 }
