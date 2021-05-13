@@ -12,7 +12,7 @@ public class MapManager {
     TileManager tileManager;
 
     int sizeX, sizeY;
-    float currentX, currentY;
+    int currentX, currentY;
 
     public MapManager(){
         //Tamanho do mapa
@@ -36,7 +36,7 @@ public class MapManager {
         // Popula todos os tiles para iniciar o jogo
         for (int x = 0; x < sizeX; x++) {
             for (int y = 0; y < sizeY; y++) {
-                tiles[x][y] =randomTile.newTile(currentY);
+                tiles[x][y] = randomTile.newTile(currentX, currentY);
                 tiles[x][y].setPosition(currentX, currentY);
                 currentY += GameInfo.sizeTexture;
             }
@@ -49,10 +49,14 @@ public class MapManager {
         for (int x = 0; x < sizeX; x++) {
             for (int y = 0; y < sizeY; y++) {
                 if(isOutBound(camera, tiles[x][y])){
-                    currentX += GameInfo.sizeTexture;
                     for (int i = 0; i < sizeY; i++) {
+                        tiles[x][i].setTexture(randomTile.groundGeneration(currentX, currentY));
                         tiles[x][i].setX(currentX);
+                        currentY += GameInfo.sizeTexture;
+                        y += 1;
                     }
+                    currentY = 0;
+                    currentX += GameInfo.sizeTexture;
                 }
             }
         }
@@ -68,7 +72,7 @@ public class MapManager {
 
     public boolean isOutBound(OrthographicCamera camera, GenericTile tile){
         float cameraX = camera.position.x - (GameInfo.WIDHT * 0.6f);
-        if(tile.x < cameraX){
+        if(tile.getX() < cameraX){
             return true;
         }
         return false;
