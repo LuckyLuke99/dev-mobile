@@ -5,6 +5,7 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.utils.ObjectMap;
 import com.devmobile.game.helpers.GameInfo;
 import com.devmobile.game.tiles.GenericTile;
+import com.devmobile.game.tiles.Mountain;
 import com.sun.org.apache.xerces.internal.impl.xpath.regex.Match;
 
 //Classe retorna qual vai ser o próximo tile gerado baseado na posição atual do gerador
@@ -14,11 +15,15 @@ public class RandomTileManager {
     private String grasslandTerrain, autumnForestTerrain, tropicsTerrain, winterWorldTerrain;
     String currentBiome;
     boolean isGeneratingGround;
+
     //Gerando a parte de baixo do terreno
     int groundNumber;
     int groundHeight;
     int firstColumn;
     int lastColumn;
+    int nextHeight;
+
+    Mountain[] mountains;
 
 
     public RandomTileManager (){
@@ -31,7 +36,7 @@ public class RandomTileManager {
         groundNumber = 0;
     }
 
-    public GenericTile newTile(float currentX, float currentY){
+    public GenericTile newTile(int currentX, int currentY){
        return new GenericTile(groundGeneration(currentX, currentY));
     }
 
@@ -50,28 +55,83 @@ public class RandomTileManager {
     }
 
 
-    public TextureAtlas.AtlasRegion groundGeneration (float currentX, float currentY){
+    class groundArea {
+        // altura, largura (primeira columna e última)
+    }
+
+
+    public TextureAtlas.AtlasRegion groundGeneration (int currentX, int currentY){
+        //TextureAtlas.AtlasRegion atlasRegion = null;
         // Se for o primeiro tile do chão pega a primeira coluna e decidi qual vai ser a altura do chão
         if (groundNumber == 0){
-            firstColumn = MathUtils.round(currentX);
-            lastColumn = firstColumn + (GameInfo.sizeTexture * 70);
-            groundHeight = MathUtils.round(GameInfo.sizeTexture * 3);
+            mountains = new Mountain[1];
+            mountains[0] = new Mountain(currentX, currentY, 3, 3);
+            //mountains[1] = new Mountain(mountains[0].getX2(), mountains[0].getY2(), 20, 20);
+            //mountains[2] = new Mountain(mountains[1].getX2(), mountains[1].getY2(), 30, 30);
+
+            firstColumn = mountains[0].getX();
+            lastColumn = mountains[0].getX2();
+           groundHeight = mountains[0].getY2();
             groundNumber = 1;
         }
-        else if(currentX == lastColumn){
-            groundNumber = 3;
-        }
+//        for (Mountain mountain : mountains) {
+//            if (currentY == mountain.getY2()){
+//                if (currentX > firstColumn){
+//                    if(!(currentX == lastColumn)){
+//                        return tileManager.getTexture(GameInfo.autumnForestTerrain + "02");
+//                    }
+//                    else {
+//                        //mountain.reset(currentX, currentY, MathUtils.random(3, 6), MathUtils.random(3, 6));
+//                        return  tileManager.getTexture(GameInfo.autumnForestTerrain + "03");
+//                    }
+//                }
+//                else if (currentX == firstColumn){
+//                    return tileManager.getTexture(GameInfo.autumnForestTerrain + "01");
+//                }
+//                else {
+//                   return null;
+//                }
+//            }
+//            else {
+//                if (currentY > mountain.getY2()){
+//                    return null;
+//                }
+//                else {
+//                    if (currentX > firstColumn){
+//                        if(!(currentX == lastColumn)){
+//                            return tileManager.getTexture(GameInfo.autumnForestTerrain + "05");
+//                        }
+//                        else {
+//                            return tileManager.getTexture(GameInfo.autumnForestTerrain + "06");
+//                        }
+//                    }
+//                    else  if(currentX == firstColumn){
+//                        return tileManager.getTexture(GameInfo.autumnForestTerrain + "04");
+//                    }
+//                    else {
+//                        return null;
+//                    }
+//                }
+//            }
+//        }
 
         //Se for a altura do chão passa as texturas da parte de cima
         if(currentY == groundHeight)
         {
             if (currentX > firstColumn){
                 if(!(currentX == lastColumn)){
+                    nextHeight += 1;
+                    if(nextHeight > 4){
+                        groundHeight = GameInfo.sizeTexture * MathUtils.random(4, 12);
+                        nextHeight = 0;
+                    }
                     return tileManager.getTexture(GameInfo.autumnForestTerrain + "02");
                 }
                 else {
+                    nextHeight = 0;
                     firstColumn = MathUtils.round(currentX) + (GameInfo.sizeTexture * MathUtils.random(5, 10));
                     lastColumn = firstColumn + (GameInfo.sizeTexture * MathUtils.random(3, 30));
+                    groundHeight = GameInfo.sizeTexture * MathUtils.random(2, 10);
                     return tileManager.getTexture(GameInfo.autumnForestTerrain + "03");
                 }
             }
