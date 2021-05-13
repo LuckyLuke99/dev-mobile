@@ -16,7 +16,6 @@ public class TileManager {
         tiles = new ObjectMap<>();
         configTiles();
     }
-
     public TextureAtlas.AtlasRegion getTexture(String string) {
         return tiles.get(string);
     }
