@@ -50,6 +50,7 @@ public class MapManager {
             for (int y = 0; y < sizeY; y++) {
                 if(isOutBound(camera, tiles[x][y])){
                     for (int i = 0; i < sizeY; i++) {
+                        //tiles[x][i].setTexture(randomTile.groundGeneration(currentX, currentY));
                         tiles[x][i].setTexture(randomTile.groundGeneration(currentX, currentY));
                         tiles[x][i].setX(currentX);
                         currentY += GameInfo.sizeTexture;

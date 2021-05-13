@@ -2,10 +2,10 @@ package com.devmobile.game.tiles;
 
 import com.devmobile.game.helpers.GameInfo;
 
-public class Mountain {
+public class Terrains {
     private int x, y, x2, y2, type;
 
-    public Mountain(int x, int y, int wight, int height, int type){
+    public Terrains(int x, int y, int wight, int height, int type){
         this.type = type;
         this.x = x;
         this.y = y;

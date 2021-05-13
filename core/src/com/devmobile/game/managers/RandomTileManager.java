@@ -5,35 +5,24 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.utils.ObjectMap;
 import com.devmobile.game.helpers.GameInfo;
 import com.devmobile.game.tiles.GenericTile;
-import com.devmobile.game.tiles.Mountain;
-import com.sun.org.apache.xerces.internal.impl.xpath.regex.Match;
+import com.devmobile.game.tiles.Terrains;
 
 //Classe retorna qual vai ser o próximo tile gerado baseado na posição atual do gerador
+
 public class RandomTileManager {
     private TileManager tileManager;
     ObjectMap<String, Float> randomTile, terrainsFirstColumn;
-    private String grasslandTerrain, autumnForestTerrain, tropicsTerrain, winterWorldTerrain;
-    String currentBiome;
-    boolean isGeneratingGround;
-
-    //Gerando a parte de baixo do terreno
-    int groundNumber;
-    int groundHeight;
-    int firstColumn;
-    int lastColumn;
-    int nextHeight;
-
-    Mountain[] mountains;
+    boolean firstGeneration;
+    Terrains[] terrains;
 
 
     public RandomTileManager (){
         tileManager = new TileManager();
         randomTile = new ObjectMap<>();
-        terrainsFirstColumn = new ObjectMap<>();
-        currentBiome = "Grassland";
+        terrainsFirstColumn = new ObjectMap<>();;
         configTerrains();
 
-        groundNumber = 0;
+        firstGeneration = true;
     }
 
     public GenericTile newTile(int currentX, int currentY){
@@ -54,88 +43,89 @@ public class RandomTileManager {
         return tileManager.getTexture(tileName);
     }
 
-
-    class groundArea {
-        // altura, largura (primeira columna e última)
-    }
-
-
     public TextureAtlas.AtlasRegion groundGeneration (int currentX, int currentY){
         TextureAtlas.AtlasRegion atlasRegion = null;
-        // Se for o primeiro tile do chão pega a primeira coluna e decidi qual vai ser a altura do chão
-        if (groundNumber == 0){
-            mountains = new Mountain[3];
-            mountains[0] = new Mountain(currentX, currentY, 2, 2, 1);
-            mountains[1] = new Mountain(currentX, currentY, 4, 4, 2);
-            mountains[2] = new Mountain(currentX, currentY, 8, 8, 4);
 
+        //Executa caso seja a primeira vez criando os tiles
+        if (firstGeneration){
+            terrains = new Terrains[2];
+            terrains[0] = new Terrains(currentX, currentY, 3, 2, 1);
+            terrains[1] = new Terrains(currentX, currentY + GameInfo.sizeTexture * 3, 5, 3, 1);
+            firstGeneration = false;
+        }
 
-//            firstColumn = mountain.getX();
-//            lastColumn = mountain.getX2();
-//            groundHeight = mountain.getY2();
-            groundNumber = 1;
+       if(terrains[0].isOnBounds(currentX, currentY)){
+           atlasRegion = terrainGenerator(terrains[0], currentX, currentY);
         }
-        //Se for a altura do chão passa as texturas da parte de cima
-//        for (Mountain mountain : mountains){
-//            if(mountain.isOnBounds(currentX, currentY)){
-//                atlasRegion = mountainGenerator(mountain, currentX, currentY);
-//            }
-//        }
-        if(mountains[0].isOnBounds(currentX, currentY)){
-            atlasRegion = mountainGenerator(mountains[0], currentX, currentY);
-        }
-        else if(mountains[1].isOnBounds(currentX, currentY)){
-            atlasRegion = mountainGenerator(mountains[1], currentX, currentY);
-        }
-        else if(mountains[2].isOnBounds(currentX, currentY)){
-            atlasRegion = mountainGenerator(mountains[2], currentX, currentY);
-        }
-//        else if(mountains[0].getY2() > currentY){
-//            atlasRegion = mountainGenerator(mountains[1], currentX, currentY);
-//        }
+
+       else {
+            atlasRegion = highTerrainGenerator(terrains[1], currentX, currentY);
+       }
+
         return atlasRegion;
     }
 
-    public void checkGroundHeight(){
-    }
-
-    public TextureAtlas.AtlasRegion mountainGenerator (Mountain mountain, int currentX, int currentY){
-        if(currentY == mountain.getY2())
+    //Método que cria a parte de cima do chão baseado no currentX, currentY e o currentBioma
+    public TextureAtlas.AtlasRegion highTerrainGenerator (Terrains terrain, int currentX, int currentY){
+        if((currentY == terrain.getY() && (currentX >= terrain.getX())))
         {
-            if (currentX > mountain.getX()){
-                if(!(currentX == mountain.getX2())){
-                    return tileManager.getTexture(GameInfo.autumnForestTerrain + "02");
+            if (currentX > terrain.getX()){
+                if(!(currentX == terrain.getX2())){
+                    return tileManager.getTexture(GameInfo.currentBiome + "10");
                 }
                 else {
-                    nextHeight = 0;
-                    mountain.setX(currentX + (GameInfo.sizeTexture * MathUtils.random(3, 6)));
-                    mountain.setX2(mountain.getX() + (mountain.getType() * (GameInfo.sizeTexture * MathUtils.random(3, 30))));
-                    mountain.setY2(mountain.getType() * (GameInfo.sizeTexture * MathUtils.random(1, 4)));
-                    return tileManager.getTexture(GameInfo.autumnForestTerrain + "03");
+                    terrain.setX(currentX + (GameInfo.sizeTexture * MathUtils.random(3, GameInfo.highGroundMaxSpace)));
+                    terrain.setX2(terrain.getX() + (GameInfo.sizeTexture * MathUtils.random(3, GameInfo.highGroundMaxWight)));
+                    terrain.setY((GameInfo.sizeTexture * MathUtils.random(GameInfo.highGroundMinPosition, GameInfo.highGroundMaxPosition)));
+                    return tileManager.getTexture(GameInfo.currentBiome + "11");
                 }
             }
-            else if (currentX == mountain.getX()){
-                return tileManager.getTexture(GameInfo.autumnForestTerrain + "01");
+            else {
+                return tileManager.getTexture(GameInfo.currentBiome + "09");
+            }
+        }
+        else {
+            return null;
+        }
+    }
+
+    //Método que cria a parte de baixo do chão baseado no currentX, currentY e o currentBioma
+    public TextureAtlas.AtlasRegion terrainGenerator (Terrains terrain, int currentX, int currentY){
+        if(currentY == terrain.getY2())
+        {
+            if (currentX > terrain.getX()){
+                if(!(currentX == terrain.getX2())){
+                    return tileManager.getTexture(GameInfo.currentBiome + "02");
+                }
+                else {
+                    terrain.setX(currentX + (GameInfo.sizeTexture * MathUtils.random(3, GameInfo.groundMaxSpace)));
+                    terrain.setX2(terrain.getX() + (GameInfo.sizeTexture * MathUtils.random(3, GameInfo.groundMaxWidght)));
+                    terrain.setY2(GameInfo.sizeTexture * MathUtils.random(GameInfo.groundMinPosition, GameInfo.groundMaxPosition));
+                    return tileManager.getTexture(GameInfo.currentBiome + "03");
+                }
+            }
+            else if (currentX == terrain.getX()){
+                return tileManager.getTexture(GameInfo.currentBiome + "01");
             }
             else {
                 return null;
             }
         }
         else {
-            if(currentY > mountain.getY2()){
+            if(currentY > terrain.getY2()){
                 return null;
             }
             else {
-                if(currentX > mountain.getX()){
-                    if(!(currentX == mountain.getX2())){
-                        return tileManager.getTexture(GameInfo.autumnForestTerrain + "05");
+                if(currentX > terrain.getX()){
+                    if(!(currentX == terrain.getX2())){
+                        return tileManager.getTexture(GameInfo.currentBiome + "05");
                     }
                     else {
-                        return tileManager.getTexture(GameInfo.autumnForestTerrain + "06");
+                        return tileManager.getTexture(GameInfo.currentBiome + "06");
                     }
                 }
-                else if (currentX == mountain.getX()){
-                    return tileManager.getTexture(GameInfo.autumnForestTerrain + "04");
+                else if (currentX == terrain.getX()){
+                    return tileManager.getTexture(GameInfo.currentBiome + "04");
                 }
                 else {
                     return null;
@@ -144,6 +134,7 @@ public class RandomTileManager {
         }
     }
 
+    //Configuração dos nomes dos terrenos é os pesos de cada um
     private void configTerrains(){
         terrainsFirstColumn.put(GameInfo.autumnForestTerrain + "01", 1f);
         terrainsFirstColumn.put(GameInfo.autumnForestTerrain + "04", 1f);
