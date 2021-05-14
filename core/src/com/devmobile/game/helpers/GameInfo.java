@@ -5,7 +5,13 @@ public class GameInfo {
     public final static float HEIGHT = 375;
     public final static int sizeTexture = 16;
     public final static int maxY = Math.round(GameInfo.HEIGHT / GameInfo.sizeTexture);
+    public static float velCamera = 3f; // Velocidade da camera
 
+    //Nome dos backgrounds do atlas
+    public final static String grasslandBG = "Grassland_BG_";
+    public final static String autumnForestBG = "AutumnForest_BG_";
+    public final static String tropicsBG = "Tropics_BG_";
+    public final static String winterWorldBG = "WinterWorld_BG_";
 
     //Nomes dos terrenos dentro do atlas vai de 01 até 11
     public final static String grasslandTerrain = "Grassland_Terrain_";
