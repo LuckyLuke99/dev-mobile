@@ -5,7 +5,16 @@ public class GameInfo {
     public final static float HEIGHT = 375;
     public final static int sizeTexture = 16;
     public final static int maxY = Math.round(GameInfo.HEIGHT / GameInfo.sizeTexture);
-    public static float velCamera = 3f; // Velocidade da camera
+    public static float deltaTime = 0;
+    public static float velCamera = 100f; // Velocidade da camera
+
+
+    //Parallax, os valores vão de 0 a 100, sendo 100 parado e 0 sem efeito
+    public static float parallaxBG01 = 20;
+    public static float parallaxBG02 = 40;
+    public static float parallaxBG03 = 60;
+    //O valor do back vai define quando tempo irá durar o bioma atual
+    public static float parallaxBG04 = 80;
 
     //Nome dos backgrounds do atlas
     public final static String grasslandBG = "Grassland_BG_";

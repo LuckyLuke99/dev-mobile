@@ -13,7 +13,7 @@ public class TileManager {
     private ObjectMap<String, TextureAtlas.AtlasRegion> tiles;
 
     public TileManager(){
-        textureAtlas = new TextureAtlas(Gdx.files.internal("Terrenos_Teste.txt"));
+        textureAtlas = new TextureAtlas(Gdx.files.internal("TerrenoAndBG.txt"));
         tiles = new ObjectMap<>();
         configTiles();
     }
@@ -46,15 +46,12 @@ public class TileManager {
         tiles.put(GameInfo.grasslandBG + "02", textureAtlas.findRegion(GameInfo.grasslandBG + "02"));
         tiles.put(GameInfo.grasslandBG + "03", textureAtlas.findRegion(GameInfo.grasslandBG + "03"));
         tiles.put(GameInfo.grasslandBG + "04", textureAtlas.findRegion(GameInfo.grasslandBG + "04"));
-        tiles.put(GameInfo.grasslandBG + "05", textureAtlas.findRegion(GameInfo.grasslandBG + "05"));
 
         //Autumn Forest BG
         tiles.put(GameInfo.autumnForestBG + "01", textureAtlas.findRegion(GameInfo.autumnForestBG + "01"));
         tiles.put(GameInfo.autumnForestBG + "02", textureAtlas.findRegion(GameInfo.autumnForestBG + "02"));
         tiles.put(GameInfo.autumnForestBG + "03", textureAtlas.findRegion(GameInfo.autumnForestBG + "03"));
         tiles.put(GameInfo.autumnForestBG + "04", textureAtlas.findRegion(GameInfo.autumnForestBG + "04"));
-        tiles.put(GameInfo.autumnForestBG + "05", textureAtlas.findRegion(GameInfo.autumnForestBG + "05"));
-        tiles.put(GameInfo.autumnForestBG + "06", textureAtlas.findRegion(GameInfo.autumnForestBG + "06"));
 
         //Tropics BG
         tiles.put(GameInfo.tropicsBG + "01", textureAtlas.findRegion(GameInfo.tropicsBG + "01"));
@@ -66,6 +63,7 @@ public class TileManager {
         tiles.put(GameInfo.winterWorldBG + "01", textureAtlas.findRegion(GameInfo.winterWorldBG + "01"));
         tiles.put(GameInfo.winterWorldBG + "02", textureAtlas.findRegion(GameInfo.winterWorldBG + "02"));
         tiles.put(GameInfo.winterWorldBG + "03", textureAtlas.findRegion(GameInfo.winterWorldBG + "03"));
+        tiles.put(GameInfo.winterWorldBG + "04", textureAtlas.findRegion(GameInfo.winterWorldBG + "04"));
 
         //Grassland terrain
         tiles.put("Grassland_Terrain_01", textureAtlas.findRegion("Grassland_Terrain_01"));
@@ -118,7 +116,5 @@ public class TileManager {
         tiles.put("WinterWorld_Terrain_09", textureAtlas.findRegion("WinterWorld_Terrain_09"));
         tiles.put("WinterWorld_Terrain_10", textureAtlas.findRegion("WinterWorld_Terrain_10"));
         tiles.put("WinterWorld_Terrain_11", textureAtlas.findRegion("WinterWorld_Terrain_11"));
-
-        System.out.println("Acabei de achar os terreno");
     }
 }

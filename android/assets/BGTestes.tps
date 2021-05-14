@@ -155,7 +155,7 @@
         <key>prependSmartFolderName</key>
         <false/>
         <key>autodetectAnimations</key>
-        <true/>
+        <false/>
         <key>globalSpriteSettings</key>
         <struct type="SpriteSettings">
             <key>scale</key>
