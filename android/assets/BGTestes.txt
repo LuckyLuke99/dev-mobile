@@ -1,0 +1,131 @@
+BGTeste.png
+size: 864, 1248
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+AutumnForest_BG
+  rotate: false
+  xy: 0, 0
+  size: 288, 208
+  orig: 288, 208
+  offset: 0, 0
+  index: 1
+AutumnForest_BG
+  rotate: false
+  xy: 288, 0
+  size: 288, 208
+  orig: 288, 208
+  offset: 0, 0
+  index: 2
+AutumnForest_BG
+  rotate: false
+  xy: 576, 0
+  size: 288, 208
+  orig: 288, 208
+  offset: 0, 0
+  index: 3
+AutumnForest_BG
+  rotate: false
+  xy: 0, 208
+  size: 288, 208
+  orig: 288, 208
+  offset: 0, 0
+  index: 4
+AutumnForest_BG
+  rotate: false
+  xy: 288, 208
+  size: 288, 208
+  orig: 288, 208
+  offset: 0, 0
+  index: 5
+AutumnForest_BG
+  rotate: false
+  xy: 576, 208
+  size: 288, 208
+  orig: 288, 208
+  offset: 0, 0
+  index: 6
+Grassland_BG
+  rotate: false
+  xy: 0, 416
+  size: 288, 208
+  orig: 288, 208
+  offset: 0, 0
+  index: 1
+Grassland_BG
+  rotate: false
+  xy: 288, 416
+  size: 288, 208
+  orig: 288, 208
+  offset: 0, 0
+  index: 2
+Grassland_BG
+  rotate: false
+  xy: 576, 416
+  size: 288, 208
+  orig: 288, 208
+  offset: 0, 0
+  index: 3
+Grassland_BG
+  rotate: false
+  xy: 0, 624
+  size: 288, 208
+  orig: 288, 208
+  offset: 0, 0
+  index: 4
+Grassland_BG
+  rotate: false
+  xy: 288, 624
+  size: 288, 208
+  orig: 288, 208
+  offset: 0, 0
+  index: 5
+Tropics_BG
+  rotate: false
+  xy: 576, 624
+  size: 288, 208
+  orig: 288, 208
+  offset: 0, 0
+  index: 1
+Tropics_BG
+  rotate: false
+  xy: 0, 832
+  size: 288, 208
+  orig: 288, 208
+  offset: 0, 0
+  index: 2
+Tropics_BG
+  rotate: false
+  xy: 288, 832
+  size: 288, 208
+  orig: 288, 208
+  offset: 0, 0
+  index: 3
+Tropics_BG
+  rotate: false
+  xy: 576, 832
+  size: 288, 208
+  orig: 288, 208
+  offset: 0, 0
+  index: 4
+WinterWorld_BG
+  rotate: false
+  xy: 0, 1040
+  size: 288, 208
+  orig: 288, 208
+  offset: 0, 0
+  index: 1
+WinterWorld_BG
+  rotate: false
+  xy: 288, 1040
+  size: 288, 208
+  orig: 288, 208
+  offset: 0, 0
+  index: 2
+WinterWorld_BG
+  rotate: false
+  xy: 576, 1040
+  size: 288, 208
+  orig: 288, 208
+  offset: 0, 0
+  index: 3
