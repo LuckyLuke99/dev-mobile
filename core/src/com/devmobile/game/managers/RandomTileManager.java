@@ -10,14 +10,14 @@ import com.devmobile.game.tiles.Terrains;
 //Classe retorna qual vai ser o próximo tile gerado baseado na posição atual do gerador
 
 public class RandomTileManager {
-    private TileManager tileManager;
+    final TileManager tileManager;
     ObjectMap<String, Float> randomTile, terrainsFirstColumn;
     boolean firstGeneration;
     Terrains[] terrains;
 
 
-    public RandomTileManager (){
-        tileManager = new TileManager();
+    public RandomTileManager (final TileManager tileManager){
+        this.tileManager = tileManager;
         randomTile = new ObjectMap<>();
         terrainsFirstColumn = new ObjectMap<>();;
         configTerrains();

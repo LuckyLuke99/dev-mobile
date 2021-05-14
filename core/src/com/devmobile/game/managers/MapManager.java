@@ -8,8 +8,7 @@ import com.devmobile.game.tiles.GenericTile;
 public class MapManager {
     RandomTileManager randomTile;
     GenericTile[][] tiles;
-
-    TileManager tileManager;
+    final TileManager tileManager;
 
     int sizeX, sizeY;
     int currentX, currentY;
@@ -23,9 +22,8 @@ public class MapManager {
         currentX = 0;
         currentY = 0;
 
-        randomTile = new RandomTileManager(); //Controla qual vai ser o tile gerado
-        //tileManager = new TileManager();
-
+        tileManager = new TileManager();
+        randomTile = new RandomTileManager(tileManager); //Controla qual vai ser o tile gerado
 
         //Criando o mapa
         tiles = new GenericTile[sizeX][sizeY];
@@ -50,7 +48,6 @@ public class MapManager {
             for (int y = 0; y < sizeY; y++) {
                 if(isOutBound(camera, tiles[x][y])){
                     for (int i = 0; i < sizeY; i++) {
-                        //tiles[x][i].setTexture(randomTile.groundGeneration(currentX, currentY));
                         tiles[x][i].setTexture(randomTile.groundGeneration(currentX, currentY));
                         tiles[x][i].setX(currentX);
                         currentY += GameInfo.sizeTexture;
