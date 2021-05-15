@@ -13,7 +13,7 @@ public class TileManager {
     private ObjectMap<String, TextureAtlas.AtlasRegion> tiles;
 
     public TileManager(){
-        textureAtlas = new TextureAtlas(Gdx.files.internal("TerrenoAndBG.txt"));
+        textureAtlas = new TextureAtlas(Gdx.files.internal("Tiles.txt"));
         tiles = new ObjectMap<>();
         configTiles();
     }

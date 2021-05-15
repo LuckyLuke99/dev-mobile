@@ -10,11 +10,11 @@ public class GameInfo {
 
 
     //Parallax, os valores vão de 0 a 100, sendo 100 parado e 0 sem efeito
-    public static float parallaxBG01 = 20;
-    public static float parallaxBG02 = 40;
-    public static float parallaxBG03 = 60;
+    public static int parallaxBG01 = 20;
+    public static int parallaxBG02 = 40;
+    public static int parallaxBG03 = 60;
     //O valor do back vai define quando tempo irá durar o bioma atual
-    public static float parallaxBG04 = 80;
+    public static int parallaxBG04 = 80;
 
     //Nome dos backgrounds do atlas
     public final static String grasslandBG = "Grassland_BG_";

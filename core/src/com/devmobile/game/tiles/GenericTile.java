@@ -12,8 +12,6 @@ public class GenericTile extends Rectangle {
 
     public GenericTile (TextureAtlas.AtlasRegion texture){
         this.texture = texture;
-        setWidth(GameInfo.sizeTexture);
-        setHeight(GameInfo.sizeTexture);
     }
 
     public void draw (Batch batch){

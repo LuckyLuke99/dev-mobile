@@ -44,11 +44,9 @@ public class GameScreen implements Screen {
 
         Gdx.gl.glClearColor(1, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        game.batch.setProjectionMatrix(mainCamera.combined);
 
         mainCamera.position.x += GameInfo.velCamera * GameInfo.deltaTime;
-
-        //Parte da configuração da camera
-        game.batch.setProjectionMatrix(mainCamera.combined);
         mainCamera.update();
 
         mapManager.update(mainCamera);

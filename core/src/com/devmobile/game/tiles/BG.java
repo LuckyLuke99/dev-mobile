@@ -8,8 +8,11 @@ public class BG extends GenericTile{
 
     public BG(TextureAtlas.AtlasRegion texture) {
         super(texture);
-        setWidth(GameInfo.WIDHT);
+
+        setHeight(GameInfo.WIDHT);
         setHeight(GameInfo.HEIGHT);
+        //setHeight(texture.getRegionHeight());
+        //setWidth(texture.getRegionWidth());
     }
 
     //Verifica se o tile está fora dos limites
@@ -17,5 +20,8 @@ public class BG extends GenericTile{
         if(getX() + getWidth() + getWidth()/2 < camera.position.x)
             return true;
         return false;
+    }
+    public TextureAtlas.AtlasRegion getTexture (){
+        return this.texture;
     }
 }

@@ -17,6 +17,7 @@ public class ParallaxManager {
         bg03 = new BGManager(tileManager.getTexture(currentParallax + "03"),GameInfo.parallaxBG03);
         bg02 = new BGManager(tileManager.getTexture(currentParallax + "02"),GameInfo.parallaxBG02);
         bg01 = new BGManager(tileManager.getTexture(currentParallax + "01"), GameInfo.parallaxBG01);
+
     }
 
     public void update(OrthographicCamera camera){
@@ -24,6 +25,19 @@ public class ParallaxManager {
         bg03.update(camera);
         bg02.update(camera);
         bg01.update(camera);
+
+//        if(!(bg01.isChanging())){
+//            bg01.setTexture(tileManager.getTexture(GameInfo.grasslandBG + "01"));
+//        }
+//        if(!(bg02.isChanging())){
+//            bg02.setTexture(tileManager.getTexture(GameInfo.grasslandBG + "02"));
+//        }
+//        if(!(bg03.isChanging())){
+//            bg03.setTexture(tileManager.getTexture(GameInfo.grasslandBG + "03"));
+//        }
+//        if(!(bg04.isChanging())){
+//            bg04.setTexture(tileManager.getTexture(GameInfo.grasslandBG + "04"));
+//        }
     }
 
     public void draw(SpriteBatch batch){
