@@ -1,8 +1,8 @@
 package com.devmobile.game.helpers;
 
 public class GameInfo {
-    public final static int WIDHT = 670;
-    public final static int HEIGHT = 375;
+    public final static int WIDHT = 800;
+    public final static int HEIGHT = 480;
     public final static int sizeTexture = 16;
     public final static int maxY = GameInfo.HEIGHT / GameInfo.sizeTexture;
     public static float deltaTime = 0;
