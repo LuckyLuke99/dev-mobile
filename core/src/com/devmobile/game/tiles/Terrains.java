@@ -3,10 +3,9 @@ package com.devmobile.game.tiles;
 import com.devmobile.game.helpers.GameInfo;
 
 public class Terrains {
-    private int x, y, x2, y2, type;
+    private int x, y, x2, y2;
 
-    public Terrains(int x, int y, int wight, int height, int type){
-        this.type = type;
+    public Terrains(int x, int y, int wight, int height){
         this.x = x;
         this.y = y;
         this.x2 = x + (wight * GameInfo.sizeTexture);
@@ -36,9 +35,6 @@ public class Terrains {
         this.x = x;
     }
 
-    public int getType(){
-        return type;
-    }
 
     public int getY2(){
         return y2;

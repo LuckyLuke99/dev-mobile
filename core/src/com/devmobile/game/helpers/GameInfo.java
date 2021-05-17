@@ -1,10 +1,10 @@
 package com.devmobile.game.helpers;
 
 public class GameInfo {
-    public final static float WIDHT = 670;
-    public final static float HEIGHT = 375;
+    public final static int WIDHT = 670;
+    public final static int HEIGHT = 375;
     public final static int sizeTexture = 16;
-    public final static int maxY = Math.round(GameInfo.HEIGHT / GameInfo.sizeTexture);
+    public final static int maxY = GameInfo.HEIGHT / GameInfo.sizeTexture;
     public static float deltaTime = 0;
     public static float velCamera = 100f; // Velocidade da camera
 
@@ -31,14 +31,14 @@ public class GameInfo {
     public static String currentBiome = GameInfo.grasslandTerrain; //Bioma atual do mapa
 
     //variaveis do random do metodo highTerrainGenerator
-    public static int highGroundMinPosition = 7; //minY
-    public static int highGroundMaxPosition = 17; //maxY
+    public static int highGroundMinPosition = 15; //minY
+    public static int highGroundMaxPosition = 15; //maxY
     public static int highGroundMaxSpace = 6; // Tamanho máximo do espaco entre os tiles
     public static int highGroundMaxWight = 15;
 
     //variaveis do random do metodo terrainGenerator
     public static int groundMinPosition = 1; // minY
-    public static int groundMaxPosition = 4; // maxY
-    public static int groundMaxWidght = 30; // maxX
+    public static int groundMaxPosition = 3; // maxY
+    public static int groundMaxWidght = 15; // maxX
     public static int groundMaxSpace = 6; // Tamanho máximo do espaco entre os tiles
 }

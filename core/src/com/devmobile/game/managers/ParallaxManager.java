@@ -13,18 +13,18 @@ public class ParallaxManager {
         this.tileManager = tileManager;
 
         currentParallax = GameInfo.autumnForestBG;
-        bg04 = new BGManager(tileManager.getTexture(currentParallax + "04"),GameInfo.parallaxBG04);
-        bg03 = new BGManager(tileManager.getTexture(currentParallax + "03"),GameInfo.parallaxBG03);
-        bg02 = new BGManager(tileManager.getTexture(currentParallax + "02"),GameInfo.parallaxBG02);
-        bg01 = new BGManager(tileManager.getTexture(currentParallax + "01"), GameInfo.parallaxBG01);
+//        bg04 = new BGManager(tileManager.getTexture(currentParallax + "04"),GameInfo.parallaxBG04);
+//        bg03 = new BGManager(tileManager.getTexture(currentParallax + "03"),GameInfo.parallaxBG03);
+//        bg02 = new BGManager(tileManager.getTexture(currentParallax + "02"),GameInfo.parallaxBG02);
+//        bg01 = new BGManager(tileManager.getTexture(currentParallax + "01"), GameInfo.parallaxBG01);
 
     }
 
     public void update(OrthographicCamera camera){
-        bg04.update(camera);
-        bg03.update(camera);
-        bg02.update(camera);
-        bg01.update(camera);
+        //bg04.update(camera);
+        //bg03.update(camera);
+        //bg02.update(camera);
+        //bg01.update(camera);
 
 //        if(!(bg01.isChanging())){
 //            bg01.setTexture(tileManager.getTexture(GameInfo.grasslandBG + "01"));
@@ -41,9 +41,9 @@ public class ParallaxManager {
     }
 
     public void draw(SpriteBatch batch){
-        bg04.draw(batch);
-        bg03.draw(batch);
-        bg02.draw(batch);
-        bg01.draw(batch);
+//        bg04.draw(batch);
+//        bg03.draw(batch);
+//        bg02.draw(batch);
+//        bg01.draw(batch);
     }
 }

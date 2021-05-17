@@ -5,11 +5,18 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.utils.TimeUtils;
+import com.badlogic.gdx.utils.viewport.ExtendViewport;
+import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.devmobile.game.DevMobile;
+import com.devmobile.game.helpers.FrameRate;
 import com.devmobile.game.helpers.GameInfo;
 import com.devmobile.game.managers.MapManager;
+
+import java.awt.Frame;
 
 import javax.management.monitor.GaugeMonitor;
 
@@ -21,6 +28,7 @@ public class GameScreen implements Screen {
     private Viewport gameViewport;
 
     MapManager mapManager; //Parte que vai gerando o mapa do jogo
+    FrameRate frameRate;
 
     public GameScreen (final DevMobile game){
         this.game = game;
@@ -30,7 +38,14 @@ public class GameScreen implements Screen {
         mainCamera.position.set(GameInfo.WIDHT/2f, GameInfo.HEIGHT/2f, 0f);
         gameViewport = new StretchViewport(GameInfo.WIDHT, GameInfo.HEIGHT, mainCamera);
 
+//        mainCamera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+//        mainCamera.position.set(Gdx.graphics.getWidth()/2f, Gdx.graphics.getHeight()/2f, 0f);
+//        gameViewport = new StretchViewport(GameInfo.WIDHT, GameInfo.HEIGHT, mainCamera);
+
+        frameRate = new FrameRate();
         mapManager = new MapManager();
+
+        System.out.println("Height :" + Gdx.graphics.getHeight() + "Wight: " + Gdx.graphics.getWidth());
     }
 
     @Override
@@ -40,21 +55,22 @@ public class GameScreen implements Screen {
 
     @Override
     public void render(float delta) {
-        GameInfo.deltaTime = Gdx.graphics.getDeltaTime();
-
         Gdx.gl.glClearColor(1, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
+        mainCamera.update();
         game.batch.setProjectionMatrix(mainCamera.combined);
 
-        mainCamera.position.x += GameInfo.velCamera * GameInfo.deltaTime;
-        mainCamera.update();
+        //mainCamera.position.x += GameInfo.velCamera * GameInfo.deltaTime;
 
+        GameInfo.deltaTime = Gdx.graphics.getDeltaTime();
+        //Atualizando todas as classes
         mapManager.update(mainCamera);
+        frameRate.update();
 
         game.batch.begin();
-
         mapManager.draw(game.batch, mainCamera);
-
+        frameRate.draw(game.batch);
         game.batch.end();
     }
 
@@ -80,6 +96,6 @@ public class GameScreen implements Screen {
 
     @Override
     public void dispose() {
-
+        frameRate.dispose();
     }
 }

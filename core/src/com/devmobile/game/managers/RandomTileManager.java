@@ -11,46 +11,25 @@ import com.devmobile.game.tiles.Terrains;
 
 public class RandomTileManager {
     final TileManager tileManager;
-    ObjectMap<String, Float> randomTile, terrainsFirstColumn;
     boolean firstGeneration;
     Terrains[] terrains;
 
-
     public RandomTileManager (final TileManager tileManager){
         this.tileManager = tileManager;
-        randomTile = new ObjectMap<>();
-        terrainsFirstColumn = new ObjectMap<>();;
-        configTerrains();
-
         firstGeneration = true;
     }
 
     public GenericTile newTile(int currentX, int currentY){
        return new GenericTile(groundGeneration(currentX, currentY));
     }
-
-    private TextureAtlas.AtlasRegion randomTile(){
-        float num = 0f;
-        String tileName = "";
-        for (String key: randomTile.keys()){
-            float randomNum = MathUtils.random(0f, 1f);
-            randomNum *= randomTile.get(key);
-            if(randomNum > num){
-                num = randomNum;
-                tileName = key;
-            }
-        }
-        return tileManager.getTexture(tileName);
-    }
-
     public TextureAtlas.AtlasRegion groundGeneration (int currentX, int currentY){
         TextureAtlas.AtlasRegion atlasRegion = null;
 
         //Executa caso seja a primeira vez criando os tiles
         if (firstGeneration){
             terrains = new Terrains[2];
-            terrains[0] = new Terrains(currentX, currentY, 3, 2, 1);
-            terrains[1] = new Terrains(currentX, currentY + GameInfo.sizeTexture * 3, 5, 3, 1);
+            terrains[0] = new Terrains(currentX, currentY, 100, 8);
+            terrains[1] = new Terrains(currentX, currentY + GameInfo.sizeTexture * GameInfo.highGroundMaxPosition, 5, 3);
             firstGeneration = false;
         }
 
@@ -132,63 +111,5 @@ public class RandomTileManager {
                 }
             }
         }
-    }
-
-    //Configuração dos nomes dos terrenos é os pesos de cada um
-    private void configTerrains(){
-        terrainsFirstColumn.put(GameInfo.autumnForestTerrain + "01", 1f);
-        terrainsFirstColumn.put(GameInfo.autumnForestTerrain + "04", 1f);
-
-        //Grassland
-        randomTile.put(GameInfo.grasslandTerrain + "01", 1f);
-        randomTile.put(GameInfo.grasslandTerrain + "02", 1f);
-        randomTile.put(GameInfo.grasslandTerrain + "03", 1f);
-        randomTile.put(GameInfo.grasslandTerrain + "04", 1f);
-        randomTile.put(GameInfo.grasslandTerrain + "05", 1f);
-        randomTile.put(GameInfo.grasslandTerrain + "06", 1f);
-        randomTile.put(GameInfo.grasslandTerrain + "07", 1f);
-        randomTile.put(GameInfo.grasslandTerrain + "08", 1f);
-        randomTile.put(GameInfo.grasslandTerrain + "09", 1f);
-        randomTile.put(GameInfo.grasslandTerrain + "10", 1f);
-        randomTile.put(GameInfo.grasslandTerrain + "11", 1f);
-
-        //Autumn Forest
-        randomTile.put(GameInfo.autumnForestTerrain + "01", 1f);
-        randomTile.put(GameInfo.autumnForestTerrain + "02", 1f);
-        randomTile.put(GameInfo.autumnForestTerrain + "03", 1f);
-        randomTile.put(GameInfo.autumnForestTerrain + "04", 1f);
-        randomTile.put(GameInfo.autumnForestTerrain + "05", 1f);
-        randomTile.put(GameInfo.autumnForestTerrain + "06", 1f);
-        randomTile.put(GameInfo.autumnForestTerrain + "07", 1f);
-        randomTile.put(GameInfo.autumnForestTerrain + "08", 1f);
-        randomTile.put(GameInfo.autumnForestTerrain + "09", 1f);
-        randomTile.put(GameInfo.autumnForestTerrain + "10", 1f);
-        randomTile.put(GameInfo.autumnForestTerrain + "11", 1f);
-
-        //Tropics
-        randomTile.put(GameInfo.tropicsTerrain + "01", 1f);
-        randomTile.put(GameInfo.tropicsTerrain + "02", 1f);
-        randomTile.put(GameInfo.tropicsTerrain + "03", 1f);
-        randomTile.put(GameInfo.tropicsTerrain + "04", 1f);
-        randomTile.put(GameInfo.tropicsTerrain + "05", 1f);
-        randomTile.put(GameInfo.tropicsTerrain + "06", 1f);
-        randomTile.put(GameInfo.tropicsTerrain + "07", 1f);
-        randomTile.put(GameInfo.tropicsTerrain + "08", 1f);
-        randomTile.put(GameInfo.tropicsTerrain + "09", 1f);
-        randomTile.put(GameInfo.tropicsTerrain + "10", 1f);
-        randomTile.put(GameInfo.tropicsTerrain + "11", 1f);
-
-        //Winter World
-        randomTile.put(GameInfo.winterWorldTerrain + "01", 1f);
-        randomTile.put(GameInfo.winterWorldTerrain + "02", 1f);
-        randomTile.put(GameInfo.winterWorldTerrain + "03", 1f);
-        randomTile.put(GameInfo.winterWorldTerrain + "04", 1f);
-        randomTile.put(GameInfo.winterWorldTerrain + "05", 1f);
-        randomTile.put(GameInfo.winterWorldTerrain + "06", 1f);
-        randomTile.put(GameInfo.winterWorldTerrain + "07", 1f);
-        randomTile.put(GameInfo.winterWorldTerrain + "08", 1f);
-        randomTile.put(GameInfo.winterWorldTerrain + "09", 1f);
-        randomTile.put(GameInfo.winterWorldTerrain + "10", 1f);
-        randomTile.put(GameInfo.winterWorldTerrain + "11", 1f);
     }
 }
