@@ -7,7 +7,7 @@ import com.badlogic.gdx.math.MathUtils;
 import com.devmobile.game.helpers.GameInfo;
 import com.devmobile.game.tiles.BG;
 
-import org.graalvm.compiler.loop.MathUtil;
+
 
 public class BGManager {
     private BG[] bgs;
