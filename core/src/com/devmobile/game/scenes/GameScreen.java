@@ -45,7 +45,7 @@ public class GameScreen implements Screen {
         mainCamera.update();
         game.batch.setProjectionMatrix(mainCamera.combined);
 
-        //mainCamera.position.x += GameInfo.velCamera * GameInfo.deltaTime;
+        mainCamera.position.x += GameInfo.velCamera * GameInfo.deltaTime;
 
         GameInfo.deltaTime = Gdx.graphics.getDeltaTime();
         //Atualizando todas as classes
