@@ -12,7 +12,7 @@ public class ParallaxManager {
     public ParallaxManager (final TileManager tileManager){
         this.tileManager = tileManager;
 
-        currentParallax = GameInfo.grasslandBG;
+        currentParallax = GameInfo.autumnForestBG;
         bg04 = new BGManager(tileManager.getTexture(currentParallax + "04"),GameInfo.parallaxBG04);
         bg03 = new BGManager(tileManager.getTexture(currentParallax + "03"),GameInfo.parallaxBG03);
         bg02 = new BGManager(tileManager.getTexture(currentParallax + "02"),GameInfo.parallaxBG02);
