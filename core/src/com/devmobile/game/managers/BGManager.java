@@ -21,11 +21,12 @@ public class BGManager {
     //Caso só seja passado uma textura
     public  BGManager(TextureAtlas.AtlasRegion texture, int offSetX){
         bgs = new BG[3];
+        nextPositionX = 0;
 
         //Adicionando os bgs a primeira vez
         for (int i = 0; i < bgs.length; i++){
             bgs[i] = new BG(texture);
-            bgs[i].setX(bgs[i].getWidth() * i);
+            bgs[i].setX(nextPositionX);
             addNextPostionX(bgs[i]);
         }
 
@@ -41,11 +42,11 @@ public class BGManager {
     }
 
     public void update(OrthographicCamera camera){
-        float delta = offSetX * GameInfo.deltaTime;
-        nextPositionX += delta;
-        for (BG bg:bgs) {
-            bg.setX(bg.getX() + delta);
-        }
+//        float delta = offSetX * GameInfo.deltaTime;
+//        nextPositionX += delta;
+//        for (BG bg:bgs) {
+//            bg.setX(bg.getX() + delta);
+//        }
         if(bgs[countBG].isOutBounds(camera)){
             bgs[countBG].setX(nextPositionX);
             addNextPostionX(bgs[countBG]);
@@ -61,6 +62,7 @@ public class BGManager {
     }
 
     private void addNextPostionX (BG bg){
+        System.out.println("BG X: " + bg.getX() + "BG WIdth: " + bg.getWidth());
         nextPositionX = bg.getX() + bg.getWidth();
     }
 
