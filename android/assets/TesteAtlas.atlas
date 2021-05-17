@@ -4,416 +4,423 @@ size: 2048, 1024
 format: RGBA8888
 filter: Nearest, Nearest
 repeat: none
-AutumnForest_BG
-  rotate: false
-  xy: 1, 721
-  size: 288, 208
-  orig: 288, 208
-  offset: 0, 0
-  index: 4
-AutumnForest_BG
-  rotate: false
-  xy: 581, 721
-  size: 288, 208
-  orig: 288, 208
-  offset: 0, 0
-  index: 3
-AutumnForest_BG
-  rotate: false
-  xy: 581, 301
-  size: 288, 208
-  orig: 288, 208
-  offset: 0, 0
-  index: 2
-AutumnForest_Terrain
-  rotate: false
-  xy: 871, 493
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: 5
-AutumnForest_Terrain
-  rotate: false
-  xy: 1, 55
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: 10
-AutumnForest_Terrain
-  rotate: false
-  xy: 1179, 703
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: 2
-AutumnForest_Terrain
-  rotate: false
-  xy: 1, 37
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: 7
-AutumnForest_Terrain
-  rotate: false
-  xy: 907, 493
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: 4
-AutumnForest_Terrain
-  rotate: false
-  xy: 1469, 895
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: 9
-AutumnForest_Terrain
-  rotate: false
-  xy: 37, 55
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: 1
-AutumnForest_Terrain
-  rotate: false
-  xy: 889, 457
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: 6
-AutumnForest_Terrain
-  rotate: false
-  xy: 1161, 649
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: 11
-AutumnForest_Terrain
-  rotate: false
-  xy: 1469, 877
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: 3
-AutumnForest_Terrain
-  rotate: false
-  xy: 19, 19
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: 8
-Grassland_BG
+AutumnForest_BG_01
   rotate: false
   xy: 1, 301
   size: 288, 208
   orig: 288, 208
   offset: 0, 0
-  index: 2
-Grassland_BG
-  rotate: false
-  xy: 1, 91
-  size: 288, 208
-  orig: 288, 208
-  offset: 0, 0
-  index: 4
-Grassland_BG
-  rotate: false
-  xy: 871, 721
-  size: 288, 208
-  orig: 288, 208
-  offset: 0, 0
-  index: 1
-Grassland_BG
-  rotate: false
-  xy: 1161, 721
-  size: 288, 208
-  orig: 288, 208
-  offset: 0, 0
-  index: 3
-Grassland_Terrain
-  rotate: false
-  xy: 1161, 703
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: 5
-Grassland_Terrain
-  rotate: false
-  xy: 19, 73
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: 10
-Grassland_Terrain
-  rotate: false
-  xy: 1161, 685
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: 2
-Grassland_Terrain
-  rotate: false
-  xy: 19, 55
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: 7
-Grassland_Terrain
-  rotate: false
-  xy: 1161, 667
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: 4
-Grassland_Terrain
-  rotate: false
-  xy: 1451, 877
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: 9
-Grassland_Terrain
-  rotate: false
-  xy: 19, 37
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: 1
-Grassland_Terrain
-  rotate: false
-  xy: 907, 475
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: 6
-Grassland_Terrain
-  rotate: false
-  xy: 1179, 667
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: 11
-Grassland_Terrain
-  rotate: false
-  xy: 1451, 859
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: 3
-Grassland_Terrain
-  rotate: false
-  xy: 1, 1
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: 8
-Tropics_BG
-  rotate: false
-  xy: 1, 511
-  size: 288, 208
-  orig: 288, 208
-  offset: 0, 0
-  index: 3
-Tropics_BG
-  rotate: false
-  xy: 291, 301
-  size: 288, 208
-  orig: 288, 208
-  offset: 0, 0
-  index: 2
-Tropics_BG
-  rotate: false
-  xy: 291, 91
-  size: 288, 208
-  orig: 288, 208
-  offset: 0, 0
-  index: 4
-Tropics_BG
+  index: -1
+AutumnForest_BG_02
   rotate: false
   xy: 871, 511
   size: 288, 208
   orig: 288, 208
   offset: 0, 0
-  index: 1
-Tropics_Terrain
+  index: -1
+AutumnForest_BG_03
   rotate: false
-  xy: 1451, 913
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: 2
-Tropics_Terrain
-  rotate: false
-  xy: 889, 493
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: 7
-Tropics_Terrain
-  rotate: false
-  xy: 37, 73
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: 4
-Tropics_Terrain
-  rotate: false
-  xy: 871, 457
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: 9
-Tropics_Terrain
-  rotate: false
-  xy: 1179, 685
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: 1
-Tropics_Terrain
-  rotate: false
-  xy: 1487, 913
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: 6
-Tropics_Terrain
-  rotate: false
-  xy: 55, 73
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: 11
-Tropics_Terrain
-  rotate: false
-  xy: 925, 493
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: 3
-Tropics_Terrain
-  rotate: false
-  xy: 1215, 703
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: 8
-Tropics_Terrain
-  rotate: false
-  xy: 37, 37
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: 5
-Tropics_Terrain
-  rotate: false
-  xy: 55, 55
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: 10
-WinterWorld_BG
-  rotate: false
-  xy: 291, 721
+  xy: 1, 91
   size: 288, 208
   orig: 288, 208
   offset: 0, 0
-  index: 4
-WinterWorld_BG
+  index: -1
+AutumnForest_BG_04
   rotate: false
-  xy: 291, 511
+  xy: 1, 721
   size: 288, 208
   orig: 288, 208
   offset: 0, 0
-  index: 1
-WinterWorld_BG
+  index: -1
+AutumnForest_Terrain_01
   rotate: false
-  xy: 581, 511
-  size: 288, 208
-  orig: 288, 208
-  offset: 0, 0
-  index: 3
-WinterWorld_BG
-  rotate: false
-  xy: 581, 91
-  size: 288, 208
-  orig: 288, 208
-  offset: 0, 0
-  index: 2
-WinterWorld_Terrain
-  rotate: false
-  xy: 1, 73
+  xy: 37, 55
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
-  index: 5
-WinterWorld_Terrain
-  rotate: false
-  xy: 871, 475
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: 10
-WinterWorld_Terrain
-  rotate: false
-  xy: 1451, 895
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: 2
-WinterWorld_Terrain
+  index: -1
+AutumnForest_Terrain_02
   rotate: false
   xy: 1469, 913
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
-  index: 7
-WinterWorld_Terrain
+  index: -1
+AutumnForest_Terrain_03
   rotate: false
-  xy: 889, 475
+  xy: 889, 247
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
-  index: 4
-WinterWorld_Terrain
+  index: -1
+AutumnForest_Terrain_04
   rotate: false
   xy: 1197, 703
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
-  index: 9
-WinterWorld_Terrain
+  index: -1
+AutumnForest_Terrain_05
   rotate: false
-  xy: 1, 19
+  xy: 1161, 703
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
-  index: 1
-WinterWorld_Terrain
+  index: -1
+AutumnForest_Terrain_06
   rotate: false
-  xy: 871, 439
+  xy: 1179, 667
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
-  index: 6
-WinterWorld_Terrain
+  index: -1
+AutumnForest_Terrain_07
+  rotate: false
+  xy: 1, 37
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+AutumnForest_Terrain_08
+  rotate: false
+  xy: 19, 19
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+AutumnForest_Terrain_09
+  rotate: false
+  xy: 889, 265
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+AutumnForest_Terrain_10
+  rotate: false
+  xy: 1, 55
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+AutumnForest_Terrain_11
+  rotate: false
+  xy: 1451, 859
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+Grassland_BG_01
+  rotate: false
+  xy: 291, 91
+  size: 288, 208
+  orig: 288, 208
+  offset: 0, 0
+  index: -1
+Grassland_BG_02
+  rotate: false
+  xy: 291, 511
+  size: 288, 208
+  orig: 288, 208
+  offset: 0, 0
+  index: -1
+Grassland_BG_03
+  rotate: false
+  xy: 581, 91
+  size: 288, 208
+  orig: 288, 208
+  offset: 0, 0
+  index: -1
+Grassland_BG_04
+  rotate: false
+  xy: 291, 301
+  size: 288, 208
+  orig: 288, 208
+  offset: 0, 0
+  index: -1
+Grassland_Terrain_01
+  rotate: false
+  xy: 19, 37
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+Grassland_Terrain_02
+  rotate: false
+  xy: 1451, 895
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+Grassland_Terrain_03
+  rotate: false
+  xy: 871, 229
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+Grassland_Terrain_04
+  rotate: false
+  xy: 1451, 877
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+Grassland_Terrain_05
+  rotate: false
+  xy: 1451, 913
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+Grassland_Terrain_06
   rotate: false
   xy: 1197, 685
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
-  index: 11
-WinterWorld_Terrain
+  index: -1
+Grassland_Terrain_07
   rotate: false
-  xy: 1487, 895
+  xy: 19, 55
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
-  index: 3
-WinterWorld_Terrain
+  index: -1
+Grassland_Terrain_08
+  rotate: false
+  xy: 1, 1
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+Grassland_Terrain_09
+  rotate: false
+  xy: 871, 247
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+Grassland_Terrain_10
+  rotate: false
+  xy: 19, 73
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+Grassland_Terrain_11
+  rotate: false
+  xy: 1469, 877
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+Tropics_BG_01
+  rotate: false
+  xy: 1161, 721
+  size: 288, 208
+  orig: 288, 208
+  offset: 0, 0
+  index: -1
+Tropics_BG_02
+  rotate: false
+  xy: 581, 511
+  size: 288, 208
+  orig: 288, 208
+  offset: 0, 0
+  index: -1
+Tropics_BG_03
+  rotate: false
+  xy: 1, 511
+  size: 288, 208
+  orig: 288, 208
+  offset: 0, 0
+  index: -1
+Tropics_BG_04
+  rotate: false
+  xy: 581, 301
+  size: 288, 208
+  orig: 288, 208
+  offset: 0, 0
+  index: -1
+Tropics_Terrain_01
+  rotate: false
+  xy: 1469, 895
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+Tropics_Terrain_02
+  rotate: false
+  xy: 871, 283
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+Tropics_Terrain_03
+  rotate: false
+  xy: 1215, 703
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+Tropics_Terrain_04
+  rotate: false
+  xy: 37, 73
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+Tropics_Terrain_05
+  rotate: false
+  xy: 37, 37
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+Tropics_Terrain_06
+  rotate: false
+  xy: 907, 283
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+Tropics_Terrain_07
+  rotate: false
+  xy: 1179, 703
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+Tropics_Terrain_08
   rotate: false
   xy: 1505, 913
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
-  index: 8
+  index: -1
+Tropics_Terrain_09
+  rotate: false
+  xy: 1161, 667
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+Tropics_Terrain_10
+  rotate: false
+  xy: 55, 55
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+Tropics_Terrain_11
+  rotate: false
+  xy: 55, 73
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+WinterWorld_BG_01
+  rotate: false
+  xy: 581, 721
+  size: 288, 208
+  orig: 288, 208
+  offset: 0, 0
+  index: -1
+WinterWorld_BG_02
+  rotate: false
+  xy: 871, 301
+  size: 288, 208
+  orig: 288, 208
+  offset: 0, 0
+  index: -1
+WinterWorld_BG_03
+  rotate: false
+  xy: 871, 721
+  size: 288, 208
+  orig: 288, 208
+  offset: 0, 0
+  index: -1
+WinterWorld_BG_04
+  rotate: false
+  xy: 291, 721
+  size: 288, 208
+  orig: 288, 208
+  offset: 0, 0
+  index: -1
+WinterWorld_Terrain_01
+  rotate: false
+  xy: 1, 19
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+WinterWorld_Terrain_02
+  rotate: false
+  xy: 871, 265
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+WinterWorld_Terrain_03
+  rotate: false
+  xy: 907, 265
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+WinterWorld_Terrain_04
+  rotate: false
+  xy: 1179, 685
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+WinterWorld_Terrain_05
+  rotate: false
+  xy: 1, 73
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+WinterWorld_Terrain_06
+  rotate: false
+  xy: 1161, 649
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+WinterWorld_Terrain_07
+  rotate: false
+  xy: 889, 283
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+WinterWorld_Terrain_08
+  rotate: false
+  xy: 925, 283
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+WinterWorld_Terrain_09
+  rotate: false
+  xy: 1487, 913
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+WinterWorld_Terrain_10
+  rotate: false
+  xy: 1161, 685
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+WinterWorld_Terrain_11
+  rotate: false
+  xy: 1487, 895
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1

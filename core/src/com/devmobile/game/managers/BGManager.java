@@ -42,11 +42,11 @@ public class BGManager {
     }
 
     public void update(OrthographicCamera camera){
-//        float delta = offSetX * GameInfo.deltaTime;
-//        nextPositionX += delta;
-//        for (BG bg:bgs) {
-//            bg.setX(bg.getX() + delta);
-//        }
+        float delta = offSetX * GameInfo.deltaTime;
+        nextPositionX += delta;
+        for (BG bg:bgs) {
+            bg.setX(bg.getX() + delta);
+        }
         if(bgs[countBG].isOutBounds(camera)){
             bgs[countBG].setX(nextPositionX);
             addNextPostionX(bgs[countBG]);
@@ -62,7 +62,6 @@ public class BGManager {
     }
 
     private void addNextPostionX (BG bg){
-        System.out.println("BG X: " + bg.getX() + "BG WIdth: " + bg.getWidth());
         nextPositionX = bg.getX() + bg.getWidth();
     }
 

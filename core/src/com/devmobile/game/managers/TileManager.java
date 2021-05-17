@@ -21,21 +21,6 @@ public class TileManager {
         return tiles.get(string);
     }
 
-// Exemplo do método para retornar a animação baseado na string passada
-//    public Animation getAnimation(String string) {
-//        if(string.equals("tile")) {
-//            return animation01;
-//        }
-//        else if (string.equals("tilee")){
-//            return animation02;
-//        }
-//        return null;
-//    }
-
-//    public int getSize(){
-//        return tiles.size;
-//    }
-
     public TextureAtlas getAtlas (){
         return textureAtlas;
     }

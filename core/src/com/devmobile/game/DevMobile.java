@@ -11,8 +11,8 @@ public class DevMobile extends Game {
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
-		setScreen(new MenuScreen(this));
-		//setScreen(new GameScreen(this));
+		//setScreen(new MenuScreen(this));
+		setScreen(new GameScreen(this));
 	}
 
 	@Override
