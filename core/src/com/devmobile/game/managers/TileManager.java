@@ -40,6 +40,10 @@ public class TileManager {
         return textureAtlas;
     }
 
+    public void dispose(){
+        textureAtlas.dispose();
+    }
+
     private void configTiles(){
         //Grassland BG
         tiles.put(GameInfo.grasslandBG + "01", textureAtlas.findRegion(GameInfo.grasslandBG + "01"));

@@ -1,32 +1,32 @@
 Tiles.png
-size: 992, 686
+size: 992, 1248
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 AutumnForest_BG_01
   rotate: false
-  xy: 288, 270
+  xy: 704, 0
   size: 288, 208
   orig: 288, 208
   offset: 0, 0
   index: -1
 AutumnForest_BG_02
   rotate: false
-  xy: 0, 99
-  size: 288, 69
-  orig: 288, 69
+  xy: 0, 208
+  size: 288, 208
+  orig: 288, 208
   offset: 0, 0
   index: -1
 AutumnForest_BG_03
   rotate: false
-  xy: 704, 0
-  size: 288, 37
-  orig: 288, 37
+  xy: 288, 208
+  size: 288, 208
+  orig: 288, 208
   offset: 0, 0
   index: -1
 AutumnForest_BG_04
   rotate: false
-  xy: 576, 270
+  xy: 576, 208
   size: 288, 208
   orig: 288, 208
   offset: 0, 0
@@ -110,28 +110,28 @@ AutumnForest_Terrain_11
   index: -1
 Grassland_BG_01
   rotate: false
-  xy: 288, 37
-  size: 288, 56
-  orig: 288, 56
+  xy: 0, 416
+  size: 288, 208
+  orig: 288, 208
   offset: 0, 0
   index: -1
 Grassland_BG_02
   rotate: false
-  xy: 288, 99
-  size: 288, 75
-  orig: 288, 75
+  xy: 288, 416
+  size: 288, 208
+  orig: 288, 208
   offset: 0, 0
   index: -1
 Grassland_BG_03
   rotate: false
-  xy: 0, 270
-  size: 288, 184
-  orig: 288, 184
+  xy: 576, 416
+  size: 288, 208
+  orig: 288, 208
   offset: 0, 0
   index: -1
 Grassland_BG_04
   rotate: false
-  xy: 0, 478
+  xy: 0, 624
   size: 288, 208
   orig: 288, 208
   offset: 0, 0
@@ -215,28 +215,28 @@ Grassland_Terrain_11
   index: -1
 Tropics_BG_01
   rotate: false
-  xy: 0, 37
-  size: 288, 50
-  orig: 288, 50
+  xy: 288, 624
+  size: 288, 208
+  orig: 288, 208
   offset: 0, 0
   index: -1
 Tropics_BG_02
   rotate: false
-  xy: 0, 174
-  size: 250, 79
-  orig: 250, 79
+  xy: 576, 624
+  size: 288, 208
+  orig: 288, 208
   offset: 0, 0
   index: -1
 Tropics_BG_03
   rotate: false
-  xy: 500, 174
-  size: 288, 96
-  orig: 288, 96
+  xy: 0, 832
+  size: 288, 208
+  orig: 288, 208
   offset: 0, 0
   index: -1
 Tropics_BG_04
   rotate: false
-  xy: 288, 478
+  xy: 288, 832
   size: 288, 208
   orig: 288, 208
   offset: 0, 0
@@ -320,28 +320,28 @@ Tropics_Terrain_11
   index: -1
 WinterWorld_BG_01
   rotate: false
-  xy: 576, 37
-  size: 288, 62
-  orig: 288, 62
+  xy: 576, 832
+  size: 288, 208
+  orig: 288, 208
   offset: 0, 0
   index: -1
 WinterWorld_BG_02
   rotate: false
-  xy: 576, 99
-  size: 288, 75
-  orig: 288, 75
+  xy: 0, 1040
+  size: 288, 208
+  orig: 288, 208
   offset: 0, 0
   index: -1
 WinterWorld_BG_03
   rotate: false
-  xy: 250, 174
-  size: 250, 79
-  orig: 250, 79
+  xy: 288, 1040
+  size: 288, 208
+  orig: 288, 208
   offset: 0, 0
   index: -1
 WinterWorld_BG_04
   rotate: false
-  xy: 576, 478
+  xy: 576, 1040
   size: 288, 208
   orig: 288, 208
   offset: 0, 0

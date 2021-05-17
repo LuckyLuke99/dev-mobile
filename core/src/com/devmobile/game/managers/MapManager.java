@@ -17,8 +17,8 @@ public class MapManager {
 
     public MapManager(){
         //Tamanho do mapa
-        sizeX = Math.round((GameInfo.WIDHT / GameInfo.sizeTexture)*2);
-        sizeY = Math.round((GameInfo.HEIGHT / GameInfo.sizeTexture)*2);
+        sizeX = (GameInfo.WIDHT / GameInfo.sizeTexture)*2;
+        sizeY = (GameInfo.HEIGHT / GameInfo.sizeTexture)*2;
 
         //Qual vai ser a próxima posição do tile
         currentX = 0;
@@ -90,5 +90,9 @@ public class MapManager {
             return true;
         }
         return false;
+    }
+
+    public void dispose(){
+        tileManager.dispose();
     }
 }

@@ -12,6 +12,14 @@ public class GenericTile extends Rectangle {
 
     public GenericTile (TextureAtlas.AtlasRegion texture){
         this.texture = texture;
+        if(!(texture == null)){
+            setWidth(texture.getRegionWidth());
+            setHeight(texture.getRegionHeight());
+        }
+        else {
+            setWidth(0);
+            setHeight(0);
+        }
     }
 
     public void draw (Batch batch){
@@ -22,5 +30,13 @@ public class GenericTile extends Rectangle {
 
     public void setTexture (TextureAtlas.AtlasRegion texture){
         this.texture = texture;
+        if(!(texture == null)){
+            setWidth(texture.getRegionWidth());
+            setHeight(texture.getRegionHeight());
+        }
+        else {
+            setWidth(0);
+            setHeight(0);
+        }
     }
 }
