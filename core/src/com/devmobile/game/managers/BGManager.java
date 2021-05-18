@@ -3,11 +3,8 @@ package com.devmobile.game.managers;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.math.MathUtils;
 import com.devmobile.game.helpers.GameInfo;
 import com.devmobile.game.tiles.BG;
-
-
 
 public class BGManager {
     private BG[] bgs;
@@ -63,14 +60,6 @@ public class BGManager {
 
     private void addNextPostionX (BG bg){
         nextPositionX = bg.getX() + bg.getWidth();
-    }
-
-    public void setTexture(TextureAtlas.AtlasRegion texture){
-        bgs[lastBG].setTexture(texture);
-    }
-
-    public boolean isChanging (){
-        return isChanging;
     }
 
     private void change (){

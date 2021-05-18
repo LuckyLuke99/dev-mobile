@@ -8,11 +8,12 @@ public class GameInfo {
     public static float deltaTime = 0;
     public static float velCamera = 100f; // Velocidade da camera
 
+    public static String currentBiome; //Bioma atual do mapa
 
     //Parallax, os valores vão de 0 a 100, sendo 100 parado e 0 sem efeito
-    public static int parallaxBG01 = 20;
-    public static int parallaxBG02 = 40;
-    public static int parallaxBG03 = 60;
+    public static int parallaxBG01 = 50;
+    public static int parallaxBG02 = 60;
+    public static int parallaxBG03 = 70;
     //O valor do back vai define quando tempo irá durar o bioma atual
     public static int parallaxBG04 = 80;
 
@@ -22,17 +23,9 @@ public class GameInfo {
     public final static String tropicsBG = "Tropics_BG_";
     public final static String winterWorldBG = "WinterWorld_BG_";
 
-    //Nomes dos terrenos dentro do atlas vai de 01 até 11
-    public final static String grasslandTerrain = "Grassland_Terrain_";
-    public final static String autumnForestTerrain = "AutumnForest_Terrain_";
-    public final static String tropicsTerrain = "Tropics_Terrain_";
-    public final static String winterWorldTerrain = "WinterWorld_Terrain_";
-
-    public static String currentBiome = GameInfo.grasslandTerrain; //Bioma atual do mapa
-
     //variaveis do random do metodo highTerrainGenerator
-    public static int highGroundMinPosition = 15; //minY
-    public static int highGroundMaxPosition = 15; //maxY
+    public static int highGroundMinPosition = 10; //minY
+    public static int highGroundMaxPosition = 20; //maxY
     public static int highGroundMaxSpace = 6; // Tamanho máximo do espaco entre os tiles
     public static int highGroundMaxWight = 15;
 

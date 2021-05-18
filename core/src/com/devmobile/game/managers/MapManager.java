@@ -2,12 +2,17 @@ package com.devmobile.game.managers;
 
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.MathUtils;
 import com.devmobile.game.helpers.GameInfo;
 import com.devmobile.game.tiles.GenericTile;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MapManager {
     RandomTileManager randomTile;
     GenericTile[][] tiles;
+    ArrayList<String> biomes;
 
     final TileManager tileManager;
     final ParallaxManager parallaxManager;
@@ -24,16 +29,24 @@ public class MapManager {
         currentX = 0;
         currentY = 0;
 
-        tileManager = new TileManager();
+        //Lista com os nomes dos biomas
+        biomes = new ArrayList<>();
+        biomes.add("Grassland");
+        biomes.add("AutumnForest");
+        biomes.add("Tropics");
+        biomes.add("WinterWorld");
+        randomBiome();
 
-        randomTile = new RandomTileManager(tileManager); //Controla qual vai ser o tile gerado
-        parallaxManager = new ParallaxManager(tileManager);
+        tileManager = new TileManager(); //Controla os tiles no texture atlas
+        randomTile = new RandomTileManager(tileManager); //Controla qual tile do chão vai ser gerado
+        parallaxManager = new ParallaxManager(tileManager); //Efeito de parallax dos backgrounds
 
         //Criando o mapa
         tiles = new GenericTile[sizeX][sizeY];
         startMap();
     }
 
+    //Inicia o mapa
     public void startMap(){
         // Popula todos os tiles para iniciar o jogo
         for (int x = 0; x < sizeX; x++) {
@@ -55,6 +68,11 @@ public class MapManager {
     public void draw(SpriteBatch batch, OrthographicCamera camera){
         parallaxManager.draw(batch);
         drawTiles(batch);
+    }
+
+    //Escolhe qual vai ser o bioma ao iniciar
+    private void randomBiome(){
+        GameInfo.currentBiome = biomes.get(MathUtils.random(0, 3));
     }
 
     //Atualiza a posição dos tiles na tela
@@ -84,6 +102,7 @@ public class MapManager {
         }
     }
 
+    //Limite máximo dos tiles
     public boolean isOutBound(OrthographicCamera camera, GenericTile tile){
         float cameraX = camera.position.x - (GameInfo.WIDHT * 0.6f);
         if(tile.getX() < cameraX){
