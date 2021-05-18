@@ -17,15 +17,13 @@ public class TileManager {
 
     public TileManager(){
         textureAtlas = new TextureAtlas(Gdx.files.internal("TesteAtlas.atlas"));
-        textureCharacters = new TextureAtlas(Gdx.files.internal("all_characters.txt"));
+        textureCharacters = new TextureAtlas(Gdx.files.internal("Characters.atlas"));
+
         tiles = new ObjectMap<>();
         characters = new ObjectMap<>();
+
         configCharacter();
         configTiles();
-        System.out.println(textureCharacters.getRegions());
-        System.out.println(textureCharacters.findRegions("Bub/Run/run"));
-
-        //System.out.println(characters.get("Holly").size);
     }
     public TextureAtlas.AtlasRegion getTexture(String string) {
         return tiles.get(string);
@@ -35,19 +33,56 @@ public class TileManager {
         return textureAtlas;
     }
 
-    public TextureAtlas.AtlasRegion getCharacter(String string){
-        //return characters.get(string);
-        return null;
+    public ObjectMap<String, Array<TextureAtlas.AtlasRegion>> getCharacters(){
+        return characters;
     }
 
     public void dispose(){
         textureAtlas.dispose();
     }
 
+    //Find all characters animations
     private void configCharacter(){
-        characters.put("Holly", textureCharacters.findRegions("Holly"));
+        //Holly Animations
+        characters.put("Holly_attack", textureCharacters.findRegions("Holly_attack"));
+        characters.put("Holly_falling", textureCharacters.findRegions("Holly_falling"));
+        characters.put("Holly_run", textureCharacters.findRegions("Holly_run"));
+        characters.put("Holly_hurt", textureCharacters.findRegions("Holly_hurt"));
+        characters.put("Holly_jumping", textureCharacters.findRegions("Holly_jumping"));
+
+        //Lil Animations
+        characters.put("Lil_attack", textureCharacters.findRegions("Lil_attack"));
+        characters.put("Lil_falling", textureCharacters.findRegions("Lil_falling"));
+        characters.put("Lil_hurt", textureCharacters.findRegions("Lil_hurt"));
+        characters.put("Lil_jumping", textureCharacters.findRegions("Lil_jumping"));
+        characters.put("Lil_projectile", textureCharacters.findRegions("Lil_projectile"));
+        characters.put("Lil_run", textureCharacters.findRegions("Lil_run"));
+
+        //MrMan
+        characters.put("MrMan_attack", textureCharacters.findRegions("MrMan_attack"));
+        characters.put("MrMan_run", textureCharacters.findRegions("MrMan_run"));
+        characters.put("MrMan_falling", textureCharacters.findRegions("MrMan_falling"));
+        characters.put("MrMan_jumping", textureCharacters.findRegions("MrMan_jumping"));
+        characters.put("MrMan_hurt", textureCharacters.findRegions("MrMan_hurt"));
+
+        //MrMochi
+        characters.put("MrMochi_jumping", textureCharacters.findRegions("MrMochi_jumping"));
+        characters.put("MrMochi_run", textureCharacters.findRegions("MrMochi_run"));
+        characters.put("MrMochi_hurt", textureCharacters.findRegions("MrMochi_hurt"));
+
+        //Tommy
+        characters.put("Tommy_jumping", textureCharacters.findRegions("Tommy_jumping"));
+        characters.put("Tommy_run", textureCharacters.findRegions("Tommy_run"));
+        characters.put("Tommy_falling", textureCharacters.findRegions("Tommy_falling"));
+        characters.put("Tommy_hurt", textureCharacters.findRegions("Tommy_hurt"));
+
+        //Twiggy
+        characters.put("Twiggy_jumping", textureCharacters.findRegions("Twiggy_jumping"));
+        characters.put("Twiggy_run", textureCharacters.findRegions("Twiggy_run"));
+        characters.put("Twiggy_falling", textureCharacters.findRegions("Twiggy_falling"));
     }
 
+    //Find all tiles
     private void configTiles(){
         //Grassland BG
         tiles.put(GameInfo.grasslandBG + "01", textureAtlas.findRegion(GameInfo.grasslandBG + "01"));

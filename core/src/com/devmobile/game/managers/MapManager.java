@@ -1,9 +1,15 @@
 package com.devmobile.game.managers;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.World;
 import com.devmobile.game.helpers.GameInfo;
+import com.devmobile.game.tiles.GenericCharacter;
+import com.devmobile.game.tiles.GenericCharacter02;
 import com.devmobile.game.tiles.GenericTile;
 
 import java.util.ArrayList;
@@ -19,8 +25,13 @@ public class MapManager {
 
     int sizeX, sizeY;
     int currentX, currentY;
+    int playerY;
 
-    public MapManager(){
+    GenericCharacter02 character;
+
+    private World world;
+
+    public MapManager(World world){
         //Tamanho do mapa
         sizeX = (GameInfo.WIDHT / GameInfo.sizeTexture)*2;
         sizeY = (GameInfo.HEIGHT / GameInfo.sizeTexture)*2;
@@ -28,6 +39,7 @@ public class MapManager {
         //Qual vai ser a próxima posição do tile
         currentX = 0;
         currentY = 0;
+        playerY = 0;
 
         //Lista com os nomes dos biomas
         biomes = new ArrayList<>();
@@ -40,6 +52,8 @@ public class MapManager {
         tileManager = new TileManager(); //Controla os tiles no texture atlas
         randomTile = new RandomTileManager(tileManager); //Controla qual tile do chão vai ser gerado
         parallaxManager = new ParallaxManager(tileManager); //Efeito de parallax dos backgrounds
+
+        character = new GenericCharacter02(tileManager.getCharacters(), "Holly", world);
 
         //Criando o mapa
         tiles = new GenericTile[sizeX][sizeY];
@@ -63,11 +77,14 @@ public class MapManager {
     public void update(OrthographicCamera camera){
         parallaxManager.update(camera); //Atualiza o efeito parallax
         updateMap(camera); //Atualiza a posição dos tiles na tela
+        character.update(camera);
+        character.checkTiles(tiles, sizeX, sizeY);
     }
 
     public void draw(SpriteBatch batch, OrthographicCamera camera){
         parallaxManager.draw(batch);
         drawTiles(batch);
+        character.draw(batch);
     }
 
     //Escolhe qual vai ser o bioma ao iniciar
@@ -84,11 +101,11 @@ public class MapManager {
                         tiles[x][i].setTexture(randomTile.groundGeneration(currentX, currentY));
                         tiles[x][i].setX(currentX);
                         currentY += GameInfo.sizeTexture;
-                        y += 1;
                     }
                     currentY = 0;
                     currentX += GameInfo.sizeTexture;
                 }
+                //Verifica se o tile é o mesmo da posição do player e se ele não é null
             }
         }
     }

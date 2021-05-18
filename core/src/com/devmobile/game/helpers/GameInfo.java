@@ -7,6 +7,7 @@ public class GameInfo {
     public final static int maxY = GameInfo.HEIGHT / GameInfo.sizeTexture;
     public static float deltaTime = 0;
     public static float velCamera = 100f; // Velocidade da camera
+    public static float PPM = 100;
 
     public static String currentBiome; //Bioma atual do mapa
 
@@ -24,14 +25,14 @@ public class GameInfo {
     public final static String winterWorldBG = "WinterWorld_BG_";
 
     //variaveis do random do metodo highTerrainGenerator
-    public static int highGroundMinPosition = 10; //minY
+    public static int highGroundMinPosition = 8; //minY
     public static int highGroundMaxPosition = 20; //maxY
     public static int highGroundMaxSpace = 6; // Tamanho máximo do espaco entre os tiles
     public static int highGroundMaxWight = 15;
 
     //variaveis do random do metodo terrainGenerator
-    public static int groundMinPosition = 1; // minY
-    public static int groundMaxPosition = 3; // maxY
-    public static int groundMaxWidght = 15; // maxX
-    public static int groundMaxSpace = 6; // Tamanho máximo do espaco entre os tiles
+    public static int groundMinPosition = 5; // minY
+    public static int groundMaxPosition = 6; // maxY
+    public static int groundMaxWidght = 30; // maxX
+    public static int groundMaxSpace = 4; // Tamanho máximo do espaco entre os tiles
 }

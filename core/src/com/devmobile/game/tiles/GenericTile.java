@@ -39,4 +39,13 @@ public class GenericTile extends Rectangle {
             setHeight(0);
         }
     }
+
+    public boolean isNull(){
+        if(texture == null){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 }
