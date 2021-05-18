@@ -34,7 +34,7 @@
         <key>dataFormat</key>
         <string>libgdx</string>
         <key>textureFileName</key>
-        <filename>all_characters.png</filename>
+        <filename>Characters.png</filename>
         <key>flipPVR</key>
         <false/>
         <key>pvrCompressionQuality</key>
@@ -132,7 +132,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>all_charachters.txt</filename>
+                <filename>Characters.atlas</filename>
             </struct>
         </map>
         <key>multiPack</key>
@@ -181,197 +181,6 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">Characters/Inimigos/Blocky Bub/Bumped/Bumped.png</key>
-            <key type="filename">Characters/Inimigos/Blocky Bub/Run/run_01.png</key>
-            <key type="filename">Characters/Inimigos/Blocky Bub/Run/run_02.png</key>
-            <key type="filename">Characters/Inimigos/Blocky Bub/Run/run_03.png</key>
-            <key type="filename">Characters/Inimigos/Blocky Bub/Run/run_04.png</key>
-            <key type="filename">Characters/Inimigos/Blocky Bub/Run/run_05.png</key>
-            <key type="filename">Characters/Inimigos/Blocky Bub/Run/run_06.png</key>
-            <key type="filename">Characters/Inimigos/Bub/Hit/Squished.png</key>
-            <key type="filename">Characters/Inimigos/Bub/Hurt/Hurt.png</key>
-            <key type="filename">Characters/Inimigos/Bub/Run/run_01.png</key>
-            <key type="filename">Characters/Inimigos/Bub/Run/run_02.png</key>
-            <key type="filename">Characters/Inimigos/Bub/Run/run_03.png</key>
-            <key type="filename">Characters/Inimigos/Bub/Run/run_04.png</key>
-            <key type="filename">Characters/Inimigos/Bub/Run/run_05.png</key>
-            <key type="filename">Characters/Inimigos/Bub/Run/run_06.png</key>
-            <key type="filename">Characters/Inimigos/Bushly/Falling/Falling.png</key>
-            <key type="filename">Characters/Inimigos/Bushly/Hurt/Hurt.png</key>
-            <key type="filename">Characters/Inimigos/Bushly/Idle/Camouflaged.png</key>
-            <key type="filename">Characters/Inimigos/Bushly/Jumping/Jumping.png</key>
-            <key type="filename">Characters/Inimigos/Bushly/Run/run_01.png</key>
-            <key type="filename">Characters/Inimigos/Bushly/Run/run_02.png</key>
-            <key type="filename">Characters/Inimigos/Bushly/Run/run_03.png</key>
-            <key type="filename">Characters/Inimigos/Bushly/Run/run_04.png</key>
-            <key type="filename">Characters/Inimigos/Bushly/Run/run_05.png</key>
-            <key type="filename">Characters/Inimigos/Bushly/Run/run_06.png</key>
-            <key type="filename">Characters/Inimigos/Chi Chi the Bird/Attack/Aerial_Attack.png</key>
-            <key type="filename">Characters/Inimigos/Chi Chi the Bird/Falling/Falling.png</key>
-            <key type="filename">Characters/Inimigos/Chi Chi the Bird/Flapping/flapping_01.png</key>
-            <key type="filename">Characters/Inimigos/Chi Chi the Bird/Flapping/flapping_02.png</key>
-            <key type="filename">Characters/Inimigos/Chi Chi the Bird/Flapping/flapping_03.png</key>
-            <key type="filename">Characters/Inimigos/Chi Chi the Bird/Hurt/Hurt.png</key>
-            <key type="filename">Characters/Inimigos/Devo the Devil/Falling/Falling.png</key>
-            <key type="filename">Characters/Inimigos/Devo the Devil/Hurt/Hurt.png</key>
-            <key type="filename">Characters/Inimigos/Devo the Devil/Jumping/Jumping.png</key>
-            <key type="filename">Characters/Inimigos/Devo the Devil/Run/run_01.png</key>
-            <key type="filename">Characters/Inimigos/Devo the Devil/Run/run_02.png</key>
-            <key type="filename">Characters/Inimigos/Devo the Devil/Run/run_03.png</key>
-            <key type="filename">Characters/Inimigos/Devo the Devil/Run/run_04.png</key>
-            <key type="filename">Characters/Inimigos/Gloppy Slime/Hurt/Hurt.png</key>
-            <key type="filename">Characters/Inimigos/Gloppy Slime/Pop-out/popout_01.png</key>
-            <key type="filename">Characters/Inimigos/Gloppy Slime/Pop-out/popout_02.png</key>
-            <key type="filename">Characters/Inimigos/Gloppy Slime/Pop-out/popout_03.png</key>
-            <key type="filename">Characters/Inimigos/Octi/Hurt/hurt.png</key>
-            <key type="filename">Characters/Inimigos/Octi/Run/run_01.png</key>
-            <key type="filename">Characters/Inimigos/Octi/Run/run_02.png</key>
-            <key type="filename">Characters/Inimigos/Pokey Bub/Hit/hit.png</key>
-            <key type="filename">Characters/Inimigos/Pokey Bub/Run/run_01.png</key>
-            <key type="filename">Characters/Inimigos/Pokey Bub/Run/run_02.png</key>
-            <key type="filename">Characters/Inimigos/Pokey Bub/Run/run_03.png</key>
-            <key type="filename">Characters/Inimigos/Pokey Bub/Run/run_04.png</key>
-            <key type="filename">Characters/Inimigos/Pokey Bub/Run/run_05.png</key>
-            <key type="filename">Characters/Inimigos/Pokey Bub/Run/run_06.png</key>
-            <key type="filename">Characters/Inimigos/Robo Pumpkin/Hurt/Hurt.png</key>
-            <key type="filename">Characters/Inimigos/Robo Pumpkin/Run/walk_01.png</key>
-            <key type="filename">Characters/Inimigos/Robo Pumpkin/Run/walk_02.png</key>
-            <key type="filename">Characters/Inimigos/Spikey Bub/Hurt/Hurt.png</key>
-            <key type="filename">Characters/Inimigos/Spikey Bub/Run/run_01.png</key>
-            <key type="filename">Characters/Inimigos/Spikey Bub/Run/run_02.png</key>
-            <key type="filename">Characters/Inimigos/Spikey Bub/Run/run_03.png</key>
-            <key type="filename">Characters/Inimigos/Spikey Bub/Run/run_04.png</key>
-            <key type="filename">Characters/Inimigos/Spikey Bub/Run/run_05.png</key>
-            <key type="filename">Characters/Inimigos/Spikey Bub/Run/run_06.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Mr. Man/Attack/attack_.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Mr. Man/Attack/punching_02.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Mr. Man/Attack/punching_03.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Mr. Man/Falling/Falling.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Mr. Man/Falling/Falling_Touch.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Mr. Man/Falling/Flying_Kick.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Mr. Man/Hurt/Hurt.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Mr. Man/Idle/idle_01.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Mr. Man/Idle/idle_02.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Mr. Man/Idle/idle_03.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Mr. Man/Idle/idle_04.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Mr. Man/Jumping/Jumping.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Mr. Man/Run/run_01.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Mr. Man/Run/run_02.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Mr. Man/Run/run_03.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Mr. Man/Run/run_04.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Mr. Man/Run/run_05.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Mr. Man/Run/run_06.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>4,4,8,8</rect>
-                <key>scale9Paddings</key>
-                <rect>4,4,8,8</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">Characters/Inimigos/Lumpy/Jumping/jumping.png</key>
-            <key type="filename">Characters/Inimigos/Lumpy/Jumpy_Lumpy/jumpy_01.png</key>
-            <key type="filename">Characters/Inimigos/Lumpy/Jumpy_Lumpy/jumpy_02.png</key>
-            <key type="filename">Characters/Inimigos/Lumpy/Jumpy_Lumpy/jumpy_03.png</key>
-            <key type="filename">Characters/Inimigos/Lumpy/Jumpy_Lumpy/jumpy_4.png</key>
-            <key type="filename">Characters/Inimigos/Martian Red/Hurt/hurt.png</key>
-            <key type="filename">Characters/Inimigos/Martian Red/Run/run_01.png</key>
-            <key type="filename">Characters/Inimigos/Martian Red/Run/run_02.png</key>
-            <key type="filename">Characters/Inimigos/Martian Red/Run/run_03.png</key>
-            <key type="filename">Characters/Inimigos/Martian Red/Run/run_04.png</key>
-            <key type="filename">Characters/Inimigos/Snip Snap Crab/Attack/Reaching_to_Pinch (32 x 32).png</key>
-            <key type="filename">Characters/Inimigos/Snip Snap Crab/Hurt/Hurt (32 x 32).png</key>
-            <key type="filename">Characters/Inimigos/Snip Snap Crab/Walk/Movement_(Flip_image_back_and_forth) (32 x 32).png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Holly/Falling/falling_01.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Holly/Falling/falling_02.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Holly/Hurt/hurt.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Holly/Jumping/jumping.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Holly/Run/run_01.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Holly/Run/run_02.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Holly/Run/run_03.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Holly/Run/run_04.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Holly/Run/run_05.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Holly/Run/run_06.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Lil/Attack/attack_01.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Lil/Attack/attack_02.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Lil/Attack/attack_03.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Lil/Attack/attack_04.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Lil/Falling/falling_01.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Lil/Falling/falling_02.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Lil/Hurt/hurt_01.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Lil/Hurt/hurt_02.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Lil/Jumping/Jumping.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Lil/Run/run_01.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Lil/Run/run_02.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Lil/Run/run_03.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Lil/Run/run_04.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Lil/Run/run_05.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Lil/Run/run_06.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Lil/Spell/spell_01.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Lil/Spell/spell_02.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Lil/Spell/spell_03.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Lil/Spell/spell_04.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Mr. Mochi/Hurt/Hurt.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Mr. Mochi/Jumping/Jumping.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Mr. Mochi/Running/run_01.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Mr. Mochi/Running/run_02.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Mr. Mochi/Running/run_03.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Mr. Mochi/Running/run_04.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Tommy/Falling/falling_01.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Tommy/Falling/falling_02.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Tommy/Hurt/Hurt.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Tommy/Jumping/Jumping.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Tommy/Run/run_01.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Tommy/Run/run_02.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Tommy/Run/run_03.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Tommy/Run/run_04.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Tommy/Run/run_05.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Tommy/Run/run_06.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Tommy/Run/run_07.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Tommy/Run/run_08.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Twiggy/Falling/Falling.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Twiggy/Jumping/Jumping.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Twiggy/Run/run_01.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Twiggy/Run/run_02.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Twiggy/Run/run_03.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Twiggy/Run/run_04.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Twiggy/Run/run_05.png</key>
-            <key type="filename">Characters/PersonagensPrincipais/Twiggy/Run/run_06.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>8,8,16,16</rect>
-                <key>scale9Paddings</key>
-                <rect>8,8,16,16</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">Characters/Inimigos/Snip Snap Crab/Attack/Claw_Animations (16 x 16).png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>12,4,24,8</rect>
-                <key>scale9Paddings</key>
-                <rect>12,4,24,8</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
             <key type="filename">Characters/PersonagensPrincipais/Holly/Attack/attack_01.png</key>
             <key type="filename">Characters/PersonagensPrincipais/Holly/Attack/attack_02.png</key>
             <key type="filename">Characters/PersonagensPrincipais/Holly/Attack/attack_03.png</key>
@@ -394,11 +203,110 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">Characters/PersonagensPrincipais/Holly/Falling/falling_01.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Holly/Falling/falling_02.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Holly/Hurt/hurt.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Holly/Jumping/jumping.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Holly/Run/run_01.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Holly/Run/run_02.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Holly/Run/run_03.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Holly/Run/run_04.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Holly/Run/run_05.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Holly/Run/run_06.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Lil/Attack/attack_01.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Lil/Attack/attack_02.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Lil/Attack/attack_03.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Lil/Attack/attack_04.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Lil/Falling/falling_01.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Lil/Falling/falling_02.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Lil/Hurt/hurt_01.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Lil/Hurt/hurt_02.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Lil/Jumping/jumping.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Lil/Projectile/projectile_01.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Lil/Projectile/projectile_02.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Lil/Projectile/projectile_03.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Lil/Projectile/projectile_04.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Lil/Run/run_01.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Lil/Run/run_02.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Lil/Run/run_03.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Lil/Run/run_04.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Lil/Run/run_05.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Lil/Run/run_06.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Mr. Mochi/Hurt/hurt.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Mr. Mochi/Jumping/jumping.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Mr. Mochi/Running/run_01.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Mr. Mochi/Running/run_02.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Mr. Mochi/Running/run_03.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Mr. Mochi/Running/run_04.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Tommy/Falling/falling_01.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Tommy/Falling/falling_02.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Tommy/Hurt/hurt.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Tommy/Jumping/jumping.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Tommy/Run/run_01.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Tommy/Run/run_02.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Tommy/Run/run_03.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Tommy/Run/run_04.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Tommy/Run/run_05.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Tommy/Run/run_06.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Tommy/Run/run_07.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Tommy/Run/run_08.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Twiggy/Falling/falling.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Twiggy/Jumping/jumping.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Twiggy/Run/run_01.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Twiggy/Run/run_02.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Twiggy/Run/run_03.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Twiggy/Run/run_04.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Twiggy/Run/run_05.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Twiggy/Run/run_06.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>8,8,16,16</rect>
+                <key>scale9Paddings</key>
+                <rect>8,8,16,16</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">Characters/PersonagensPrincipais/Mr. Man/Attack/attack_01.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Mr. Man/Attack/attack_02.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Mr. Man/Attack/attack_03.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Mr. Man/Falling/falling.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Mr. Man/Hurt/hurt.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Mr. Man/Jumping/jumping.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Mr. Man/Run/run_01.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Mr. Man/Run/run_02.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Mr. Man/Run/run_03.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Mr. Man/Run/run_04.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Mr. Man/Run/run_05.png</key>
+            <key type="filename">Characters/PersonagensPrincipais/Mr. Man/Run/run_06.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>4,4,8,8</rect>
+                <key>scale9Paddings</key>
+                <rect>4,4,8,8</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
         </map>
         <key>fileList</key>
         <array>
-            <filename>Characters/Inimigos</filename>
-            <filename>Characters/PersonagensPrincipais</filename>
+            <filename>Characters/PersonagensPrincipais/Holly</filename>
+            <filename>Characters/PersonagensPrincipais/Lil</filename>
+            <filename>Characters/PersonagensPrincipais/Mr. Man</filename>
+            <filename>Characters/PersonagensPrincipais/Mr. Mochi</filename>
+            <filename>Characters/PersonagensPrincipais/Tommy</filename>
+            <filename>Characters/PersonagensPrincipais/Twiggy</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

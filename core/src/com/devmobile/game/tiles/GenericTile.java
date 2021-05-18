@@ -13,7 +13,6 @@ public class GenericTile extends Rectangle {
     public GenericTile (TextureAtlas.AtlasRegion texture){
         this.texture = texture;
         if(!(texture == null)){
-            System.out.println("Width: " + texture.getRegionWidth() + "|| |Height: " + texture.getRegionHeight());
             setWidth(texture.getRegionWidth());
             setHeight(texture.getRegionHeight());
         }

@@ -1,0 +1,230 @@
+
+Teste01.png
+size: 256, 256
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+Falling/falling
+  rotate: false
+  xy: 104, 52
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+Jumping/jumping
+  rotate: false
+  xy: 136, 154
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+Run/run
+  rotate: false
+  xy: 68, 172
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 6
+Run/run
+  rotate: false
+  xy: 202, 222
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 3
+Run/run
+  rotate: false
+  xy: 36, 4
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 5
+Run/run
+  rotate: false
+  xy: 170, 154
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 2
+Run/run
+  rotate: false
+  xy: 70, 104
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 4
+Run/run
+  rotate: false
+  xy: 70, 2
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 1
+attack
+  rotate: false
+  xy: 2, 206
+  size: 64, 48
+  orig: 64, 48
+  offset: 0, 0
+  index: 7
+attack
+  rotate: false
+  xy: 2, 156
+  size: 64, 48
+  orig: 64, 48
+  offset: 0, 0
+  index: 6
+attack
+  rotate: false
+  xy: 68, 206
+  size: 64, 48
+  orig: 64, 48
+  offset: 0, 0
+  index: 8
+attack
+  rotate: false
+  xy: 2, 106
+  size: 64, 48
+  orig: 64, 48
+  offset: 0, 0
+  index: 5
+attack
+  rotate: false
+  xy: 2, 38
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 4
+attack
+  rotate: false
+  xy: 102, 172
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 1
+attack
+  rotate: false
+  xy: 170, 188
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 3
+attack
+  rotate: false
+  xy: 70, 36
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 2
+falling
+  rotate: false
+  xy: 102, 138
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 2
+falling
+  rotate: false
+  xy: 170, 120
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 1
+hurt
+  rotate: false
+  xy: 2, 72
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 1
+hurt
+  rotate: false
+  xy: 168, 222
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+hurt
+  rotate: false
+  xy: 136, 120
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 2
+jumping
+  rotate: false
+  xy: 70, 70
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+projectile
+  rotate: false
+  xy: 134, 222
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 2
+projectile
+  rotate: false
+  xy: 2, 4
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 4
+projectile
+  rotate: false
+  xy: 36, 38
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 1
+projectile
+  rotate: false
+  xy: 204, 154
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 3
+run
+  rotate: false
+  xy: 68, 138
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 2
+run
+  rotate: false
+  xy: 36, 72
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 4
+run
+  rotate: false
+  xy: 136, 188
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 1
+run
+  rotate: false
+  xy: 204, 188
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 6
+run
+  rotate: false
+  xy: 204, 120
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 3
+run
+  rotate: false
+  xy: 104, 86
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 5

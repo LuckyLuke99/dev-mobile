@@ -29,8 +29,6 @@ public class GameScreen implements Screen {
         gameViewport = new FitViewport(GameInfo.WIDHT, GameInfo.HEIGHT, mainCamera);
 
         mapManager = new MapManager();
-
-        System.out.println("Height :" + Gdx.graphics.getHeight() + "Wight: " + Gdx.graphics.getWidth());
     }
 
     @Override
@@ -46,7 +44,7 @@ public class GameScreen implements Screen {
         mainCamera.update();
         game.batch.setProjectionMatrix(mainCamera.combined);
 
-        mainCamera.position.x += GameInfo.velCamera * GameInfo.deltaTime;
+       //mainCamera.position.x += GameInfo.velCamera * GameInfo.deltaTime;
 
         GameInfo.deltaTime = Gdx.graphics.getDeltaTime();
         //Atualizando todas as classes

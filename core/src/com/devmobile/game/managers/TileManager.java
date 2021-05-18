@@ -5,17 +5,27 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ObjectMap;
 import com.devmobile.game.helpers.GameInfo;
 
 public class TileManager {
     private TextureAtlas textureAtlas;
+    private TextureAtlas textureCharacters;
     private ObjectMap<String, TextureAtlas.AtlasRegion> tiles;
+    private ObjectMap<String, Array<TextureAtlas.AtlasRegion>> characters;
 
     public TileManager(){
         textureAtlas = new TextureAtlas(Gdx.files.internal("TesteAtlas.atlas"));
+        textureCharacters = new TextureAtlas(Gdx.files.internal("all_characters.txt"));
         tiles = new ObjectMap<>();
+        characters = new ObjectMap<>();
+        configCharacter();
         configTiles();
+        System.out.println(textureCharacters.getRegions());
+        System.out.println(textureCharacters.findRegions("Bub/Run/run"));
+
+        //System.out.println(characters.get("Holly").size);
     }
     public TextureAtlas.AtlasRegion getTexture(String string) {
         return tiles.get(string);
@@ -25,8 +35,17 @@ public class TileManager {
         return textureAtlas;
     }
 
+    public TextureAtlas.AtlasRegion getCharacter(String string){
+        //return characters.get(string);
+        return null;
+    }
+
     public void dispose(){
         textureAtlas.dispose();
+    }
+
+    private void configCharacter(){
+        characters.put("Holly", textureCharacters.findRegions("Holly"));
     }
 
     private void configTiles(){

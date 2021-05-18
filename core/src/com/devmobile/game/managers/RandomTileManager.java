@@ -4,12 +4,14 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.utils.ObjectMap;
 import com.devmobile.game.helpers.GameInfo;
+import com.devmobile.game.tiles.GenericEnemy;
 import com.devmobile.game.tiles.GenericTile;
 import com.devmobile.game.tiles.Terrains;
 
 //Classe retorna qual vai ser o próximo tile gerado baseado na posição atual do gerador
 
 public class RandomTileManager {
+    GenericEnemy genericEnemy;
     final TileManager tileManager;
     boolean firstGeneration;
     Terrains[] terrains;
