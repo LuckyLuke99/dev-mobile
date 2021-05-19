@@ -1,19 +1,14 @@
 package com.devmobile.game.managers;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.World;
 import com.devmobile.game.helpers.GameInfo;
 import com.devmobile.game.tiles.GenericCharacter;
-import com.devmobile.game.tiles.GenericCharacter02;
 import com.devmobile.game.tiles.GenericTile;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class MapManager {
     RandomTileManager randomTile;
