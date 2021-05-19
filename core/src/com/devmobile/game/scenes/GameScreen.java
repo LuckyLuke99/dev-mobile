@@ -28,43 +28,17 @@ public class GameScreen implements Screen, ContactListener {
     private OrthographicCamera mainCamera;
     private Viewport gameViewport;
 
-    private World world;
-    private Box2DDebugRenderer debugRenderer;
-
-    private Player player;
-
     MapManager mapManager; //Parte que vai gerando o mapa do jogo
 
     public GameScreen (final DevMobile game){
         this.game = game;
 
-        //Configuração da camera e do viewport da tela
-        mainCamera = new OrthographicCamera();
-       // mainCamera.setToOrtho(false, GameInfo.WIDHT, GameInfo.HEIGHT);
-        mainCamera.setToOrtho(
-                false,
-                GameInfo.WIDHT / GameInfo.PPM,
-                GameInfo.HEIGHT / GameInfo.PPM
-        );
+        //Configuração da camera e do viewport da tela]
+        mainCamera = new OrthographicCamera( GameInfo.WIDHT, GameInfo.HEIGHT);
         mainCamera.position.set(GameInfo.WIDHT/2f, GameInfo.HEIGHT/2f, 0f);
-        //gameViewport = new FitViewport(GameInfo.WIDHT, GameInfo.HEIGHT, mainCamera);
+        gameViewport = new FitViewport(GameInfo.WIDHT, GameInfo.HEIGHT, mainCamera);
 
-        debugRenderer = new Box2DDebugRenderer();
-        world = new World(new Vector2(
-                0,
-                -9.8f
-        ), true);
-        world.setContactListener(this);
-
-        mapManager = new MapManager(world);
-
-        player = new Player(
-                world,
-                "Player 1.png",
-                GameInfo.WIDHT / 2f,
-                GameInfo.HEIGHT / 2f
-        );
-        Cloud cloud = new Cloud(world);
+        mapManager = new MapManager();
     }
 
     @Override
@@ -77,23 +51,9 @@ public class GameScreen implements Screen, ContactListener {
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        if(Gdx.input.isKeyPressed(Input.Keys.RIGHT)){
-            player.getBody().applyLinearImpulse(
-                    new Vector2(0.1f,0),
-                    player.getBody().getWorldCenter(),
-                    true
-            );
-        }
-        else if(Gdx.input.isKeyPressed(Input.Keys.LEFT)){
-            player.getBody().applyLinearImpulse(
-                    new Vector2(-0.1f, 0),
-                    player.getBody().getWorldCenter(),
-                    true
-            );
-        }
-        //mainCamera.update();
-        //game.batch.setProjectionMatrix(mainCamera.combined);
-       //mainCamera.position.x += GameInfo.velCamera * GameInfo.deltaTime;
+        mainCamera.update();
+        game.batch.setProjectionMatrix(mainCamera.combined);
+        mainCamera.position.x += GameInfo.velCamera * GameInfo.deltaTime;
 
         GameInfo.deltaTime = Gdx.graphics.getDeltaTime();
         //Atualizando todas as classes
@@ -101,11 +61,7 @@ public class GameScreen implements Screen, ContactListener {
 
         game.batch.begin();
         mapManager.draw(game.batch, mainCamera);
-        game.batch.draw(player, player.getX(), player.getY() - player.getHeight() / 2f);
         game.batch.end();
-
-        debugRenderer.render(world, mainCamera.combined);
-        world.step(Gdx.graphics.getDeltaTime(), 6, 2);
     }
 
     @Override

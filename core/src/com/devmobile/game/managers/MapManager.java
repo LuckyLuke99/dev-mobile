@@ -27,11 +27,11 @@ public class MapManager {
     int currentX, currentY;
     int playerY;
 
-    GenericCharacter02 character;
+    GenericCharacter character;
 
     private World world;
 
-    public MapManager(World world){
+    public MapManager(){
         //Tamanho do mapa
         sizeX = (GameInfo.WIDHT / GameInfo.sizeTexture)*2;
         sizeY = (GameInfo.HEIGHT / GameInfo.sizeTexture)*2;
@@ -53,7 +53,7 @@ public class MapManager {
         randomTile = new RandomTileManager(tileManager); //Controla qual tile do chão vai ser gerado
         parallaxManager = new ParallaxManager(tileManager); //Efeito de parallax dos backgrounds
 
-        character = new GenericCharacter02(tileManager.getCharacters(), "Holly", world);
+        character = new GenericCharacter(tileManager.getCharacters(), "Holly");
 
         //Criando o mapa
         tiles = new GenericTile[sizeX][sizeY];

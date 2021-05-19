@@ -25,7 +25,7 @@ public class GameInfo {
     public final static String winterWorldBG = "WinterWorld_BG_";
 
     //variaveis do random do metodo highTerrainGenerator
-    public static int highGroundMinPosition = 8; //minY
+    public static int highGroundMinPosition = 11; //minY
     public static int highGroundMaxPosition = 20; //maxY
     public static int highGroundMaxSpace = 6; // Tamanho máximo do espaco entre os tiles
     public static int highGroundMaxWight = 15;
