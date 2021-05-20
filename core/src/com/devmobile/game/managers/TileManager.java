@@ -12,7 +12,7 @@ import com.devmobile.game.helpers.GameInfo;
 public class TileManager {
     private TextureAtlas textureAtlas;
     private TextureAtlas textureCharacters;
-    private ObjectMap<String, TextureAtlas.AtlasRegion> tiles;
+    private ObjectMap<String, TextureRegion> tiles;
     private ObjectMap<String, Array<TextureAtlas.AtlasRegion>> characters;
 
     public TileManager(){
@@ -25,7 +25,7 @@ public class TileManager {
         configCharacter();
         configTiles();
     }
-    public TextureAtlas.AtlasRegion getTexture(String string) {
+    public TextureRegion getTexture(String string) {
         return tiles.get(string);
     }
 

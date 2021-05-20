@@ -4,13 +4,18 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.physics.box2d.BodyDef;
+import com.badlogic.gdx.physics.box2d.PolygonShape;
+import com.badlogic.gdx.physics.box2d.World;
 import com.devmobile.game.helpers.GameInfo;
 
 public class GenericTile extends Rectangle {
-    TextureAtlas.AtlasRegion texture;
+    TextureRegion texture;
 
-    public GenericTile (TextureAtlas.AtlasRegion texture){
+    public GenericTile (TextureRegion texture){
         this.texture = texture;
         if(!(texture == null)){
             setWidth(texture.getRegionWidth());
@@ -28,7 +33,7 @@ public class GenericTile extends Rectangle {
         }
     }
 
-    public void setTexture (TextureAtlas.AtlasRegion texture){
+    public void setTexture (TextureRegion texture){
         this.texture = texture;
         if(!(texture == null)){
             setWidth(texture.getRegionWidth());

@@ -1,15 +1,20 @@
 package com.devmobile.game.helpers;
 
+import com.badlogic.gdx.physics.box2d.World;
+
 public class GameInfo {
+    //Tamanho da tela
     public final static int WIDHT = 800;
     public final static int HEIGHT = 480;
-    public final static int sizeTexture = 16;
-    public final static int maxY = GameInfo.HEIGHT / GameInfo.sizeTexture;
-    public static float deltaTime = 0;
-    public static float velCamera = 100f; // Velocidade da camera
-    public static float PPM = 100;
 
+    public static World world;
+    public final static int sizeTexture = 16; //Tamanho dos tiles 16x16
+    public static float velCamera = 100f; // Velocidade da camera
     public static String currentBiome; //Bioma atual do mapa
+
+    // Como o Box2D usa metros para medir o mundo, aplicar força, etc
+    // Isso vai ser usado para conversão na hora de criar os bodys dos objetos fazendo 1 pixel ser igual 1 metro
+    public static float PPM = 100;
 
     //Parallax, os valores vão de 0 a 100, sendo 100 parado e 0 sem efeito
     public static int parallaxBG01 = 50;

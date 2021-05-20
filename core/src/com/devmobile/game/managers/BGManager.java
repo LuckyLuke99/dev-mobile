@@ -1,8 +1,10 @@
 package com.devmobile.game.managers;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.devmobile.game.helpers.GameInfo;
 import com.devmobile.game.tiles.BG;
 
@@ -16,7 +18,7 @@ public class BGManager {
     private boolean isChanging;
 
     //Caso só seja passado uma textura
-    public  BGManager(TextureAtlas.AtlasRegion texture, int offSetX){
+    public  BGManager(TextureRegion texture, int offSetX){
         bgs = new BG[3];
         nextPositionX = 0;
 
@@ -39,7 +41,7 @@ public class BGManager {
     }
 
     public void update(OrthographicCamera camera){
-        float delta = offSetX * GameInfo.deltaTime;
+        float delta = offSetX * Gdx.graphics.getDeltaTime();
         nextPositionX += delta;
         for (BG bg:bgs) {
             bg.setX(bg.getX() + delta);

@@ -73,13 +73,12 @@ public class MapManager {
         parallaxManager.update(camera); //Atualiza o efeito parallax
         updateMap(camera); //Atualiza a posição dos tiles na tela
         character.update(camera);
-        character.checkTiles(tiles, sizeX, sizeY);
     }
 
     public void draw(SpriteBatch batch, OrthographicCamera camera){
         parallaxManager.draw(batch);
         drawTiles(batch);
-        character.draw(batch);
+        character.drawAnimation(batch);
     }
 
     //Escolhe qual vai ser o bioma ao iniciar

@@ -3,11 +3,12 @@ package com.devmobile.game.tiles;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.devmobile.game.helpers.GameInfo;
 
 public class BG extends GenericTile{
 
-    public BG(TextureAtlas.AtlasRegion texture) {
+    public BG(TextureRegion texture) {
         super(texture);
         if(!(texture == null)){
             setWidth(GameInfo.WIDHT);
@@ -25,12 +26,12 @@ public class BG extends GenericTile{
             return true;
         return false;
     }
-    public TextureAtlas.AtlasRegion getTexture (){
+    public TextureRegion getTexture (){
         return this.texture;
     }
 
     @Override
-    public void setTexture(TextureAtlas.AtlasRegion texture) {
+    public void setTexture(TextureRegion texture) {
         this.texture = texture;
         if(!(texture == null)){
             setWidth(GameInfo.WIDHT);

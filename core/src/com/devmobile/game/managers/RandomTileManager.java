@@ -1,17 +1,14 @@
 package com.devmobile.game.managers;
 
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.utils.ObjectMap;
 import com.devmobile.game.helpers.GameInfo;
-import com.devmobile.game.tiles.GenericEnemy;
 import com.devmobile.game.tiles.GenericTile;
 import com.devmobile.game.tiles.Terrains;
 
 //Classe retorna qual vai ser o próximo tile gerado baseado na posição atual do gerador
 
 public class RandomTileManager {
-    GenericEnemy genericEnemy;
     final TileManager tileManager;
     boolean firstGeneration;
     Terrains[] terrains;
@@ -25,8 +22,8 @@ public class RandomTileManager {
        return new GenericTile(groundGeneration(currentX, currentY));
     }
 
-    public TextureAtlas.AtlasRegion groundGeneration (int currentX, int currentY){
-        TextureAtlas.AtlasRegion atlasRegion = null;
+    public TextureRegion groundGeneration (int currentX, int currentY){
+        TextureRegion textureRegion = null;
 
         //Executa caso seja a primeira vez criando os tiles
         if (firstGeneration){
@@ -37,18 +34,18 @@ public class RandomTileManager {
         }
 
        if(terrains[0].isOnBounds(currentX, currentY)){
-           atlasRegion = terrainGenerator(terrains[0], currentX, currentY);
+           textureRegion = terrainGenerator(terrains[0], currentX, currentY);
         }
 
        else {
-            atlasRegion = highTerrainGenerator(terrains[1], currentX, currentY);
+            textureRegion = highTerrainGenerator(terrains[1], currentX, currentY);
        }
 
-        return atlasRegion;
+        return textureRegion;
     }
 
     //Método que cria a parte de cima do chão baseado no currentX, currentY e o currentBioma
-    public TextureAtlas.AtlasRegion highTerrainGenerator (Terrains terrain, int currentX, int currentY){
+    public TextureRegion highTerrainGenerator (Terrains terrain, int currentX, int currentY){
         if((currentY == terrain.getY() && (currentX >= terrain.getX())))
         {
             if (currentX > terrain.getX()){
@@ -72,7 +69,7 @@ public class RandomTileManager {
     }
 
     //Método que cria a parte de baixo do chão baseado no currentX, currentY e o currentBioma
-    public TextureAtlas.AtlasRegion terrainGenerator (Terrains terrain, int currentX, int currentY){
+    public TextureRegion terrainGenerator (Terrains terrain, int currentX, int currentY){
         if(currentY == terrain.getY2())
         {
             if (currentX > terrain.getX()){
