@@ -42,7 +42,7 @@ public class GameScreen implements Screen, ContactListener {
         //Configuração da camera e do viewport da tela]
         mainCamera = new OrthographicCamera( GameInfo.WIDHT, GameInfo.HEIGHT);
         mainCamera.position.set(GameInfo.WIDHT/2f, GameInfo.HEIGHT/2f, 0f);
-        gameViewport = new StretchViewport(GameInfo.WIDHT, GameInfo.HEIGHT, mainCamera);
+        //gameViewport = new StretchViewport(GameInfo.WIDHT, GameInfo.HEIGHT, mainCamera);
 
         //Configuração do Box2D
         //Configurando outra camera para o box2D
@@ -90,7 +90,7 @@ public class GameScreen implements Screen, ContactListener {
         mapManager.draw(game.batch, mainCamera);
         game.batch.end();
 
-        debugRenderer.render(world, box2DCamera.combined);
+        //debugRenderer.render(world, box2DCamera.combined);
         world.step(1/60f, 6, 2);
 
         game.batch.setProjectionMatrix(mainCamera.combined);

@@ -29,6 +29,12 @@ public class GameInfo {
     public final static String tropicsBG = "Tropics_BG_";
     public final static String winterWorldBG = "WinterWorld_BG_";
 
+    public static int downGroundMaxHeight = 10;
+    public static int downGroundMinHeight = 2;
+    public static int downGroundMaxWight = 30;
+    public static int downGroundMaxSpace = 8;
+    public static int downGroundMinSpace = 4;
+
     //variaveis do random do metodo highTerrainGenerator
     public static int highGroundMinPosition = 11; //minY
     public static int highGroundMaxPosition = 20; //maxY
@@ -36,8 +42,8 @@ public class GameInfo {
     public static int highGroundMaxWight = 15;
 
     //variaveis do random do metodo terrainGenerator
-    public static int groundMinPosition = 5; // minY
-    public static int groundMaxPosition = 6; // maxY
-    public static int groundMaxWidght = 30; // maxX
-    public static int groundMaxSpace = 4; // Tamanho máximo do espaco entre os tiles
+//    public static int groundMinPosition = 5; // minY
+//    public static int groundMaxPosition = 6; // maxY
+//    public static int groundMaxWidght = 30; // maxX
+//    public static int groundMaxSpace = 4; // Tamanho máximo do espaco entre os tiles
 }

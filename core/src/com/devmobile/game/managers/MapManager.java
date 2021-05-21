@@ -70,13 +70,14 @@ public class MapManager {
     }
 
     public void update(OrthographicCamera camera){
-        parallaxManager.update(camera); //Atualiza o efeito parallax
+        //parallaxManager.update(camera); //Atualiza o efeito parallax
         updateMap(camera); //Atualiza a posição dos tiles na tela
         character.update(camera);
+        randomTile.checkColisitionGrounds(character);
     }
 
     public void draw(SpriteBatch batch, OrthographicCamera camera){
-        parallaxManager.draw(batch);
+        //parallaxManager.draw(batch);
         drawTiles(batch);
         character.drawAnimation(batch);
     }

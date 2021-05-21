@@ -1,87 +1,98 @@
 package com.devmobile.game.tiles;
 
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
+import com.badlogic.gdx.physics.box2d.Fixture;
+import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.devmobile.game.helpers.GameInfo;
 
-public class Terrains {
-    private float x, y, x2, y2;
+public class Terrains extends Rectangle {
     private Body body;
     private World world;
-
+    float x1,y1,x2,y2;
 
     public Terrains(int x, int y, int wight, int height){
         this.world = GameInfo.world;
-        this.x = x;
-        this.y = y;
-        this.x2 = x + (wight * GameInfo.sizeTexture);
-        this.y2 = y + (height * GameInfo.sizeTexture);
-
+        setX(x);
+        setY(y);
+        setWidth(wight * GameInfo.sizeTexture);
+        setHeight(height * GameInfo.sizeTexture);
         createBody();
+        configBounds();
     }
 
-    public boolean isOnBounds(int currentX, int currentY){
-        if(currentX >= x && currentX <= x2 && currentY >= y && currentY <= y2){
-            return true;
-        }
-        return false;
+    public boolean isInsideX(int currentX){
+        return currentX >= getX() && currentX <= (getX() + getWidth());
     }
 
-    public void setY2 (float y2){
-        this.y2 = y2;
+    public boolean isCenter(int currentX, int currentY){
+        return currentX >= (x1 + GameInfo.sizeTexture) &&
+                currentX <= (x2 - GameInfo.sizeTexture) &&
+                currentY >= y1 &&
+                currentY <= y2 - GameInfo.sizeTexture;
     }
 
-    public void setY (float y){
-        this.y = y;
+    public boolean isCornerRight(int currentX, int currentY){
+        return currentX == x2 &&
+                currentY == y2;
     }
 
-    public void setX2 (float x2){
-        this.x2 = x2;
+    public boolean isCornerLeft(int currentX, int currentY){
+        return currentX == x1 &&
+                currentY == y2;
     }
 
-    public void setX (float x){
-        this.x = x;
+    public boolean isUpColumn(int currentX, int currentY){
+        return currentX >= (x1 + GameInfo.sizeTexture) &&
+                currentX <= (x2 - GameInfo.sizeTexture) &&
+                currentY == y2;
     }
 
-    public float getY2(){
-        return y2;
+    public boolean isFirstColumn(int currentX, int currentY){
+        return currentX == x1 &&
+                currentY <= y2 - GameInfo.sizeTexture;
     }
 
-    public float getX2(){
-        return x2;
+    public boolean isLastColumn(int currentX, int currentY){
+        return currentX == x2 &&
+                currentY <= y2 - GameInfo.sizeTexture;
     }
 
-    public float getX(){
-        return x;
-    }
+    void configBounds(){
+        x1 = (body.getPosition().x * GameInfo.PPM) - getWidth()/2;
+        x2 = (body.getPosition().y * GameInfo.PPM) - getHeight()/2;
+        x2 = x1 + (getWidth() - GameInfo.sizeTexture);
+        y2 = y1 + (getHeight() - GameInfo.sizeTexture);
 
-    public float getY(){
-        return y;
+//        x1 = getY();
+//        y1 = getX();
+//        x2 = x1 + (getWidth() - GameInfo.sizeTexture);
+//        y2 = y1 + (getHeight() - GameInfo.sizeTexture);
     }
 
     void createBody(){
         BodyDef bodyDef = new BodyDef();
+        bodyDef.type = BodyDef.BodyType.KinematicBody;
         bodyDef.position.set(
-                x / GameInfo.PPM,
-                y / GameInfo.PPM
+                (getX() + (getWidth()/2))/ GameInfo.PPM,
+                (getY() + (getHeight()/2))/ GameInfo.PPM
         );
 
         body = world.createBody(bodyDef);
 
         PolygonShape shape = new PolygonShape();
         shape.setAsBox(
-                (x2 + 16) / GameInfo.PPM,
-                (y2 + 16) / GameInfo.PPM);
+                (getWidth()/2) / GameInfo.PPM,
+                (getHeight()/2) / GameInfo.PPM);
 
-        body.createFixture(shape, 0f);
-
-//        FixtureDef fixtureDef = new FixtureDef();
-//        fixtureDef.shape = shape;
-//        fixtureDef.density = 1f;
-//        Fixture fixture = body.createFixture(fixtureDef);
-//        fixture.setUserData("Terrain");
+        FixtureDef fixtureDef = new FixtureDef();
+        fixtureDef.shape = shape;
+        fixtureDef.density = 1f;
+        Fixture fixture = body.createFixture(fixtureDef);
+        fixture.setUserData("Terrain");
 
         shape.dispose();
     }

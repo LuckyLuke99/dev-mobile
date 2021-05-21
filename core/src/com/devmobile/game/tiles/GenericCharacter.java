@@ -34,7 +34,6 @@ public class GenericCharacter extends  Rectangle{
     private Body body;
     private World world;
 
-
     float MAX_VELOCITY;
 
     public GenericCharacter (ObjectMap<String, Array<TextureAtlas.AtlasRegion>> animations, String name){
@@ -46,6 +45,8 @@ public class GenericCharacter extends  Rectangle{
         setWidth(32);
         setHeight(32);
 
+        setPosition(GameInfo.WIDHT/2, GameInfo.HEIGHT/2);
+
         animationSpeed = 0.10f;
         elapsedTime = 0;
         isRunning = true;
@@ -55,18 +56,17 @@ public class GenericCharacter extends  Rectangle{
         createBody();
     }
 
-
     public void update (OrthographicCamera camera){
         Vector2 pos, vel;
         vel = body.getLinearVelocity();
         pos = body.getPosition();
-
+        setX(camera.position.x);
         if(isRunning){
-            body.setTransform((camera.position.x / GameInfo.PPM), pos.y, body.getAngle());
+            //body.setTransform((camera.position.x / GameInfo.PPM), pos.y, body.getAngle());
         }
 
         if(Gdx.input.isTouched()){
-            body.applyLinearImpulse(0, 0.08f, pos.x, pos.y, true);
+            body.applyLinearImpulse(0.08f, 0.08f, pos.x, pos.y, true);
         }
 
 //        if (isFalling){
@@ -87,6 +87,7 @@ public class GenericCharacter extends  Rectangle{
 //            }
 //        }
         updatePostion();
+        camera.position.x = getX();
     }
 
     public void drawAnimation (SpriteBatch batch){
@@ -153,16 +154,16 @@ public class GenericCharacter extends  Rectangle{
         BodyDef bodyDef = new BodyDef();
         bodyDef.type = BodyDef.BodyType.DynamicBody;
         bodyDef.position.set(
-                getX() / GameInfo.PPM,
-                getY() / GameInfo.PPM
+                (getX() + (getWidth()/2)) / GameInfo.PPM,
+                (getY() + (getHeight()/2)) / GameInfo.PPM
         );
 
         body = world.createBody(bodyDef);
 
         PolygonShape shape = new PolygonShape();
         shape.setAsBox(
-                (getWidth() / 2f) / GameInfo.PPM,
-                (getHeight() / 2f) / GameInfo.PPM
+                (getWidth()/2) / GameInfo.PPM,
+                (getHeight()/2) / GameInfo.PPM
         );
 
         FixtureDef fixtureDef = new FixtureDef();
