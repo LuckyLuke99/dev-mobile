@@ -49,75 +49,74 @@ public class GenericCharacter extends  Rectangle{
 
         animationSpeed = 0.10f;
         elapsedTime = 0;
+
         isRunning = true;
+        isJumping = false;
         isFalling = false;
+        isAttacking = false;
+        isHurt = false;
+        isDead = false;
 
         configAnimations(animations);
         createBody();
     }
 
     public void update (OrthographicCamera camera){
+        body.setAwake(true);
+
         Vector2 pos, vel;
         vel = body.getLinearVelocity();
         pos = body.getPosition();
-        setX(camera.position.x);
-        if(isRunning){
-            //body.setTransform((camera.position.x / GameInfo.PPM), pos.y, body.getAngle());
-        }
+
+        body.setTransform((camera.position.x / GameInfo.PPM), pos.y, 0f);
 
         if(Gdx.input.isTouched()){
-            body.applyLinearImpulse(0.08f, 0.08f, pos.x, pos.y, true);
+            if(!(isJumping) && !(isFalling)){
+                body.applyLinearImpulse(0f, 0.3f, pos.x, pos.y, true);
+                isJumping = true;
+            }
         }
 
-//        if (isFalling){
-//            acel = -10;
-//            vel += acel * Gdx.graphics.getDeltaTime();
-//            deltaS = vel * Gdx.graphics.getDeltaTime();
-//            setY(getY() + deltaS);
-//        }
-//        else if(isJumping){
-//            acel = 600;
-//            vel += acel * Gdx.graphics.getDeltaTime();
-//            deltaS = vel * Gdx.graphics.getDeltaTime();
-//            setY(getY() + deltaS);
-//            if(vel > 300){
-//                vel = 0;
-//                isJumping = false;
-//                isFalling = true;
-//            }
-//        }
+        //Controlando as variaveis de animação
+        if(vel.y < 0 && isJumping){
+            isFalling = true;
+        }
+        else if(vel.y > 0.01f){
+            isJumping = true;
+        }
+        else {
+            isJumping = false;
+            isFalling = false;
+        }
+
+        if(pos.y < 0 || pos.y > GameInfo.HEIGHT * GameInfo.PPM){
+            body.setTransform(body.getPosition().x, GameInfo.HEIGHT/ 2f /GameInfo.PPM, pos.y);
+        }
+
         updatePostion();
-        camera.position.x = getX();
     }
 
     public void drawAnimation (SpriteBatch batch){
         elapsedTime += Gdx.graphics.getDeltaTime();
         //Muda a animação conforme o estado atual
-        if(isRunning){
-
-        }
-        else if(isJumping){
-
-        }
-        else if(isAttacking){
-            if(canShoot){
-
+        if(isJumping){
+            if(isFalling){
+                batch.draw((TextureAtlas.AtlasRegion)falling.getKeyFrame(elapsedTime), getX(), getY());
             }
             else {
-
+                batch.draw((TextureAtlas.AtlasRegion)jumping.getKeyFrame(elapsedTime), getX(), getY());
             }
         }
-        else if(isHurt){
-
+        else {
+            batch.draw((TextureAtlas.AtlasRegion)run.getKeyFrame(elapsedTime), getX(), getY());
         }
-        else if(isFalling){
-
-        }
-        batch.draw((TextureAtlas.AtlasRegion)run.getKeyFrame(elapsedTime), getX(), getY());
     }
 
     public boolean isJumping(){
-        return isJumping;
+        if(body.getAngularVelocity() > 1){
+            return true;
+        }
+        return false;
     }
 
     //Configura as animações de acordo com o nome passado no começo

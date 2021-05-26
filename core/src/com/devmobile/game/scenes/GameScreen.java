@@ -42,10 +42,9 @@ public class GameScreen implements Screen, ContactListener {
         //Configuração da camera e do viewport da tela]
         mainCamera = new OrthographicCamera( GameInfo.WIDHT, GameInfo.HEIGHT);
         mainCamera.position.set(GameInfo.WIDHT/2f, GameInfo.HEIGHT/2f, 0f);
-        //gameViewport = new StretchViewport(GameInfo.WIDHT, GameInfo.HEIGHT, mainCamera);
+        gameViewport = new StretchViewport(GameInfo.WIDHT, GameInfo.HEIGHT, mainCamera);
 
         //Configuração do Box2D
-        //Configurando outra camera para o box2D
         box2DCamera = new OrthographicCamera();
         box2DCamera.setToOrtho(false, GameInfo.WIDHT / GameInfo.PPM, GameInfo.HEIGHT / GameInfo.PPM);
         box2DCamera.position.set(GameInfo.WIDHT/2f, GameInfo.HEIGHT/2f, 0f);
@@ -54,8 +53,7 @@ public class GameScreen implements Screen, ContactListener {
         debugRenderer = new Box2DDebugRenderer();
 
         //Criando o mundo e colocando gravidade nele da terra
-        //Habilidando o doSleep, para calcular os body's só caso ocorra algo
-        world = new World(new Vector2(0, -9.8f), true);
+        world = new World(new Vector2(0, -10), true);
         GameInfo.world = world;
 
         mapManager = new MapManager();
@@ -67,7 +65,7 @@ public class GameScreen implements Screen, ContactListener {
     }
 
     void update(float dt){
-        //moveCamera();
+        moveCamera();
         mapManager.update(mainCamera);
     }
 

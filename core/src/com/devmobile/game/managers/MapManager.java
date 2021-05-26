@@ -4,6 +4,8 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.physics.box2d.World;
+import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.utils.ObjectMap;
 import com.devmobile.game.helpers.GameInfo;
 import com.devmobile.game.tiles.GenericCharacter;
 import com.devmobile.game.tiles.GenericTile;
@@ -21,8 +23,10 @@ public class MapManager {
     int sizeX, sizeY;
     int currentX, currentY;
     int playerY;
+    int randomNum;
 
     GenericCharacter character;
+    ArrayList<String> randomCharacter;
 
     private World world;
 
@@ -48,7 +52,18 @@ public class MapManager {
         randomTile = new RandomTileManager(tileManager); //Controla qual tile do chão vai ser gerado
         parallaxManager = new ParallaxManager(tileManager); //Efeito de parallax dos backgrounds
 
-        character = new GenericCharacter(tileManager.getCharacters(), "Holly");
+        //Adicionando os nomes dos personagem em um Array<String>
+        randomCharacter = new ArrayList();
+        randomCharacter.add("Holly");
+        randomCharacter.add("Lil");
+        randomCharacter.add("MrMan");
+        randomCharacter.add("MrMochi");
+        randomCharacter.add("Tommy");
+        randomCharacter.add("Twiggy");
+        //Sorteando um número aleátorio para pegar o nome de um personagem
+        randomNum = MathUtils.random(0, randomCharacter.size()-1);
+
+        character = new GenericCharacter(tileManager.getCharacters(), randomCharacter.get(randomNum));
 
         //Criando o mapa
         tiles = new GenericTile[sizeX][sizeY];
