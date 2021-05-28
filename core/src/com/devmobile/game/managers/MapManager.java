@@ -55,11 +55,11 @@ public class MapManager {
         //Adicionando os nomes dos personagem em um Array<String>
         randomCharacter = new ArrayList();
         randomCharacter.add("Holly");
-        randomCharacter.add("Lil");
-        randomCharacter.add("MrMan");
-        randomCharacter.add("MrMochi");
-        randomCharacter.add("Tommy");
-        randomCharacter.add("Twiggy");
+//        randomCharacter.add("Lil");
+//        randomCharacter.add("MrMan");
+//        randomCharacter.add("MrMochi");
+//        randomCharacter.add("Tommy");
+//        randomCharacter.add("Twiggy");
         //Sorteando um número aleátorio para pegar o nome de um personagem
         randomNum = MathUtils.random(0, randomCharacter.size()-1);
 

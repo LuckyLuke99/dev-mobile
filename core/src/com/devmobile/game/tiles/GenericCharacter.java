@@ -1,6 +1,7 @@
 package com.devmobile.game.tiles;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -28,13 +29,14 @@ public class GenericCharacter extends  Rectangle{
     private Animation attack, hurt, run, falling, jumping, projectile;
     private float animationSpeed, elapsedTime;
     private int groundY;
-    private boolean isJumping, isRunning, isAttacking, isHurt, isFalling, canShoot, isDead;
+    private boolean isJumping, isRunning, isAttacking, isHurt, isFalling, canShoot, isDead, watingCamera;
     private String name;
 
     private Body body;
     private World world;
 
     float MAX_VELOCITY;
+    float health;
 
     public GenericCharacter (ObjectMap<String, Array<TextureAtlas.AtlasRegion>> animations, String name){
         this.name = name;
@@ -49,6 +51,8 @@ public class GenericCharacter extends  Rectangle{
 
         animationSpeed = 0.10f;
         elapsedTime = 0;
+
+        health = 100;
 
         isRunning = true;
         isJumping = false;
@@ -68,24 +72,27 @@ public class GenericCharacter extends  Rectangle{
         vel = body.getLinearVelocity();
         pos = body.getPosition();
 
-        //Centraliza o personagem baseado na câmera
-        body.setTransform((camera.position.x / GameInfo.PPM), pos.y, 0f);
-
-        Jump(pos);
-
-        CheckStates(vel);
+        characterToCamera(camera);
 
         if(pos.y < 0 || pos.y > GameInfo.HEIGHT * GameInfo.PPM){
             body.setTransform(body.getPosition().x, GameInfo.HEIGHT/ 2f /GameInfo.PPM, pos.y);
+            Hurt(10);
         }
 
+        CheckStates(vel, pos, camera);
         updatePostion();
     }
 
     public void drawAnimation (SpriteBatch batch){
         elapsedTime += Gdx.graphics.getDeltaTime();
         //Muda a animação conforme o estado atual
-        if(isJumping){
+        if(isHurt){
+            batch.draw((TextureAtlas.AtlasRegion)hurt.getKeyFrame(elapsedTime), getX(), getY());
+        }
+        else if(isAttacking){
+            batch.draw((TextureAtlas.AtlasRegion)attack.getKeyFrame(elapsedTime), getX(), getY());
+        }
+        else if(isJumping){
             if(isFalling){
                 batch.draw((TextureAtlas.AtlasRegion)falling.getKeyFrame(elapsedTime), getX(), getY());
             }
@@ -98,13 +105,32 @@ public class GenericCharacter extends  Rectangle{
         }
     }
 
-    public void CheckStates(Vector2 vel)
+    public void CheckStates(Vector2 vel,Vector2 pos, Camera camera)
     {
-        //Controlando as variaveis de animação
+        if(elapsedTime > 0.5 && isHurt && !(isAttacking)){
+            isHurt = false;
+            elapsedTime = 0;
+        }
+
+        //Verifica o tempo do attack
+        if(elapsedTime > 0.7 && isAttacking && !(isHurt)){
+            isAttacking = false;
+            elapsedTime = 0;
+        }
+
+        //Personagem só segue a camera quando a posição dele for menor
+        if(camera.position.x < pos.x * GameInfo.PPM){
+            watingCamera = true;
+        }
+        else {
+            watingCamera = false;
+        }
+
+        //Verifica se está pulando ou caindo
         if(vel.y < 0 && isJumping){
             isFalling = true;
         }
-        else if(vel.y > 0.01f){
+        else if(vel.y > 0.01f && !(isHurt)){
             isJumping = true;
         }
         else {
@@ -113,12 +139,48 @@ public class GenericCharacter extends  Rectangle{
         }
     }
 
-    public void Jump(Vector2 pos){
-        if(Gdx.input.isTouched()){
+    public void Hurt(float damage){
+        Vector2 pos = body.getPosition();
+        if(!(isHurt)){
+            health -= damage;
+            if(health <= 0){
+                isDead = true;
+            }
+            else {
+                isHurt = true;
+                elapsedTime = 0;
+                body.applyLinearImpulse(-0.2f, 0.2f, pos.x, pos.y, true);
+            }
+        }
+    }
+
+    public void Attack(){
+        Vector2 pos = body.getPosition();
+        if(!(isAttacking)){
+            body.applyLinearImpulse(0.3f, 0, pos.x, pos.y, true);
+            elapsedTime = 0;
+            isAttacking = true;
+        }
+    }
+
+    public void Jump(){
+        {
+            Vector2 pos = body.getPosition();
             if(!(isJumping) && !(isFalling)){
                 body.applyLinearImpulse(0f, 0.3f, pos.x, pos.y, true);
                 isJumping = true;
             }
+        }
+    }
+
+    private void characterToCamera(Camera camera){
+        Vector2 pos = body.getPosition();
+        //Centraliza o personagem baseado na câmera
+        if(!(isHurt) && camera.position.x > getX() + 32){
+            body.setTransform(pos.x + 0.08f, pos.y, 0f);
+        }
+        else if(!(watingCamera) && !(isAttacking) && !(isHurt)){
+            body.setTransform((camera.position.x / GameInfo.PPM), pos.y, 0f);
         }
     }
 
