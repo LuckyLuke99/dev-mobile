@@ -105,7 +105,7 @@ public class GenericCharacter extends  Rectangle{
         }
     }
 
-    public void CheckStates(Vector2 vel,Vector2 pos, Camera camera)
+    private void CheckStates(Vector2 vel,Vector2 pos, Camera camera)
     {
         if(elapsedTime > 0.5 && isHurt && !(isAttacking)){
             isHurt = false;
