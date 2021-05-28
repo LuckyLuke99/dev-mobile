@@ -68,26 +68,12 @@ public class GenericCharacter extends  Rectangle{
         vel = body.getLinearVelocity();
         pos = body.getPosition();
 
+        //Centraliza o personagem baseado na câmera
         body.setTransform((camera.position.x / GameInfo.PPM), pos.y, 0f);
 
-        if(Gdx.input.isTouched()){
-            if(!(isJumping) && !(isFalling)){
-                body.applyLinearImpulse(0f, 0.3f, pos.x, pos.y, true);
-                isJumping = true;
-            }
-        }
+        Jump(pos);
 
-        //Controlando as variaveis de animação
-        if(vel.y < 0 && isJumping){
-            isFalling = true;
-        }
-        else if(vel.y > 0.01f){
-            isJumping = true;
-        }
-        else {
-            isJumping = false;
-            isFalling = false;
-        }
+        CheckStates(vel);
 
         if(pos.y < 0 || pos.y > GameInfo.HEIGHT * GameInfo.PPM){
             body.setTransform(body.getPosition().x, GameInfo.HEIGHT/ 2f /GameInfo.PPM, pos.y);
@@ -112,11 +98,28 @@ public class GenericCharacter extends  Rectangle{
         }
     }
 
-    public boolean isJumping(){
-        if(body.getAngularVelocity() > 1){
-            return true;
+    public void CheckStates(Vector2 vel)
+    {
+        //Controlando as variaveis de animação
+        if(vel.y < 0 && isJumping){
+            isFalling = true;
         }
-        return false;
+        else if(vel.y > 0.01f){
+            isJumping = true;
+        }
+        else {
+            isJumping = false;
+            isFalling = false;
+        }
+    }
+
+    public void Jump(Vector2 pos){
+        if(Gdx.input.isTouched()){
+            if(!(isJumping) && !(isFalling)){
+                body.applyLinearImpulse(0f, 0.3f, pos.x, pos.y, true);
+                isJumping = true;
+            }
+        }
     }
 
     //Configura as animações de acordo com o nome passado no começo
