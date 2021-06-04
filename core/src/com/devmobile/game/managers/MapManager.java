@@ -68,7 +68,7 @@ public class MapManager {
     public void update(OrthographicCamera camera, GenericCharacter character){
         parallaxManager.update(camera); //Atualiza o efeito parallax
         updateMap(camera); //Atualiza a posição dos tiles na tela
-        randomTile.checkColisitionGrounds(character);
+        //randomTile.checkColisitionGrounds(character);
     }
 
     public void draw(SpriteBatch batch, OrthographicCamera camera){

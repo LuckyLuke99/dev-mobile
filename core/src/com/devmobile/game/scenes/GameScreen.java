@@ -75,10 +75,12 @@ public class GameScreen implements Screen, ContactListener, InputProcessor {
         randomCharacter.add("Holly");
         randomCharacter.add("Lil");
         randomCharacter.add("MrMan");
+
         //randomCharacter.add("MrMochi"); //Tá faltando o ataque
         //randomCharacter.add("Tommy"); //Tá faltando o ataque
         //randomCharacter.add("Twiggy"); //Tá faltando o ataque
         //Sorteando um número aleátorio para pegar o nome de um personagem
+
         randomNum = MathUtils.random(0, randomCharacter.size()-1);
 
         character = new GenericCharacter(tileManager.getCharacters(), randomCharacter.get(randomNum));
@@ -120,7 +122,7 @@ public class GameScreen implements Screen, ContactListener, InputProcessor {
         draw();
         game.batch.end();
 
-        //debugRenderer.render(world, box2DCamera.combined);
+        debugRenderer.render(world, box2DCamera.combined);
         world.step(1/60f, 6, 2);
 
         game.batch.setProjectionMatrix(mainCamera.combined);
@@ -192,11 +194,9 @@ public class GameScreen implements Screen, ContactListener, InputProcessor {
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
         float screenWidth = Gdx.graphics.getWidth();
         if(screenX < screenWidth/2f){
-            System.out.println(screenX);
             character.Jump();
         }
         else if (screenX > screenWidth/2f){
-            System.out.println(screenX);
             character.Attack();
         }
         return false;

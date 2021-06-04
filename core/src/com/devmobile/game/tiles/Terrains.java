@@ -24,11 +24,11 @@ public class Terrains extends Rectangle {
         configBounds();
     }
 
-    public boolean isInsideX(int currentX){
-        return currentX >= getX() && currentX <= (getX() + getWidth());
-    }
-
     public boolean isCenter(int currentX, int currentY){
+        // 00000000
+        // 01111110
+        // 01111110
+        // 01111110
         return currentX >= (x1 + GameInfo.sizeTexture) &&
                 currentX <= (x2 - GameInfo.sizeTexture) &&
                 currentY >= y1 &&
@@ -36,57 +36,69 @@ public class Terrains extends Rectangle {
     }
 
     public boolean isCornerRight(int currentX, int currentY){
+        // 00000001
+        // 00000000
+        // 00000000
+        // 00000000
         return currentX == x2 &&
                 currentY == y2;
     }
 
     public boolean isCornerLeft(int currentX, int currentY){
+        // 10000000
+        // 00000000
+        // 00000000
+        // 00000000
         return currentX == x1 &&
                 currentY == y2;
     }
 
     public boolean isUpColumn(int currentX, int currentY){
+        // 01111110
+        // 00000000
+        // 00000000
+        // 00000000
         return currentX >= (x1 + GameInfo.sizeTexture) &&
                 currentX <= (x2 - GameInfo.sizeTexture) &&
                 currentY == y2;
     }
 
     public boolean isFirstColumn(int currentX, int currentY){
+        // 00000000
+        // 10000000
+        // 10000000
+        // 10000000
         return currentX == x1 &&
                 currentY <= y2 - GameInfo.sizeTexture;
     }
 
     public boolean isLastColumn(int currentX, int currentY){
+
         return currentX == x2 &&
                 currentY <= y2 - GameInfo.sizeTexture;
     }
 
     void configBounds(){
-        x1 = (body.getPosition().x * GameInfo.PPM) - getWidth()/2;
-        x2 = (body.getPosition().y * GameInfo.PPM) - getHeight()/2;
+        x1 = x;
+        y1 = y;
         x2 = x1 + (getWidth() - GameInfo.sizeTexture);
         y2 = y1 + (getHeight() - GameInfo.sizeTexture);
-
-//        x1 = getY();
-//        y1 = getX();
-//        x2 = x1 + (getWidth() - GameInfo.sizeTexture);
-//        y2 = y1 + (getHeight() - GameInfo.sizeTexture);
     }
 
     void createBody(){
         BodyDef bodyDef = new BodyDef();
         bodyDef.type = BodyDef.BodyType.KinematicBody;
         bodyDef.position.set(
-                (getX() + (getWidth()/2))/ GameInfo.PPM,
-                (getY() + (getHeight()/2))/ GameInfo.PPM
+                (getX() + (getWidth()/2f))/ GameInfo.PPM,
+                (getY() + (getHeight()/2f))/ GameInfo.PPM
         );
 
         body = world.createBody(bodyDef);
 
         PolygonShape shape = new PolygonShape();
         shape.setAsBox(
-                (getWidth()/2) / GameInfo.PPM,
-                (getHeight()/2) / GameInfo.PPM);
+                (getWidth()/2f) / GameInfo.PPM,
+                (getHeight()/2f) / GameInfo.PPM);
 
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = shape;

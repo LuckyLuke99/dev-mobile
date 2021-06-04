@@ -3,9 +3,7 @@ package com.devmobile.game.managers;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.devmobile.game.helpers.GameInfo;
 import com.devmobile.game.tiles.BG;
 
 public class BGManager {

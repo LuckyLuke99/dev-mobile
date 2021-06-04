@@ -114,8 +114,6 @@ public class MenuScreen implements Screen {
 
         game.batch.begin();
 
-
-
         stage.act(delta);
         stage.draw();
 

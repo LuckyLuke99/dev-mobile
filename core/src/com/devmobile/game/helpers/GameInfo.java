@@ -29,7 +29,7 @@ public class GameInfo {
     public final static String tropicsBG = "Tropics_BG_";
     public final static String winterWorldBG = "WinterWorld_BG_";
 
-    public static int downGroundMaxHeight = 10;
+    public static int downGroundMaxHeight = 8;
     public static int downGroundMinHeight = 2;
     public static int downGroundMaxWight = 30;
     public static int downGroundMaxSpace = 8;
