@@ -97,6 +97,7 @@ public class RandomTileManager {
 
     //Returna os tiles caso o currentX e currentY esteja dentro de um dos terrenos
     public TextureRegion TileGeneration(int currentX, int currentY){
+        //Verifica se é a parte de baixo
         if(currentY < GameInfo.downGroundMaxHeight * GameInfo.sizeTexture){
             for (Terrains terrain : downTerrains) {
                 if (terrain.isCenter(currentX, currentY)) {
@@ -114,6 +115,7 @@ public class RandomTileManager {
                 }
             }
         }
+        //Verifica se é a parte de cima
         else if(currentY >= GameInfo.topGroundMinPosition * GameInfo.sizeTexture && currentY <= GameInfo.topGroundMaxPosition * GameInfo.sizeTexture){
             for (Terrains terrain : topTerrains){
                 if (terrain.isUpColumn(currentX, currentY)){
