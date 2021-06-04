@@ -17,20 +17,15 @@ public class MapManager {
     GenericTile[][] tiles;
     ArrayList<String> biomes;
 
-    final TileManager tileManager;
     final ParallaxManager parallaxManager;
 
     int sizeX, sizeY;
     int currentX, currentY;
     int playerY;
-    int randomNum;
-
-    GenericCharacter character;
-    ArrayList<String> randomCharacter;
 
     private World world;
 
-    public MapManager(){
+    public MapManager(final TileManager tileManager){
         //Tamanho do mapa
         sizeX = (GameInfo.WIDHT / GameInfo.sizeTexture)*2;
         sizeY = (GameInfo.HEIGHT / GameInfo.sizeTexture)*2;
@@ -48,22 +43,8 @@ public class MapManager {
         biomes.add("WinterWorld");
         randomBiome();
 
-        tileManager = new TileManager(); //Controla os tiles no texture atlas
         randomTile = new RandomTileManager(tileManager); //Controla qual tile do chão vai ser gerado
         parallaxManager = new ParallaxManager(tileManager); //Efeito de parallax dos backgrounds
-
-        //Adicionando os nomes dos personagem em um Array<String>
-        randomCharacter = new ArrayList();
-        randomCharacter.add("Holly");
-//        randomCharacter.add("Lil");
-//        randomCharacter.add("MrMan");
-//        randomCharacter.add("MrMochi");
-//        randomCharacter.add("Tommy");
-//        randomCharacter.add("Twiggy");
-        //Sorteando um número aleátorio para pegar o nome de um personagem
-        randomNum = MathUtils.random(0, randomCharacter.size()-1);
-
-        character = new GenericCharacter(tileManager.getCharacters(), randomCharacter.get(randomNum));
 
         //Criando o mapa
         tiles = new GenericTile[sizeX][sizeY];
@@ -84,17 +65,15 @@ public class MapManager {
         }
     }
 
-    public void update(OrthographicCamera camera){
-        //parallaxManager.update(camera); //Atualiza o efeito parallax
+    public void update(OrthographicCamera camera, GenericCharacter character){
+        parallaxManager.update(camera); //Atualiza o efeito parallax
         updateMap(camera); //Atualiza a posição dos tiles na tela
-        character.update(camera);
         randomTile.checkColisitionGrounds(character);
     }
 
     public void draw(SpriteBatch batch, OrthographicCamera camera){
-        //parallaxManager.draw(batch);
+        parallaxManager.draw(batch);
         drawTiles(batch);
-        character.drawAnimation(batch);
     }
 
     //Escolhe qual vai ser o bioma ao iniciar
@@ -139,6 +118,5 @@ public class MapManager {
     }
 
     public void dispose(){
-        tileManager.dispose();
     }
 }

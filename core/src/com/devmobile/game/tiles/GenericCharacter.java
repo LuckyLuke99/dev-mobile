@@ -28,7 +28,6 @@ import java.util.ArrayList;
 public class GenericCharacter extends  Rectangle{
     private Animation attack, hurt, run, falling, jumping, projectile;
     private float animationSpeed, elapsedTime;
-    private int groundY;
     private boolean isJumping, isRunning, isAttacking, isHurt, isFalling, canShoot, isDead, watingCamera;
     private String name;
 
@@ -73,13 +72,13 @@ public class GenericCharacter extends  Rectangle{
         pos = body.getPosition();
 
         characterToCamera(camera);
+        CheckStates(vel, pos, camera);
 
-        if(pos.y < 0 || pos.y > GameInfo.HEIGHT * GameInfo.PPM){
-            body.setTransform(body.getPosition().x, GameInfo.HEIGHT/ 2f /GameInfo.PPM, pos.y);
-            Hurt(10);
+        if(pos.y < 0){
+            ResetPosition();
+            Hurt(0);
         }
 
-        CheckStates(vel, pos, camera);
         updatePostion();
     }
 
@@ -139,6 +138,10 @@ public class GenericCharacter extends  Rectangle{
         }
     }
 
+    public void ResetPosition(){
+        body.setTransform(body.getPosition().x, (GameInfo.HEIGHT/2f) / GameInfo.PPM, 0f);
+    }
+
     public void Hurt(float damage){
         Vector2 pos = body.getPosition();
         if(!(isHurt)){
@@ -156,7 +159,7 @@ public class GenericCharacter extends  Rectangle{
 
     public void Attack(){
         Vector2 pos = body.getPosition();
-        if(!(isAttacking)){
+        if(!(isAttacking) && !(watingCamera)){
             body.applyLinearImpulse(0.3f, 0, pos.x, pos.y, true);
             elapsedTime = 0;
             isAttacking = true;
@@ -167,7 +170,7 @@ public class GenericCharacter extends  Rectangle{
         {
             Vector2 pos = body.getPosition();
             if(!(isJumping) && !(isFalling)){
-                body.applyLinearImpulse(0f, 0.3f, pos.x, pos.y, true);
+                body.applyLinearImpulse(0f, 0.5f, pos.x, pos.y, true);
                 isJumping = true;
             }
         }

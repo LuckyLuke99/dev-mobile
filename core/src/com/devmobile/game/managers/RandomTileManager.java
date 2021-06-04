@@ -17,13 +17,15 @@ public class RandomTileManager {
     boolean firstGeneration;
     Array<Terrains> terrains;
 
-    int nextDownGround, nextUpGround;
+    int nextDownGround, nextTopGroundX, nextTopGroundY;
 
     public RandomTileManager (final TileManager tileManager){
         this.tileManager = tileManager;
         terrains = new Array<>();
         firstGeneration = true;
         nextDownGround = 0;
+        nextTopGroundX = 0;
+        nextTopGroundY = 0;
     }
 
     public GenericTile newTile(int currentX, int currentY){
@@ -40,9 +42,8 @@ public class RandomTileManager {
 
     public TextureRegion groundGeneration (int currentX, int currentY){
         TextureRegion textureRegion = null;
-
         //Executa caso seja a primeira vez criando os tiles
-        if (firstGeneration){
+        if(firstGeneration){
             int wight = 30;
             int hight = GameInfo.downGroundMaxHeight;
             int space = 3;
@@ -50,29 +51,44 @@ public class RandomTileManager {
             terrains.add(new Terrains(0, 0, wight, hight));
             nextDownGround += (wight * GameInfo.sizeTexture) + (space * GameInfo.sizeTexture);
             firstGeneration = false;
-            nextDownGround();
-            nextDownGround();
-            nextDownGround();
-            nextDownGround();
-            nextDownGround();
-            nextDownGround();
-            nextDownGround();
-            nextDownGround();
-            nextDownGround();
-            nextDownGround();
-            nextDownGround();
-            nextDownGround();
-
         }
 
         if(currentX == nextDownGround){
             nextDownGround();
+            if(GameInfo.downGroundMaxHeight >= currentY / GameInfo.sizeTexture){
+            }
         }
-
-        return downGroundGeneration(currentX, currentY);
+        textureRegion = downTileGeneration(currentX, currentY);
+        return textureRegion;
     }
 
-    void nextDownGround(){
+
+//    private TextureRegion topGeneration(int currentX, int currentY){
+//
+//        if(currentX == nextTopGroundX){
+////            if(GameInfo.topGroundMinPosition <= currentY / GameInfo.sizeTexture && GameInfo.topGroundMaxPosition >= currentY / GameInfo.sizeTexture){
+//                nextTopGround();
+//                return topGroundGeneration(currentX, currentY);
+////            }
+//        }
+//    }
+
+    private void nextTopGround(){
+        int nextY, wight, space;
+        nextY = MathUtils.random(GameInfo.topGroundMinPosition, GameInfo.topGroundMaxPosition);
+        wight = MathUtils.random(3, GameInfo.topGroundMaxWight);
+        space = MathUtils.random(1, GameInfo.topGroundMaxSpace);
+
+        terrains.add(new Terrains(
+                nextTopGroundX,
+                nextY,
+                wight,
+                1
+        ));
+        nextTopGroundX += (wight * GameInfo.sizeTexture) + (space * GameInfo.sizeTexture);
+    }
+
+    private void nextDownGround(){
         int hight, wight, space;
         hight = MathUtils.random(GameInfo.downGroundMinHeight, GameInfo.downGroundMaxHeight);
         wight = MathUtils.random(3, GameInfo.downGroundMaxWight);
@@ -88,7 +104,7 @@ public class RandomTileManager {
     }
 
     //Gerar região de baixo
-    public TextureRegion downGroundGeneration(int currentX, int currentY){
+    public TextureRegion downTileGeneration(int currentX, int currentY){
         for(Terrains terrain : terrains){
             if(terrain.isCenter(currentX, currentY)){
                 return tileManager.getTexture(GameInfo.currentBiome + "_Terrain_05");
@@ -111,6 +127,22 @@ public class RandomTileManager {
         }
         return null;
     }
+
+    public TextureRegion topGroundGeneration(int currentX, int currentY){
+        for(Terrains terrain : terrains){
+            if(terrain.isCenter(currentX, currentY)){
+                return tileManager.getTexture(GameInfo.currentBiome + "_Terrain_10");
+            }
+            else if(terrain.isCornerLeft(currentX, currentY)){
+                return tileManager.getTexture(GameInfo.currentBiome + "_Terrain_09");
+            }
+            else if(terrain.isCornerRight(currentX, currentY)){
+                return tileManager.getTexture(GameInfo.currentBiome + "_Terrain_11");
+            }
+        }
+        return  null;
+    }
+
     //Gerar região de cima
         //Checar se está na região de cima
             //Chegar em qual parte do terreno está
