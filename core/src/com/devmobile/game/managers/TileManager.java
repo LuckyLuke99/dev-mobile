@@ -11,19 +11,22 @@ import com.devmobile.game.helpers.GameInfo;
 
 public class TileManager {
     private TextureAtlas textureAtlas;
-    private TextureAtlas textureCharacters;
+    private TextureAtlas textureAnimations;
     private ObjectMap<String, TextureRegion> tiles;
     private ObjectMap<String, Array<TextureAtlas.AtlasRegion>> characters;
+    private ObjectMap<String, Array<TextureAtlas.AtlasRegion>> items;
 
     public TileManager(){
         textureAtlas = new TextureAtlas(Gdx.files.internal("TesteAtlas.atlas"));
-        textureCharacters = new TextureAtlas(Gdx.files.internal("Characters.atlas"));
+        textureAnimations = new TextureAtlas(Gdx.files.internal("Animations.atlas"));
 
         tiles = new ObjectMap<>();
         characters = new ObjectMap<>();
+        items = new ObjectMap<>();
 
         configCharacter();
         configTiles();
+        configItems();
     }
     public TextureRegion getTexture(String string) {
         return tiles.get(string);
@@ -37,49 +40,67 @@ public class TileManager {
         return characters;
     }
 
+    public Array<TextureAtlas.AtlasRegion> getItems(String name){
+        return items.get(name);
+    }
+
     public void dispose(){
         textureAtlas.dispose();
+    }
+
+    //Find all items animations
+    private void configItems(){
+        //Small Coin
+        items.put("Coin_Small", textureAnimations.findRegions("coin_small"));
+        //Medium Coin
+        items.put("Coin_Medium", textureAnimations.findRegions("coin_medium"));
+        //Larger Coin
+        items.put("Coin_Larger", textureAnimations.findRegions("coin_larger"));
+        //Hearth
+        items.put("Hearth", textureAnimations.findRegions("hearth"));
+        //Health Kit
+        items.put("Health_Kit", textureAnimations.findRegions("health_kit"));
     }
 
     //Find all characters animations
     private void configCharacter(){
         //Holly Animations
-        characters.put("Holly_attack", textureCharacters.findRegions("Holly_attack"));
-        characters.put("Holly_falling", textureCharacters.findRegions("Holly_falling"));
-        characters.put("Holly_run", textureCharacters.findRegions("Holly_run"));
-        characters.put("Holly_hurt", textureCharacters.findRegions("Holly_hurt"));
-        characters.put("Holly_jumping", textureCharacters.findRegions("Holly_jumping"));
+        characters.put("Holly_attack", textureAnimations.findRegions("Holly_attack"));
+        characters.put("Holly_falling", textureAnimations.findRegions("Holly_falling"));
+        characters.put("Holly_run", textureAnimations.findRegions("Holly_run"));
+        characters.put("Holly_hurt", textureAnimations.findRegions("Holly_hurt"));
+        characters.put("Holly_jumping", textureAnimations.findRegions("Holly_jumping"));
 
         //Lil Animations
-        characters.put("Lil_attack", textureCharacters.findRegions("Lil_attack"));
-        characters.put("Lil_falling", textureCharacters.findRegions("Lil_falling"));
-        characters.put("Lil_hurt", textureCharacters.findRegions("Lil_hurt"));
-        characters.put("Lil_jumping", textureCharacters.findRegions("Lil_jumping"));
-        characters.put("Lil_projectile", textureCharacters.findRegions("Lil_projectile"));
-        characters.put("Lil_run", textureCharacters.findRegions("Lil_run"));
+        characters.put("Lil_attack", textureAnimations.findRegions("Lil_attack"));
+        characters.put("Lil_falling", textureAnimations.findRegions("Lil_falling"));
+        characters.put("Lil_hurt", textureAnimations.findRegions("Lil_hurt"));
+        characters.put("Lil_jumping", textureAnimations.findRegions("Lil_jumping"));
+        characters.put("Lil_projectile", textureAnimations.findRegions("Lil_projectile"));
+        characters.put("Lil_run", textureAnimations.findRegions("Lil_run"));
 
         //MrMan
-        characters.put("MrMan_attack", textureCharacters.findRegions("MrMan_attack"));
-        characters.put("MrMan_run", textureCharacters.findRegions("MrMan_run"));
-        characters.put("MrMan_falling", textureCharacters.findRegions("MrMan_falling"));
-        characters.put("MrMan_jumping", textureCharacters.findRegions("MrMan_jumping"));
-        characters.put("MrMan_hurt", textureCharacters.findRegions("MrMan_hurt"));
+        characters.put("MrMan_attack", textureAnimations.findRegions("MrMan_attack"));
+        characters.put("MrMan_run", textureAnimations.findRegions("MrMan_run"));
+        characters.put("MrMan_falling", textureAnimations.findRegions("MrMan_falling"));
+        characters.put("MrMan_jumping", textureAnimations.findRegions("MrMan_jumping"));
+        characters.put("MrMan_hurt", textureAnimations.findRegions("MrMan_hurt"));
 
         //MrMochi
-        characters.put("MrMochi_jumping", textureCharacters.findRegions("MrMochi_jumping"));
-        characters.put("MrMochi_run", textureCharacters.findRegions("MrMochi_run"));
-        characters.put("MrMochi_hurt", textureCharacters.findRegions("MrMochi_hurt"));
+        characters.put("MrMochi_jumping", textureAnimations.findRegions("MrMochi_jumping"));
+        characters.put("MrMochi_run", textureAnimations.findRegions("MrMochi_run"));
+        characters.put("MrMochi_hurt", textureAnimations.findRegions("MrMochi_hurt"));
 
         //Tommy
-        characters.put("Tommy_jumping", textureCharacters.findRegions("Tommy_jumping"));
-        characters.put("Tommy_run", textureCharacters.findRegions("Tommy_run"));
-        characters.put("Tommy_falling", textureCharacters.findRegions("Tommy_falling"));
-        characters.put("Tommy_hurt", textureCharacters.findRegions("Tommy_hurt"));
+        characters.put("Tommy_jumping", textureAnimations.findRegions("Tommy_jumping"));
+        characters.put("Tommy_run", textureAnimations.findRegions("Tommy_run"));
+        characters.put("Tommy_falling", textureAnimations.findRegions("Tommy_falling"));
+        characters.put("Tommy_hurt", textureAnimations.findRegions("Tommy_hurt"));
 
         //Twiggy
-        characters.put("Twiggy_jumping", textureCharacters.findRegions("Twiggy_jumping"));
-        characters.put("Twiggy_run", textureCharacters.findRegions("Twiggy_run"));
-        characters.put("Twiggy_falling", textureCharacters.findRegions("Twiggy_falling"));
+        characters.put("Twiggy_jumping", textureAnimations.findRegions("Twiggy_jumping"));
+        characters.put("Twiggy_run", textureAnimations.findRegions("Twiggy_run"));
+        characters.put("Twiggy_falling", textureAnimations.findRegions("Twiggy_falling"));
     }
 
     //Find all tiles

@@ -25,7 +25,7 @@ import com.sun.tools.javac.util.Context;
 
 import java.util.ArrayList;
 
-public class GenericCharacter extends  Rectangle{
+public class GenericCharacter extends Rectangle{
     private Animation attack, hurt, run, falling, jumping, projectile;
     private float animationSpeed, elapsedTime;
     private boolean isJumping, isRunning, isAttacking, isHurt, isFalling, canShoot, isDead, watingCamera;
@@ -75,10 +75,8 @@ public class GenericCharacter extends  Rectangle{
         CheckStates(vel, pos, camera);
 
         if(pos.y < 0){
-            ResetPosition();
-            Hurt(0);
+            isDead = true;
         }
-
         updatePostion();
     }
 
@@ -142,6 +140,10 @@ public class GenericCharacter extends  Rectangle{
         body.setTransform(body.getPosition().x, (GameInfo.HEIGHT/2f) / GameInfo.PPM, 0f);
     }
 
+    public boolean isDead(){
+        return isDead;
+    }
+
     public void Hurt(float damage){
         Vector2 pos = body.getPosition();
         if(!(isHurt)){
@@ -167,9 +169,12 @@ public class GenericCharacter extends  Rectangle{
     }
 
     public void Jump(){
-        {
-            Vector2 pos = body.getPosition();
-            if(!(isJumping) && !(isFalling)){
+        Vector2 pos = body.getPosition();
+        if(isJumping){
+            body.applyLinearImpulse(0f, -0.5f, pos.x, pos.y, true);
+        }
+        else {
+            if(!(isFalling)){
                 body.applyLinearImpulse(0f, 0.5f, pos.x, pos.y, true);
                 isJumping = true;
             }

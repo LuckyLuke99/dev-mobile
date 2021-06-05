@@ -1,5 +1,6 @@
 package com.devmobile.game.scenes;
 
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
@@ -20,6 +21,7 @@ import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.devmobile.game.DevMobile;
 import com.devmobile.game.helpers.GameInfo;
+import com.devmobile.game.managers.ItemManager;
 import com.devmobile.game.managers.MapManager;
 import com.devmobile.game.managers.TileManager;
 import com.devmobile.game.tiles.GenericCharacter;
@@ -37,6 +39,7 @@ public class GameScreen implements Screen, ContactListener, InputProcessor {
 
     final MapManager mapManager; //Parte que vai gerando o mapa do jogo
     final TileManager tileManager;
+    final ItemManager itemManager;
 
     GenericCharacter character;
     ArrayList<String> randomCharacter;
@@ -50,7 +53,58 @@ public class GameScreen implements Screen, ContactListener, InputProcessor {
 
     public GameScreen (final DevMobile game){
         this.game = game;
+        config();
 
+        tileManager = new TileManager();
+        GameInfo.tileManager = tileManager;
+
+        itemManager = new ItemManager();
+        GameInfo.itemManager = itemManager;
+
+        mapManager = new MapManager(tileManager);
+
+        randomCharacter = new ArrayList();
+        randomCharacter.add("Holly");
+        randomCharacter.add("Lil");
+        randomCharacter.add("MrMan");
+
+        //randomCharacter.add("MrMochi"); //Tá faltando o ataque
+        //randomCharacter.add("Tommy"); //Tá faltando o ataque
+        //randomCharacter.add("Twiggy"); //Tá faltando o ataque
+        //Sorteando um número aleátorio para pegar o nome de um personagem
+
+        randomNum = MathUtils.random(0, randomCharacter.size()-1);
+
+        character = new GenericCharacter(tileManager.getCharacters(), randomCharacter.get(randomNum));
+        GameInfo.mainCharacter = character;
+    }
+
+    @Override
+    public void show() {
+
+    }
+
+    void update(float dt){
+        mapManager.update(mainCamera, character);
+        character.update(mainCamera);
+        if(character.isDead()){
+            game.setScreen(new GameScreen(game));
+        }
+        itemManager.update();
+        moveCamera();
+    }
+
+    void draw(){
+        mapManager.draw(game.batch, mainCamera);
+        character.drawAnimation(game.batch);
+        itemManager.draw(game.batch);
+    }
+
+    void moveCamera(){
+        mainCamera.position.x += GameInfo.velCamera * Gdx.graphics.getDeltaTime();
+    }
+
+    void config(){
         //Configuração da camera e do viewport da tela]
         mainCamera = new OrthographicCamera( GameInfo.WIDHT, GameInfo.HEIGHT);
         mainCamera.position.set(GameInfo.WIDHT/2f, GameInfo.HEIGHT/2f, 0f);
@@ -67,47 +121,6 @@ public class GameScreen implements Screen, ContactListener, InputProcessor {
         //Criando o mundo e colocando gravidade nele da terra
         world = new World(new Vector2(0, -10), true);
         GameInfo.world = world;
-
-        tileManager = new TileManager();
-        mapManager = new MapManager(tileManager);
-
-        randomCharacter = new ArrayList();
-        randomCharacter.add("Holly");
-        randomCharacter.add("Lil");
-        randomCharacter.add("MrMan");
-
-        //randomCharacter.add("MrMochi"); //Tá faltando o ataque
-        //randomCharacter.add("Tommy"); //Tá faltando o ataque
-        //randomCharacter.add("Twiggy"); //Tá faltando o ataque
-        //Sorteando um número aleátorio para pegar o nome de um personagem
-
-        randomNum = MathUtils.random(0, randomCharacter.size()-1);
-
-        character = new GenericCharacter(tileManager.getCharacters(), randomCharacter.get(randomNum));
-    }
-
-    @Override
-    public void show() {
-
-    }
-
-    void update(float dt){
-        mapManager.update(mainCamera, character);
-        character.update(mainCamera);
-        moveCamera();
-    }
-
-    void draw(){
-        mapManager.draw(game.batch, mainCamera);
-        character.drawAnimation(game.batch);
-    }
-
-    void moveCamera(){
-        mainCamera.position.x += GameInfo.velCamera * Gdx.graphics.getDeltaTime();
-    }
-
-    void updateBodies(){
-
     }
 
     @Override
@@ -122,7 +135,7 @@ public class GameScreen implements Screen, ContactListener, InputProcessor {
         draw();
         game.batch.end();
 
-        debugRenderer.render(world, box2DCamera.combined);
+        //debugRenderer.render(world, box2DCamera.combined);
         world.step(1/60f, 6, 2);
 
         game.batch.setProjectionMatrix(mainCamera.combined);

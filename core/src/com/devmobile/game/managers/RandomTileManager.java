@@ -7,6 +7,8 @@ import com.devmobile.game.helpers.GameInfo;
 import com.devmobile.game.tiles.GenericCharacter;
 import com.devmobile.game.tiles.GenericTile;
 import com.devmobile.game.tiles.Terrains;
+import com.devmobile.game.tiles.items.CoinSmall;
+import com.devmobile.game.tiles.items.GenericItem;
 
 import java.util.Iterator;
 
@@ -75,7 +77,7 @@ public class RandomTileManager {
                 wight,
                 1
         ));
-
+        //coinGeneration(nextTopGround, nextY, wight);
         nextTopGround += (wight * GameInfo.sizeTexture) + (space * GameInfo.sizeTexture);
     }
 
@@ -93,6 +95,20 @@ public class RandomTileManager {
                 hight
         ));
         nextDownGround += (wight * GameInfo.sizeTexture) + (space * GameInfo.sizeTexture);
+    }
+
+    private void coinGeneration(int x, int y, int width){
+        int num = MathUtils.random(0, 100);
+        if(GameInfo.coinChance >= num){
+            int _width = MathUtils.random(3, width);
+            int nextCoin = x;
+            GenericItem coin;
+            for(int i = 0; i < _width; i++){
+                coin = new CoinSmall();
+                coin.setPosition(nextCoin, y);
+                GameInfo.itemManager.add(coin);
+            }
+        }
     }
 
     //Returna os tiles caso o currentX e currentY esteja dentro de um dos terrenos

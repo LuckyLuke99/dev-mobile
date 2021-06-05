@@ -1,0 +1,461 @@
+
+Animations.png
+size: 2048, 64
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+Holly_attack
+  rotate: false
+  xy: 2, 4
+  size: 64, 48
+  orig: 64, 48
+  offset: 0, 0
+  index: 1
+Holly_attack
+  rotate: false
+  xy: 68, 4
+  size: 64, 48
+  orig: 64, 48
+  offset: 0, 0
+  index: 6
+Holly_attack
+  rotate: false
+  xy: 134, 4
+  size: 64, 48
+  orig: 64, 48
+  offset: 0, 0
+  index: 3
+Holly_attack
+  rotate: false
+  xy: 200, 4
+  size: 64, 48
+  orig: 64, 48
+  offset: 0, 0
+  index: 8
+Holly_attack
+  rotate: false
+  xy: 266, 4
+  size: 64, 48
+  orig: 64, 48
+  offset: 0, 0
+  index: 5
+Holly_attack
+  rotate: false
+  xy: 332, 4
+  size: 64, 48
+  orig: 64, 48
+  offset: 0, 0
+  index: 2
+Holly_attack
+  rotate: false
+  xy: 398, 4
+  size: 64, 48
+  orig: 64, 48
+  offset: 0, 0
+  index: 7
+Holly_attack
+  rotate: false
+  xy: 464, 4
+  size: 64, 48
+  orig: 64, 48
+  offset: 0, 0
+  index: 4
+Holly_falling
+  rotate: false
+  xy: 564, 20
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 1
+Holly_falling
+  rotate: false
+  xy: 1244, 20
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 2
+Holly_hurt
+  rotate: false
+  xy: 802, 20
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+Holly_jumping
+  rotate: false
+  xy: 1210, 20
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+Holly_run
+  rotate: false
+  xy: 530, 20
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 6
+Holly_run
+  rotate: false
+  xy: 632, 20
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 3
+Holly_run
+  rotate: false
+  xy: 904, 20
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 5
+Holly_run
+  rotate: false
+  xy: 1108, 20
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 2
+Holly_run
+  rotate: false
+  xy: 1312, 20
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 4
+Holly_run
+  rotate: false
+  xy: 1380, 20
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 1
+Lil_attack
+  rotate: false
+  xy: 700, 20
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 4
+Lil_attack
+  rotate: false
+  xy: 836, 20
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 1
+Lil_attack
+  rotate: false
+  xy: 1040, 20
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 3
+Lil_attack
+  rotate: false
+  xy: 1448, 20
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 2
+Lil_falling
+  rotate: false
+  xy: 666, 20
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 2
+Lil_falling
+  rotate: false
+  xy: 1074, 20
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 1
+Lil_hurt
+  rotate: false
+  xy: 1006, 20
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 2
+Lil_hurt
+  rotate: false
+  xy: 1414, 20
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 1
+Lil_jumping
+  rotate: false
+  xy: 734, 20
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+Lil_projectile
+  rotate: false
+  xy: 768, 20
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 2
+Lil_projectile
+  rotate: false
+  xy: 938, 20
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 4
+Lil_projectile
+  rotate: false
+  xy: 1142, 20
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 1
+Lil_projectile
+  rotate: false
+  xy: 1346, 20
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 3
+Lil_run
+  rotate: false
+  xy: 598, 20
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 2
+Lil_run
+  rotate: false
+  xy: 870, 20
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 4
+Lil_run
+  rotate: false
+  xy: 972, 20
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 1
+Lil_run
+  rotate: false
+  xy: 1176, 20
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 6
+Lil_run
+  rotate: false
+  xy: 1278, 20
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 3
+Lil_run
+  rotate: false
+  xy: 1482, 20
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 5
+MrMan_attack
+  rotate: false
+  xy: 1672, 36
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 3
+MrMan_attack
+  rotate: false
+  xy: 1870, 36
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+MrMan_attack
+  rotate: false
+  xy: 2014, 36
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+MrMan_falling
+  rotate: false
+  xy: 1816, 36
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+MrMan_hurt
+  rotate: false
+  xy: 1762, 36
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+MrMan_jumping
+  rotate: false
+  xy: 530, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+MrMan_run
+  rotate: false
+  xy: 1654, 36
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 6
+MrMan_run
+  rotate: false
+  xy: 1708, 36
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 3
+MrMan_run
+  rotate: false
+  xy: 1834, 36
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 5
+MrMan_run
+  rotate: false
+  xy: 1888, 36
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+MrMan_run
+  rotate: false
+  xy: 1960, 36
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 4
+MrMan_run
+  rotate: false
+  xy: 548, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+coin_larger
+  rotate: false
+  xy: 1516, 36
+  size: 32, 16
+  orig: 32, 16
+  offset: 0, 0
+  index: 1
+coin_larger
+  rotate: false
+  xy: 1550, 36
+  size: 32, 16
+  orig: 32, 16
+  offset: 0, 0
+  index: 3
+coin_larger
+  rotate: false
+  xy: 1584, 36
+  size: 32, 16
+  orig: 32, 16
+  offset: 0, 0
+  index: 2
+coin_medium
+  rotate: false
+  xy: 1636, 36
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+coin_medium
+  rotate: false
+  xy: 1744, 36
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 3
+coin_medium
+  rotate: false
+  xy: 1924, 36
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+coin_medium
+  rotate: false
+  xy: 1978, 36
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 4
+coin_small
+  rotate: false
+  xy: 1618, 36
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+coin_small
+  rotate: false
+  xy: 1726, 36
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 4
+coin_small
+  rotate: false
+  xy: 1798, 36
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+coin_small
+  rotate: false
+  xy: 1906, 36
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 3
+health_kit
+  rotate: false
+  xy: 1690, 36
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+hearth
+  rotate: false
+  xy: 1780, 36
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+hearth
+  rotate: false
+  xy: 1852, 36
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 4
+hearth
+  rotate: false
+  xy: 1942, 36
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+hearth
+  rotate: false
+  xy: 1996, 36
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 3
