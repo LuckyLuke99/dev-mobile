@@ -17,9 +17,9 @@ public class GenericItem extends Rectangle {
     private boolean isPlaying;
 
     public GenericItem (Array<TextureAtlas.AtlasRegion> animation, int width, int height){
-        System.out.println("Animação da moeda: " + animation);
         animationSpeed = 0.10f;
         this.animation = new Animation<TextureAtlas.AtlasRegion>(animationSpeed, animation, Animation.PlayMode.LOOP);
+        isPlaying = true;
         setWidth(width);
         setHeight(height);
     }
@@ -38,6 +38,7 @@ public class GenericItem extends Rectangle {
         }
         else {
             elapsedTime = 0;
+            batch.draw((TextureAtlas.AtlasRegion)animation.getKeyFrame(elapsedTime), getX(), getY());
         }
     }
 

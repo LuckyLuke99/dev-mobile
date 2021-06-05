@@ -22,7 +22,10 @@ public class GameInfo {
     public static float mainScore;
     public static GenericCharacter mainCharacter;
     public static float velCamera = 120f; // Velocidade da camera
-    public static int coinChance = 100; // Vai de 0 a 100;
+    public static int coinChance = 100; // Chence de gerar as moedas encima de um terreno;
+    public static int coinSmallChance = 1;
+    public static int coinMediumChance = 1;
+    public static int coinLargerChance = 1;
 
     //------------------------------------------------------
     //-----------------------MANAGERS-----------------------

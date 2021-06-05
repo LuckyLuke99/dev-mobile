@@ -7,8 +7,11 @@ import com.devmobile.game.helpers.GameInfo;
 import com.devmobile.game.tiles.GenericCharacter;
 import com.devmobile.game.tiles.GenericTile;
 import com.devmobile.game.tiles.Terrains;
+import com.devmobile.game.tiles.items.CoinLarger;
+import com.devmobile.game.tiles.items.CoinMedium;
 import com.devmobile.game.tiles.items.CoinSmall;
 import com.devmobile.game.tiles.items.GenericItem;
+import com.sun.org.apache.bcel.internal.generic.SWITCH;
 
 import java.util.Iterator;
 
@@ -77,7 +80,7 @@ public class RandomTileManager {
                 wight,
                 1
         ));
-        //coinGeneration(nextTopGround, nextY, wight);
+        itemGeneration(nextTopGround, (nextY + 1) * GameInfo.sizeTexture, wight);
         nextTopGround += (wight * GameInfo.sizeTexture) + (space * GameInfo.sizeTexture);
     }
 
@@ -94,19 +97,37 @@ public class RandomTileManager {
                 wight,
                 hight
         ));
+        itemGeneration(nextDownGround, hight * GameInfo.sizeTexture, wight);
         nextDownGround += (wight * GameInfo.sizeTexture) + (space * GameInfo.sizeTexture);
     }
 
-    private void coinGeneration(int x, int y, int width){
+    //Parte da geração das moedas
+    private void itemGeneration(int x, int y, int width){
         int num = MathUtils.random(0, 100);
         if(GameInfo.coinChance >= num){
             int _width = MathUtils.random(3, width);
+            String itemType = GameInfo.itemManager.getRandomName();
             int nextCoin = x;
-            GenericItem coin;
+            GenericItem coin = null;
             for(int i = 0; i < _width; i++){
-                coin = new CoinSmall();
-                coin.setPosition(nextCoin, y);
-                GameInfo.itemManager.add(coin);
+                switch (itemType){
+                    case "Coin_Small":
+                        coin = new CoinSmall();
+                        break;
+                    case  "Coin_Medium":
+                        coin = new CoinMedium();
+                        break;
+                    case "Coin_Larger":
+                        coin = new CoinLarger();
+                        nextCoin += _width/2;
+                        i = _width;
+                        break;
+                }
+                if (coin != null) {
+                    coin.setPosition(nextCoin, y);
+                    nextCoin += coin.width;
+                    GameInfo.itemManager.add(coin);
+                }
             }
         }
     }
