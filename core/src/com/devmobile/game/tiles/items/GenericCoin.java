@@ -13,6 +13,12 @@ public class GenericCoin extends GenericItem{
         this.value = value;
     }
 
+    public GenericCoin(Array<TextureAtlas.AtlasRegion> animation, float animSpeed, int width, int height, float value) {
+        super(animation, width, height);
+        this.animationSpeed = animSpeed;
+        this.value = value;
+    }
+
     @Override
     public void use() {
         if(isUsable){

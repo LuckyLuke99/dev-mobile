@@ -37,73 +37,59 @@ public class GameScreen implements Screen, ContactListener, InputProcessor {
     private OrthographicCamera mainCamera;
     private Viewport gameViewport;
 
-    final MapManager mapManager; //Parte que vai gerando o mapa do jogo
-    final TileManager tileManager;
-    final ItemManager itemManager;
-
-    GenericCharacter character;
-    ArrayList<String> randomCharacter;
-
     //Configuração do Box2D
     private OrthographicCamera box2DCamera;
     private Box2DDebugRenderer debugRenderer;
     private World world;
 
-    int randomNum;
+    //Managers, controlam oque acontece no jogo
+    final MapManager mapManager; //Parte ligada a geração do conteúdo no mapa
+    final TileManager tileManager; //Parte ligada as texturas dos tiles
+    final ItemManager itemManager; //Parte ligada a manipulação dos items
 
+    //Personagem
+    GenericCharacter character;
+    ArrayList<String> randomCharacter; // Nomes dos personagens dispóniveis
+    int randomNum; // Número aleátoria que irá escolher qual vai ser o personagem pelo randomCharacter
+
+    //------------------------------------------------------
+    //---------METODOS-EXECUTADOS-AO-INICIALIZAR------------
+    //------------------------------------------------------
+
+    //Chamado ao iniciar essa tela
     public GameScreen (final DevMobile game){
         this.game = game;
         config();
 
+        //Inicializando os managers
         tileManager = new TileManager();
         GameInfo.tileManager = tileManager;
-
         itemManager = new ItemManager();
         GameInfo.itemManager = itemManager;
-
         mapManager = new MapManager(tileManager);
 
+        configCharacter();
+
+        GameInfo.mainScore = 0;
+    }
+
+    //Sorteando um personagem e inicializando o personagem principal
+    void configCharacter(){
         randomCharacter = new ArrayList();
         randomCharacter.add("Holly");
         randomCharacter.add("Lil");
         randomCharacter.add("MrMan");
-
         //randomCharacter.add("MrMochi"); //Tá faltando o ataque
         //randomCharacter.add("Tommy"); //Tá faltando o ataque
         //randomCharacter.add("Twiggy"); //Tá faltando o ataque
+
         //Sorteando um número aleátorio para pegar o nome de um personagem
-
         randomNum = MathUtils.random(0, randomCharacter.size()-1);
-
         character = new GenericCharacter(tileManager.getCharacters(), randomCharacter.get(randomNum));
-        GameInfo.mainCharacter = character;
+        GameInfo.mainCharacter = character; // Passando o personagem principal para o
     }
 
-    @Override
-    public void show() {
-
-    }
-
-    void update(float dt){
-        mapManager.update(mainCamera, character);
-        character.update(mainCamera);
-        if(character.isDead()){
-            game.setScreen(new GameScreen(game));
-        }
-        itemManager.update();
-        moveCamera();
-    }
-
-    void draw(){
-        mapManager.draw(game.batch, mainCamera);
-        character.drawAnimation(game.batch);
-        itemManager.draw(game.batch);
-    }
-
-    void moveCamera(){
-        mainCamera.position.x += GameInfo.velCamera * Gdx.graphics.getDeltaTime();
-    }
-
+    //Inicializando a mainCamera, box2DCamera, debugRenderer, world e InputProcessor
     void config(){
         //Configuração da camera e do viewport da tela]
         mainCamera = new OrthographicCamera( GameInfo.WIDHT, GameInfo.HEIGHT);
@@ -121,6 +107,37 @@ public class GameScreen implements Screen, ContactListener, InputProcessor {
         //Criando o mundo e colocando gravidade nele da terra
         world = new World(new Vector2(0, -10), true);
         GameInfo.world = world;
+
+        Gdx.input.setInputProcessor(this);
+    }
+
+    //------------------------------------------------------
+    //-----------METODOS-EXECUTADOS-A-CADA-FRAME------------
+    //------------------------------------------------------
+
+    void update(float dt){
+        mapManager.update(mainCamera, character);
+        character.update(mainCamera);
+
+        //O personagem está morto caso o y seja menor que 0
+        if(character.isDead()){
+            game.setScreen(new GameScreen(game));
+        }
+
+        itemManager.update();
+        moveCamera();
+
+        System.out.println(GameInfo.mainScore);
+    }
+
+    void draw(){
+        mapManager.draw(game.batch, mainCamera);
+        character.drawAnimation(game.batch);
+        itemManager.draw(game.batch);
+    }
+
+    void moveCamera(){
+        mainCamera.position.x += GameInfo.velCamera * Gdx.graphics.getDeltaTime();
     }
 
     @Override
@@ -129,19 +146,42 @@ public class GameScreen implements Screen, ContactListener, InputProcessor {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         //Atualizando todas as classes
-        update(delta);
+        update(delta); // Atualiza todas os objetos
 
         game.batch.begin();
-        draw();
+        draw(); // Desenha todos os objetos
         game.batch.end();
 
+        //Debug câmera só funciona com a camera parada
         //debugRenderer.render(world, box2DCamera.combined);
+
         world.step(1/60f, 6, 2);
 
         game.batch.setProjectionMatrix(mainCamera.combined);
         mainCamera.update();
+    }
 
-        Gdx.input.setInputProcessor(this);
+    @Override
+    public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+        float screenWidth = Gdx.graphics.getWidth();
+        //Caso seja o lado esquerdo pular
+        if(screenX < screenWidth/2f){
+            character.Jump();
+        }
+        //Caso seja o lado direito usar o ataque
+        else if (screenX > screenWidth/2f){
+            character.Attack();
+        }
+        return false;
+    }
+
+    //------------------------------------------------------
+    //------------METODOS-OVERRIDE-NUNCA-USADOS-------------
+    //------------------------------------------------------
+
+    @Override
+    public void show() {
+
     }
 
     @Override
@@ -200,18 +240,6 @@ public class GameScreen implements Screen, ContactListener, InputProcessor {
 
     @Override
     public boolean keyTyped(char character) {
-        return false;
-    }
-
-    @Override
-    public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-        float screenWidth = Gdx.graphics.getWidth();
-        if(screenX < screenWidth/2f){
-            character.Jump();
-        }
-        else if (screenX > screenWidth/2f){
-            character.Attack();
-        }
         return false;
     }
 

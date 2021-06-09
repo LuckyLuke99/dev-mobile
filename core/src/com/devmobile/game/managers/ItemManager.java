@@ -9,7 +9,7 @@ import com.devmobile.game.helpers.GameInfo;
 import com.devmobile.game.tiles.items.GenericItem;
 
 public class ItemManager {
-    private Array<GenericItem> items;
+    private Array<GenericItem> items; //Guarda o nome dos items com a chance
     private ObjectMap<String, Integer> allNames;
 
     public ItemManager (){

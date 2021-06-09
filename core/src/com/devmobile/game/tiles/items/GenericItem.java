@@ -12,7 +12,8 @@ import com.badlogic.gdx.utils.Array;
 import java.util.ArrayList;
 
 public class GenericItem extends Rectangle {
-    private float elapsedTime, animationSpeed;
+    private float elapsedTime;
+    protected float animationSpeed;
     private Animation animation;
     private boolean isPlaying;
 

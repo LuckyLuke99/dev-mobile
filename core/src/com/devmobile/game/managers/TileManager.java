@@ -28,6 +28,7 @@ public class TileManager {
         configTiles();
         configItems();
     }
+
     public TextureRegion getTexture(String string) {
         return tiles.get(string);
     }
