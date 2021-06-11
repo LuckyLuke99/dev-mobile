@@ -1,6 +1,5 @@
 package com.devmobile.game.scenes;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
@@ -8,15 +7,12 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.Contact;
 import com.badlogic.gdx.physics.box2d.ContactImpulse;
 import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.Manifold;
 import com.badlogic.gdx.physics.box2d.World;
-import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.devmobile.game.DevMobile;
@@ -25,8 +21,6 @@ import com.devmobile.game.managers.ItemManager;
 import com.devmobile.game.managers.MapManager;
 import com.devmobile.game.managers.TileManager;
 import com.devmobile.game.tiles.GenericCharacter;
-import com.devmobile.game.tiles.GenericTile;
-import com.devmobile.game.tiles.Terrains02;
 
 import java.util.ArrayList;
 
@@ -38,7 +32,7 @@ public class GameScreen implements Screen, ContactListener, InputProcessor {
     private Viewport gameViewport;
 
     //Configuração do Box2D
-    private OrthographicCamera box2DCamera;
+    private OrthographicCamera box2DCamera, UICamera;
     private Box2DDebugRenderer debugRenderer;
     private World world;
 
@@ -68,6 +62,7 @@ public class GameScreen implements Screen, ContactListener, InputProcessor {
         GameInfo.itemManager = itemManager;
         mapManager = new MapManager(tileManager);
 
+        //Configuração da camera e do viewport da tela
         configCharacter();
 
         GameInfo.mainScore = 0;
@@ -89,7 +84,7 @@ public class GameScreen implements Screen, ContactListener, InputProcessor {
         GameInfo.mainCharacter = character; // Passando o personagem principal para o
     }
 
-    //Inicializando a mainCamera, box2DCamera, debugRenderer, world e InputProcessor
+    //Inicializando a mainCamera, box2DCamera, debugRenderer, world, InputProcessor e UI
     void config(){
         //Configuração da camera e do viewport da tela]
         mainCamera = new OrthographicCamera( GameInfo.WIDHT, GameInfo.HEIGHT);
@@ -103,6 +98,10 @@ public class GameScreen implements Screen, ContactListener, InputProcessor {
 
         //Debug camera para o box2D
         debugRenderer = new Box2DDebugRenderer();
+
+        //Configuração da camera UI
+        UICamera = new OrthographicCamera(GameInfo.WIDHT, GameInfo.HEIGHT);
+        UICamera.position.set(GameInfo.WIDHT/2f, GameInfo.HEIGHT/2f, 0f);
 
         //Criando o mundo e colocando gravidade nele da terra
         world = new World(new Vector2(0, -10), true);
@@ -138,6 +137,10 @@ public class GameScreen implements Screen, ContactListener, InputProcessor {
 
     void moveCamera(){
         mainCamera.position.x += GameInfo.velCamera * Gdx.graphics.getDeltaTime();
+        UICamera.position.x += GameInfo.velCamera * Gdx.graphics.getDeltaTime();
+    }
+
+    void updateBodies(){
     }
 
     @Override
@@ -158,7 +161,26 @@ public class GameScreen implements Screen, ContactListener, InputProcessor {
         world.step(1/60f, 6, 2);
 
         game.batch.setProjectionMatrix(mainCamera.combined);
+        game.batch.setProjectionMatrix(UICamera.combined);
+
         mainCamera.update();
+        UICamera.update();
+    }
+
+
+    @Override
+    public boolean keyDown(int keycode) {
+        return false;
+    }
+
+    @Override
+    public boolean keyUp(int keycode) {
+        return false;
+    }
+
+    @Override
+    public boolean keyTyped(char character) {
+        return false;
     }
 
     @Override
@@ -172,6 +194,26 @@ public class GameScreen implements Screen, ContactListener, InputProcessor {
         else if (screenX > screenWidth/2f){
             character.Attack();
         }
+        return false;
+    }
+
+    @Override
+    public boolean touchUp(int screenX, int screenY, int pointer, int button) {
+        return false;
+    }
+
+    @Override
+    public boolean touchDragged(int screenX, int screenY, int pointer) {
+        return false;
+    }
+
+    @Override
+    public boolean mouseMoved(int screenX, int screenY) {
+        return false;
+    }
+
+    @Override
+    public boolean scrolled(float amountX, float amountY) {
         return false;
     }
 
@@ -226,40 +268,5 @@ public class GameScreen implements Screen, ContactListener, InputProcessor {
     @Override
     public void postSolve(Contact contact, ContactImpulse impulse) {
 
-    }
-
-    @Override
-    public boolean keyDown(int keycode) {
-        return false;
-    }
-
-    @Override
-    public boolean keyUp(int keycode) {
-        return false;
-    }
-
-    @Override
-    public boolean keyTyped(char character) {
-        return false;
-    }
-
-    @Override
-    public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-        return false;
-    }
-
-    @Override
-    public boolean touchDragged(int screenX, int screenY, int pointer) {
-        return false;
-    }
-
-    @Override
-    public boolean mouseMoved(int screenX, int screenY) {
-        return false;
-    }
-
-    @Override
-    public boolean scrolled(float amountX, float amountY) {
-        return false;
     }
 }
