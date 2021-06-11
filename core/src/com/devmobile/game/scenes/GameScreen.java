@@ -137,6 +137,7 @@ public class GameScreen implements Screen, ContactListener, InputProcessor {
 
         itemManager.reset();
         mapManager.reset();
+        character.ResetPosition();
     }
 
     //------------------------------------------------------

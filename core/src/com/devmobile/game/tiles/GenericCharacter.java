@@ -138,6 +138,14 @@ public class GenericCharacter extends Rectangle{
 
     public void ResetPosition(){
         body.setTransform(body.getPosition().x, (GameInfo.HEIGHT/2f) / GameInfo.PPM, 0f);
+        isRunning = true;
+        isJumping = false;
+        isFalling = false;
+        isAttacking = false;
+        isHurt = false;
+        isDead = false;
+        animationSpeed = 0.10f;
+        elapsedTime = 0;
     }
 
     public boolean isDead(){
