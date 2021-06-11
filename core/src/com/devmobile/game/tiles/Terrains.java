@@ -78,6 +78,9 @@ public class Terrains extends Rectangle {
                 currentY <= y2 - GameInfo.sizeTexture;
     }
 
+    public void destroyBody(){
+        world.destroyBody(body);
+    }
     void configBounds(){
         x1 = x;
         y1 = y;

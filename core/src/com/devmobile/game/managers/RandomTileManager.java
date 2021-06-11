@@ -28,12 +28,24 @@ public class RandomTileManager {
 
     public RandomTileManager (final TileManager tileManager){
         this.tileManager = tileManager;
-
         downTerrains = new Array<>();
         topTerrains = new Array<>();
-
         firstGeneration = true;
         nextDownGround = 0;
+    }
+
+    public void reset(){
+        for (Terrains terrain : downTerrains){
+            terrain.destroyBody();
+        }
+        for (Terrains terrain : topTerrains){
+            terrain.destroyBody();
+        }
+        downTerrains = new Array<>();
+        topTerrains = new Array<>();
+        firstGeneration = true;
+        nextDownGround = 0;
+        nextTopGround = 0;
     }
 
     //Cria um GenericTile para passar depois as texturas

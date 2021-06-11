@@ -51,6 +51,17 @@ public class MapManager {
         startMap();
     }
 
+    public void reset(){
+        currentX = 0;
+        currentY = 0;
+        playerY = 0;
+
+        randomBiome();
+        randomTile.reset();
+        parallaxManager.reset();
+        startMap();
+    }
+
     //Inicia o mapa
     public void startMap(){
         // Popula todos os tiles para iniciar o jogo
@@ -77,7 +88,7 @@ public class MapManager {
 
     //Escolhe qual vai ser o bioma ao iniciar
     private void randomBiome(){
-        GameInfo.currentBiome = biomes.get(MathUtils.random(0, 3));
+        GameInfo.currentBiome = biomes.get(MathUtils.random(0, biomes.size()-1));
     }
 
     //Atualiza a posição dos tiles na tela
@@ -114,8 +125,5 @@ public class MapManager {
             return true;
         }
         return false;
-    }
-
-    public void dispose(){
     }
 }

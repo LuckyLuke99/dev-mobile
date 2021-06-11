@@ -13,7 +13,7 @@ public class ItemManager {
     private ObjectMap<String, Integer> allNames;
 
     public ItemManager (){
-        items = new Array<>();
+        reset();
         config();
     }
 
@@ -21,9 +21,19 @@ public class ItemManager {
         checkItems();
     }
 
+    public void reset(){
+        items = new Array<>();
+    }
+
     public void  draw(SpriteBatch batch){
-        for(GenericItem item : items){
-            item.drawAnimation(batch);
+        for(int i = 0; i < items.size; i++){
+            GenericItem item = items.get(i);
+            if(item.getDead()){
+                items.removeIndex(i);
+            }
+            else {
+                item.drawAnimation(batch);
+            }
         }
     }
 

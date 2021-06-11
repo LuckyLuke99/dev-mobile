@@ -3,6 +3,6 @@ import com.devmobile.game.helpers.GameInfo;
 
 public class CoinMedium extends GenericCoin{
     public CoinMedium(){
-        super(GameInfo.tileManager.getItems("Coin_Medium"), 16, 16, 10);
+        super(GameInfo.tileManager.getItems("Coin_Medium"),true, 16, 16, 10);
     }
 }

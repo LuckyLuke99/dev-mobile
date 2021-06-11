@@ -9,24 +9,16 @@ import com.devmobile.game.tiles.BG;
 public class BGManager {
     private BG[] bgs;
     private float nextPositionX;
-    private int countBG = 0;
-    private int lastBG = 2;
-    private int countChange = 1;
+    private int countBG;
+    private int lastBG;
+    private int countChange ;
     private float offSetX;
     private boolean isChanging;
 
     //Caso só seja passado uma textura
     public  BGManager(TextureRegion texture, int offSetX){
         bgs = new BG[3];
-        nextPositionX = 0;
-
-        //Adicionando os bgs a primeira vez
-        for (int i = 0; i < bgs.length; i++){
-            bgs[i] = new BG(texture);
-            bgs[i].setX(nextPositionX);
-            addNextPostionX(bgs[i]);
-        }
-
+        reset(texture);
         //Checando se o valor está fora do padrão e reajustando para o limite
         if(offSetX < 0){
             offSetX = 0;
@@ -35,6 +27,18 @@ public class BGManager {
             offSetX = 100;
         }
         this.offSetX = offSetX;
+    }
+
+    public void reset(TextureRegion texture){
+        countBG = 0;
+        lastBG = 2;
+        countChange = 1;
+        nextPositionX = 0;
+        for (int i = 0; i < bgs.length; i++){
+            bgs[i] = new BG(texture);
+            bgs[i].setX(nextPositionX);
+            addNextPostionX(bgs[i]);
+        }
         isChanging = false;
     }
 
