@@ -24,8 +24,18 @@ import com.devmobile.game.tiles.GenericCharacter;
 
 import java.util.ArrayList;
 
+
 public class GameScreen implements Screen, ContactListener, InputProcessor {
     final DevMobile game;
+
+    public enum states {
+        START,
+        WAITING,
+        RUNNING,
+        END
+    }
+
+    private states currentState;
 
     //Configuração da câmera
     private OrthographicCamera mainCamera;
@@ -66,6 +76,7 @@ public class GameScreen implements Screen, ContactListener, InputProcessor {
         configCharacter();
 
         GameInfo.mainScore = 0;
+        currentState = states.START;
     }
 
     //Sorteando um personagem e inicializando o personagem principal
@@ -110,6 +121,23 @@ public class GameScreen implements Screen, ContactListener, InputProcessor {
         Gdx.input.setInputProcessor(this);
     }
 
+    void reset(){
+        //Resetando as câmeras
+        mainCamera.position.set(GameInfo.WIDHT/2f, GameInfo.HEIGHT/2f, 0f);
+        box2DCamera.position.set(GameInfo.WIDHT/2f, GameInfo.HEIGHT/2f, 0f);
+
+        //Resetando o personagem
+        randomNum = MathUtils.random(0, randomCharacter.size()-1);
+        character = new GenericCharacter(tileManager.getCharacters(), randomCharacter.get(randomNum));
+        GameInfo.mainCharacter = character;
+
+        //Resetando o GameInfo
+        GameInfo.mainScore = 0;
+
+        itemManager.reset();
+        mapManager.reset();
+    }
+
     //------------------------------------------------------
     //-----------METODOS-EXECUTADOS-A-CADA-FRAME------------
     //------------------------------------------------------
@@ -120,13 +148,10 @@ public class GameScreen implements Screen, ContactListener, InputProcessor {
 
         //O personagem está morto caso o y seja menor que 0
         if(character.isDead()){
-            game.setScreen(new GameScreen(game));
+            reset();
         }
-
         itemManager.update();
         moveCamera();
-
-        System.out.println(GameInfo.mainScore);
     }
 
     void draw(){
@@ -147,9 +172,21 @@ public class GameScreen implements Screen, ContactListener, InputProcessor {
     public void render(float delta) {
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
+        switch (currentState){
+            case START:
+                reset();
+                currentState = states.WAITING;
+                break;
+            case WAITING:
+                
+                break;
+            case RUNNING:
+                update(delta); // Atualiza todas os objetos
+                break;
+            case END:
+                break;
+        }
         //Atualizando todas as classes
-        update(delta); // Atualiza todas os objetos
 
         game.batch.begin();
         draw(); // Desenha todos os objetos

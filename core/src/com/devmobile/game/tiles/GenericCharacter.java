@@ -244,6 +244,7 @@ public class GenericCharacter extends Rectangle{
         Fixture fixture = body.createFixture(fixtureDef);
         fixture.setUserData("Player");
 
+
         shape.dispose();
     }
 }

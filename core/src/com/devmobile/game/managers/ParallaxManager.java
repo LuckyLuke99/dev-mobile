@@ -12,6 +12,13 @@ public class ParallaxManager {
         start();
     }
 
+    public void reset(){
+        bg04.reset(tileManager.getTexture(GameInfo.currentBiome + "_BG_04"));
+        bg03.reset(tileManager.getTexture(GameInfo.currentBiome + "_BG_03"));
+        bg02.reset(tileManager.getTexture(GameInfo.currentBiome + "_BG_02"));
+        bg01.reset(tileManager.getTexture(GameInfo.currentBiome + "_BG_01"));
+    }
+
     public void update(OrthographicCamera camera){
         bg04.update(camera);
         bg03.update(camera);
