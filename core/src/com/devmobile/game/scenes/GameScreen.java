@@ -175,7 +175,9 @@ public class GameScreen implements Screen, ContactListener, InputProcessor {
                 currentState = states.WAITING;
                 break;
             case WAITING:
-                
+                if(Gdx.input.isTouched()){
+                    currentState = states.RUNNING;
+                }
                 break;
             case RUNNING:
                 update(delta); // Atualiza todas os objetos
