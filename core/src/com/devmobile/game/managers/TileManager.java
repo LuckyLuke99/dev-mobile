@@ -12,6 +12,7 @@ import com.devmobile.game.helpers.GameInfo;
 public class TileManager {
     private TextureAtlas textureAtlas;
     private TextureAtlas textureAnimations;
+    private TextureAtlas textureMenu;
     private ObjectMap<String, TextureRegion> tiles;
     private ObjectMap<String, Array<TextureAtlas.AtlasRegion>> characters;
     private ObjectMap<String, Array<TextureAtlas.AtlasRegion>> items;
@@ -19,6 +20,7 @@ public class TileManager {
     public TileManager(){
         textureAtlas = new TextureAtlas(Gdx.files.internal("TesteAtlas.atlas"));
         textureAnimations = new TextureAtlas(Gdx.files.internal("Animations.atlas"));
+        textureMenu = new TextureAtlas(Gdx.files.internal("Menu.atlas"));
 
         tiles = new ObjectMap<>();
         characters = new ObjectMap<>();
@@ -27,6 +29,10 @@ public class TileManager {
         configCharacter();
         configTiles();
         configItems();
+    }
+
+    public TextureAtlas getMenu (){
+        return textureMenu;
     }
 
     public TextureRegion getTexture(String string) {

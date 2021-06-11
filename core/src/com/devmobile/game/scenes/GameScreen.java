@@ -25,7 +25,7 @@ import com.devmobile.game.tiles.GenericCharacter;
 import java.util.ArrayList;
 
 
-public class GameScreen implements Screen, ContactListener, InputProcessor {
+public class GameScreen implements Screen, InputProcessor {
     final DevMobile game;
 
     public enum states {
@@ -66,7 +66,7 @@ public class GameScreen implements Screen, ContactListener, InputProcessor {
         config();
 
         //Inicializando os managers
-        tileManager = new TileManager();
+        tileManager = game.tileManager;
         GameInfo.tileManager = tileManager;
         itemManager = new ItemManager();
         GameInfo.itemManager = itemManager;
@@ -111,7 +111,7 @@ public class GameScreen implements Screen, ContactListener, InputProcessor {
         debugRenderer = new Box2DDebugRenderer();
 
         //Configuração da camera UI
-        UICamera = new OrthographicCamera(GameInfo.WIDHT, GameInfo.HEIGHT);
+        UICamera = new OrthographicCamera(Gdx.graphics.getWidth(), GameInfo.HEIGHT);
         UICamera.position.set(GameInfo.WIDHT/2f, GameInfo.HEIGHT/2f, 0f);
 
         //Criando o mundo e colocando gravidade nele da terra
@@ -163,10 +163,7 @@ public class GameScreen implements Screen, ContactListener, InputProcessor {
 
     void moveCamera(){
         mainCamera.position.x += GameInfo.velCamera * Gdx.graphics.getDeltaTime();
-        UICamera.position.x += GameInfo.velCamera * Gdx.graphics.getDeltaTime();
-    }
-
-    void updateBodies(){
+        //UICamera.position.x += GameInfo.velCamera * Gdx.graphics.getDeltaTime();
     }
 
     @Override
@@ -198,15 +195,32 @@ public class GameScreen implements Screen, ContactListener, InputProcessor {
         //Debug câmera só funciona com a camera parada
         //debugRenderer.render(world, box2DCamera.combined);
 
-        world.step(1/60f, 6, 2);
-
         game.batch.setProjectionMatrix(mainCamera.combined);
-        game.batch.setProjectionMatrix(UICamera.combined);
+        //game.batch.setProjectionMatrix(UICamera.combined);
 
+        world.step(1/60f, 6, 2);
         mainCamera.update();
         UICamera.update();
     }
 
+    @Override
+    public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+        float screenWidth = Gdx.graphics.getWidth();
+        System.out.println("batata");
+        //Caso seja o lado esquerdo pular
+        if(screenX < screenWidth/2f){
+            character.Jump();
+        }
+        //Caso seja o lado direito usar o ataque
+        else if (screenX > screenWidth/2f){
+            character.Attack();
+        }
+        return false;
+    }
+
+    //------------------------------------------------------
+    //------------METODOS-OVERRIDE-NUNCA-USADOS-------------
+    //------------------------------------------------------
 
     @Override
     public boolean keyDown(int keycode) {
@@ -220,20 +234,6 @@ public class GameScreen implements Screen, ContactListener, InputProcessor {
 
     @Override
     public boolean keyTyped(char character) {
-        return false;
-    }
-
-    @Override
-    public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-        float screenWidth = Gdx.graphics.getWidth();
-        //Caso seja o lado esquerdo pular
-        if(screenX < screenWidth/2f){
-            character.Jump();
-        }
-        //Caso seja o lado direito usar o ataque
-        else if (screenX > screenWidth/2f){
-            character.Attack();
-        }
         return false;
     }
 
@@ -256,10 +256,6 @@ public class GameScreen implements Screen, ContactListener, InputProcessor {
     public boolean scrolled(float amountX, float amountY) {
         return false;
     }
-
-    //------------------------------------------------------
-    //------------METODOS-OVERRIDE-NUNCA-USADOS-------------
-    //------------------------------------------------------
 
     @Override
     public void show() {
@@ -288,25 +284,5 @@ public class GameScreen implements Screen, ContactListener, InputProcessor {
 
     @Override
     public void dispose() {
-    }
-
-    @Override
-    public void beginContact(Contact contact) {
-
-    }
-
-    @Override
-    public void endContact(Contact contact) {
-
-    }
-
-    @Override
-    public void preSolve(Contact contact, Manifold oldManifold) {
-
-    }
-
-    @Override
-    public void postSolve(Contact contact, ContactImpulse impulse) {
-
     }
 }

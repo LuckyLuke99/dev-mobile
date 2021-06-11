@@ -19,7 +19,6 @@ import com.devmobile.game.DevMobile;
 import com.devmobile.game.helpers.GameInfo;
 
 public class MenuScreen implements Screen {
-
     final DevMobile game;
 
     //Configuração da câmera
@@ -43,13 +42,13 @@ public class MenuScreen implements Screen {
 
         stage = new Stage();
 
-        atlasMenu = new TextureAtlas("UI_buttons.txt");
+        atlasMenu = game.tileManager.getMenu();
         skin = new Skin(atlasMenu);
 
         mainTable = new Table(skin);
         mainTable.setBounds(0, 0,Gdx.graphics.getWidth()*1.50f, Gdx.graphics.getHeight());
 
-        fonte = criarFonte("FreePixel.ttf", 100);
+        fonte = criarFonte("FreePixel.ttf", Gdx.graphics.getWidth()/20);
         fonte.getData().setScale(1f);
 
         TextButton.TextButtonStyle textButtonStyle = new TextButton.TextButtonStyle();
@@ -142,7 +141,7 @@ public class MenuScreen implements Screen {
 
     @Override
     public void hide() {
-        Gdx.input.setInputProcessor(null);
+        //Gdx.input.setInputProcessor(null);
     }
 
     @Override
