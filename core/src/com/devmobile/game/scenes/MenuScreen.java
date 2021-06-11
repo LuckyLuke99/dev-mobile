@@ -28,12 +28,12 @@ public class MenuScreen implements Screen {
 
     private Stage stage;
     private TextureAtlas atlasMenu;
-    private Skin skin;
-    private Table mainTable;
-    private TextButton buttonPlay, buttonOptions;
+    private Skin skin, skinFundo;
+    private Table mainTable, fundoTable;
+    private TextButton buttonPlay, buttonOptions, buttonExit;
     private BitmapFont fonte;
 
-    public MenuScreen (DevMobile game){
+    public MenuScreen (final DevMobile game){
         this.game = game;
 
         //Configuração da camera e do viewport da tela
@@ -41,14 +41,7 @@ public class MenuScreen implements Screen {
         mainCamera.position.set(GameInfo.WIDHT/2f, GameInfo.HEIGHT/2f, 0f);
         gameViewport = new StretchViewport(GameInfo.WIDHT, GameInfo.HEIGHT, mainCamera);
 
-
-    }
-
-    @Override
-    public void show() {
         stage = new Stage();
-
-        Gdx.input.setInputProcessor(stage);
 
         atlasMenu = new TextureAtlas("UI_buttons.txt");
         skin = new Skin(atlasMenu);
@@ -58,6 +51,7 @@ public class MenuScreen implements Screen {
 
         fonte = criarFonte("FreePixel.ttf", 100);
         fonte.getData().setScale(1f);
+
         TextButton.TextButtonStyle textButtonStyle = new TextButton.TextButtonStyle();
         TextButton.TextButtonStyle textButtonStyle2 = new TextButton.TextButtonStyle();
         textButtonStyle.up = skin.getDrawable("play");
@@ -65,16 +59,24 @@ public class MenuScreen implements Screen {
         textButtonStyle.pressedOffsetX = 1;
         textButtonStyle.pressedOffsetY = -1;
         textButtonStyle.font = fonte;
-        textButtonStyle2.up = skin.getDrawable("options");
-        textButtonStyle2.down = skin.getDrawable("options_pressed");
+        textButtonStyle2.up = skin.getDrawable("exit");
+        textButtonStyle2.down = skin.getDrawable("exit_pressed");
         textButtonStyle2.pressedOffsetX = 1;
         textButtonStyle2.pressedOffsetY = -1;
         textButtonStyle2.font = fonte;
 
         buttonPlay = new TextButton("       ", textButtonStyle);
-        buttonOptions = new TextButton("       ", textButtonStyle2);
+        buttonExit = new TextButton("       ", textButtonStyle2);
 
-        buttonOptions.addListener(new ClickListener(){
+        buttonPlay.addListener(new ClickListener(){
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                game.setScreen(new GameScreen(game));
+                return super.touchDown(event, x, y, pointer, button);
+            }
+        });
+
+        buttonExit.addListener(new ClickListener(){
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 Gdx.app.exit();
@@ -84,9 +86,10 @@ public class MenuScreen implements Screen {
 
         mainTable.add(buttonPlay);
         mainTable.row();
-        mainTable.add(buttonOptions);
+        mainTable.add(buttonExit);
         mainTable.debug();
         stage.addActor(mainTable);
+
     }
 
     private BitmapFont criarFonte(String nomeFonte, int tamanho){
@@ -101,7 +104,10 @@ public class MenuScreen implements Screen {
         return(fonte);
     }
 
-
+    @Override
+    public void show() {
+        Gdx.input.setInputProcessor(stage);
+    }
 
     @Override
     public void render(float delta) {
@@ -116,16 +122,6 @@ public class MenuScreen implements Screen {
 
         stage.act(delta);
         stage.draw();
-
-/*
-        float x = (GameInfo.WIDHT / 2 + 98);
-        if(Gdx.input.getX() < x + playButtonInactive.getWidth() && Gdx.input.getX() > x &&  Gdx.input.getY() < (GameInfo.HEIGHT / 2) + playButtonInactive.getHeight() && Gdx.input.getY() > GameInfo.HEIGHT / 2){
-            game.batch.draw(playButtonInactive, x, GameInfo.HEIGHT / 2, 147, 60);
-        }else{
-            game.batch.draw(playButtonPressed, x, GameInfo.HEIGHT / 2, 147, 60);
-        }
-
-        game.batch.draw(optionsButtonInactive, GameInfo.WIDHT / 2 + 98 ,100, 147, 60);*/
 
         game.batch.end();
     }
@@ -146,11 +142,11 @@ public class MenuScreen implements Screen {
 
     @Override
     public void hide() {
-
+        Gdx.input.setInputProcessor(null);
     }
 
     @Override
     public void dispose() {
-
+        stage.dispose();
     }
 }
