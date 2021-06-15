@@ -8,10 +8,6 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
-import com.badlogic.gdx.physics.box2d.Contact;
-import com.badlogic.gdx.physics.box2d.ContactImpulse;
-import com.badlogic.gdx.physics.box2d.ContactListener;
-import com.badlogic.gdx.physics.box2d.Manifold;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
@@ -164,6 +160,10 @@ public class GameScreen implements Screen, InputProcessor {
     void moveCamera(){
         mainCamera.position.x += GameInfo.velCamera * Gdx.graphics.getDeltaTime();
         //UICamera.position.x += GameInfo.velCamera * Gdx.graphics.getDeltaTime();
+    }
+
+    private void buttonsManager() {
+
     }
 
     @Override
