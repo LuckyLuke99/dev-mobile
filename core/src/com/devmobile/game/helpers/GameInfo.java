@@ -1,6 +1,11 @@
 package com.devmobile.game.helpers;
 
+import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.physics.box2d.World;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.devmobile.game.managers.ItemManager;
 import com.devmobile.game.managers.TileManager;
 import com.devmobile.game.tiles.GenericCharacter;
@@ -33,6 +38,7 @@ public class GameInfo {
     //Referência dos managers
     public static TileManager tileManager;
     public static ItemManager itemManager;
+    public static Skin menuSkin;
 
     //------------------------------------------------------
     //-----------------------PARALLAX-----------------------
@@ -69,4 +75,16 @@ public class GameInfo {
     public static int topGroundMaxPosition = 20; //maxY
     public static int topGroundMaxSpace = 6; // Tamanho máximo do espaco entre os tiles
     public static int topGroundMaxWight = 15;
+
+    public static BitmapFont criarFonte(String nomeFonte, int tamanho){
+        FreeTypeFontGenerator.setMaxTextureSize(FreeTypeFontGenerator.NO_MAXIMUM);
+        FreeTypeFontGenerator gerador = new FreeTypeFontGenerator(Gdx.files.internal("Font/" + nomeFonte));
+        FreeTypeFontGenerator.FreeTypeFontParameter parametros = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        parametros.size = tamanho;
+
+        BitmapFont fonte = gerador.generateFont(parametros);
+        gerador.dispose();
+
+        return(fonte);
+    }
 }

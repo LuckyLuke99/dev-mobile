@@ -17,6 +17,7 @@ import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.devmobile.game.DevMobile;
 import com.devmobile.game.helpers.GameInfo;
+import com.devmobile.game.tiles.buttons.Play;
 
 public class MenuScreen implements Screen {
     final DevMobile game;
@@ -29,8 +30,10 @@ public class MenuScreen implements Screen {
     private TextureAtlas atlasMenu;
     private Skin skin, skinFundo;
     private Table mainTable, fundoTable;
-    private TextButton buttonPlay, buttonOptions, buttonExit;
+    private TextButton buttonOptions, buttonExit;
     private BitmapFont fonte;
+
+    private Play buttonPlay;
 
     public MenuScreen (final DevMobile game){
         this.game = game;
@@ -40,41 +43,45 @@ public class MenuScreen implements Screen {
         mainCamera.position.set(GameInfo.WIDHT/2f, GameInfo.HEIGHT/2f, 0f);
         gameViewport = new StretchViewport(GameInfo.WIDHT, GameInfo.HEIGHT, mainCamera);
 
+        //Não sei
         stage = new Stage();
 
-        atlasMenu = game.tileManager.getMenu();
-        skin = new Skin(atlasMenu);
+        //Aparencia
+        skin = GameInfo.tileManager.getMenu();
 
+        //Guarda os buttons
         mainTable = new Table(skin);
         mainTable.setBounds(0, 0,Gdx.graphics.getWidth()*1.50f, Gdx.graphics.getHeight());
 
+        //Cria a fonte
         fonte = criarFonte("FreePixel.ttf", Gdx.graphics.getWidth()/20);
         fonte.getData().setScale(1f);
 
-        TextButton.TextButtonStyle textButtonStyle = new TextButton.TextButtonStyle();
+//        //Button 1
+//        TextButton.TextButtonStyle textButtonStyle = new TextButton.TextButtonStyle();
+//        textButtonStyle.up = skin.getDrawable("play");
+//        textButtonStyle.down = skin.getDrawable("play_pressed");
+//        textButtonStyle.pressedOffsetX = 1;
+//        textButtonStyle.pressedOffsetY = -1;
+//        textButtonStyle.font = fonte;
+//        buttonPlay = new TextButton("       ", textButtonStyle);
+//        buttonPlay.addListener(new ClickListener(){
+//            @Override
+//            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+//                game.setScreen(new GameScreen(game));
+//                return super.touchDown(event, x, y, pointer, button);
+//            }
+//        });
+
+        buttonPlay = new Play(game, fonte, 6);
+        //Button 2
         TextButton.TextButtonStyle textButtonStyle2 = new TextButton.TextButtonStyle();
-        textButtonStyle.up = skin.getDrawable("play");
-        textButtonStyle.down = skin.getDrawable("play_pressed");
-        textButtonStyle.pressedOffsetX = 1;
-        textButtonStyle.pressedOffsetY = -1;
-        textButtonStyle.font = fonte;
         textButtonStyle2.up = skin.getDrawable("exit");
         textButtonStyle2.down = skin.getDrawable("exit_pressed");
         textButtonStyle2.pressedOffsetX = 1;
         textButtonStyle2.pressedOffsetY = -1;
         textButtonStyle2.font = fonte;
-
-        buttonPlay = new TextButton("       ", textButtonStyle);
         buttonExit = new TextButton("       ", textButtonStyle2);
-
-        buttonPlay.addListener(new ClickListener(){
-            @Override
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                game.setScreen(new GameScreen(game));
-                return super.touchDown(event, x, y, pointer, button);
-            }
-        });
-
         buttonExit.addListener(new ClickListener(){
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
@@ -83,12 +90,12 @@ public class MenuScreen implements Screen {
             }
         });
 
-        mainTable.add(buttonPlay);
+        //Só adicionando
+        mainTable.add(buttonPlay.getButton());
         mainTable.row();
         mainTable.add(buttonExit);
         mainTable.debug();
         stage.addActor(mainTable);
-
     }
 
     private BitmapFont criarFonte(String nomeFonte, int tamanho){

@@ -2,6 +2,7 @@ package com.devmobile.game;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.devmobile.game.helpers.GameInfo;
 import com.devmobile.game.managers.TileManager;
@@ -17,6 +18,7 @@ public class DevMobile extends Game {
 		batch = new SpriteBatch();
 		tileManager = new TileManager();
 		GameInfo.tileManager = tileManager;
+		GameInfo.menuSkin = tileManager.getMenu();
 		setScreen(new MenuScreen(this));
 		//setScreen(new GameScreen(this));
 	}
