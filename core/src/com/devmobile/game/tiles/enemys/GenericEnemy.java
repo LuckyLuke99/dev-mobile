@@ -28,11 +28,6 @@ public class GenericEnemy extends Rectangle {
     }
 
     public void update(){
-        updatePosition();
-    }
-
-    public void destroyBody(){
-        GameInfo.world.destroyBody(body);
     }
 
     public void drawAnimations(SpriteBatch batch){
