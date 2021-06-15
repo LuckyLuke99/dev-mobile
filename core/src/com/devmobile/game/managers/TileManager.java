@@ -13,22 +13,27 @@ public class TileManager {
     private TextureAtlas textureAtlas;
     private TextureAtlas textureAnimations;
     private TextureAtlas textureMenu;
+    private TextureAtlas textureEnemys;
     private ObjectMap<String, TextureRegion> tiles;
     private ObjectMap<String, Array<TextureAtlas.AtlasRegion>> characters;
     private ObjectMap<String, Array<TextureAtlas.AtlasRegion>> items;
+    private ObjectMap<String, Array<TextureAtlas.AtlasRegion>> enemys;
 
     public TileManager(){
         textureAtlas = new TextureAtlas(Gdx.files.internal("TesteAtlas.atlas"));
         textureAnimations = new TextureAtlas(Gdx.files.internal("Animations.atlas"));
+        textureEnemys = new TextureAtlas(Gdx.files.internal("enemys.atlas"));
         textureMenu = new TextureAtlas(Gdx.files.internal("Menu.atlas"));
 
         tiles = new ObjectMap<>();
         characters = new ObjectMap<>();
         items = new ObjectMap<>();
+        enemys = new ObjectMap<>();
 
         configCharacter();
         configTiles();
         configItems();
+        configEnemys();
     }
 
     public TextureAtlas getMenu (){
@@ -43,6 +48,10 @@ public class TileManager {
         return textureAtlas;
     }
 
+    public ObjectMap<String, Array<TextureAtlas.AtlasRegion>> getEnemys(){
+        return enemys;
+    }
+    
     public ObjectMap<String, Array<TextureAtlas.AtlasRegion>> getCharacters(){
         return characters;
     }
@@ -53,6 +62,22 @@ public class TileManager {
 
     public void dispose(){
         textureAtlas.dispose();
+    }
+
+    //Find all enemys animations
+    private void configEnemys(){
+        //Octi
+        enemys.put("Octi_run", textureEnemys.findRegions("Octi_run"));
+        enemys.put("Octi_hurt", textureEnemys.findRegions("Octi_hurt"));
+        //PokeyBub
+        enemys.put("PokeyBub_run", textureEnemys.findRegions("PokeyBub_run"));
+        enemys.put("PokeyBub_hurt", textureEnemys.findRegions("PokeyBub_hurt"));
+        //RoboPumpkin
+        enemys.put("RoboPumpkin_run", textureEnemys.findRegions("RoboPumpkin_run"));
+        enemys.put("RoboPumpkin_hurt", textureEnemys.findRegions("RoboPumpkin_hurt"));
+        //SpikeyBub
+        enemys.put("SpikeyBub_run", textureEnemys.findRegions("SpikeyBub_run"));
+        enemys.put("SpikeyBub_hurt", textureEnemys.findRegions("SpikeyBub_hurt"));
     }
 
     //Find all items animations

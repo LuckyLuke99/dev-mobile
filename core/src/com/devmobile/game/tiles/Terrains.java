@@ -81,6 +81,7 @@ public class Terrains extends Rectangle {
     public void destroyBody(){
         world.destroyBody(body);
     }
+
     void configBounds(){
         x1 = x;
         y1 = y;

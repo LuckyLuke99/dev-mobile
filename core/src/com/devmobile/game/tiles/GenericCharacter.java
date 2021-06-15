@@ -21,6 +21,7 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ObjectIntMap;
 import com.badlogic.gdx.utils.ObjectMap;
 import com.devmobile.game.helpers.GameInfo;
+import com.devmobile.game.tiles.items.CoinLarger;
 import com.sun.tools.javac.util.Context;
 
 import java.util.ArrayList;
