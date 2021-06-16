@@ -12,6 +12,7 @@ public class SpikeyBub extends JustRun {
 
     @Override
     public void update() {
+        super.update();
         movement.update();
         isFlipped = movement.isMovingRight();
     }

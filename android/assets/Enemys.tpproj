@@ -2,7 +2,7 @@ name=enemys
 filename=
 output=.
 
-alias=true
+alias=false
 alphaThreshold=0
 debug=false
 duplicatePadding=false
@@ -32,7 +32,7 @@ limitMemory=true
 useIndexes=true
 
 scaleFactors=[{suffix:"",factor:1,resampling:bicubic}]
-inputFiles=[{path:Characters/Inimigos/NoAttacks/Octi,type:Input,dirFilePrefix:Octi_,recursive:false,flattenPaths:false},{path:Characters/Inimigos/NoAttacks/Pokey Bub,type:Input,dirFilePrefix:PokeyBub_,recursive:false,flattenPaths:false},{path:Characters/Inimigos/NoAttacks/Robo Pumpkin,type:Input,dirFilePrefix:RoboPumpkin_,recursive:false,flattenPaths:false},{path:Characters/Inimigos/NoAttacks/Spikey Bub,type:Input,dirFilePrefix:SpikeyBub_,recursive:false,flattenPaths:false}]
+inputFiles=[{path:Characters/Inimigos/NoAttacks/Octi,type:Input,dirFilePrefix:Octi_,recursive:false,flattenPaths:false},{path:Characters/Inimigos/NoAttacks/Pokey Bub,type:Input,dirFilePrefix:PokeyBub_,recursive:false,flattenPaths:false},{path:Characters/Inimigos/NoAttacks/Robo Pumpkin,type:Input,dirFilePrefix:RoboPumpkin_,recursive:false,flattenPaths:false},{path:Characters/Inimigos/NoAttacks/Spikey Bub,type:Input,dirFilePrefix:SpikeyBub_,recursive:false,flattenPaths:false},{path:Characters/Inimigos/NoAttacks/Blocky Bub,type:Input,dirFilePrefix:BlockyBub_,recursive:false,flattenPaths:false},{path:Characters/Inimigos/NoAttacks/Bub,type:Input,dirFilePrefix:Bub_,recursive:false,flattenPaths:false},{path:Characters/Inimigos/NoAttacks/Gloppy Slime,type:Input,dirFilePrefix:GloppySlime,recursive:false,flattenPaths:false},{path:Characters/Inimigos/HaveAttacks/Chi Chi the Bird,type:Input,dirFilePrefix:Bird_,recursive:false,flattenPaths:false},{path:Characters/Inimigos/HaveAttacks/Devo the Devil,type:Input,dirFilePrefix:Devil_,recursive:false,flattenPaths:false}]
 
 
 -PROJ-

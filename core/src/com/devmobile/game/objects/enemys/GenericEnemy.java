@@ -3,6 +3,7 @@ package com.devmobile.game.objects.enemys;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Rectangle;
+import com.devmobile.game.helpers.GameInfo;
 
 public class GenericEnemy extends Rectangle {
     protected String name;
@@ -21,6 +22,14 @@ public class GenericEnemy extends Rectangle {
     }
 
     public void update(){
+        if(checkCollision(GameInfo.mainCharacter)){
+            if(GameInfo.mainCharacter.isAttacking()){
+                isDead = true;
+            }
+            else {
+                GameInfo.mainCharacter.Hurt(1);
+            }
+        }
     }
 
     public void changeAnimation(){

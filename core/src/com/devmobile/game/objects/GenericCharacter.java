@@ -19,7 +19,7 @@ import com.devmobile.game.helpers.GameInfo;
 
 public class GenericCharacter extends Rectangle{
     private Animation attack, hurt, run, falling, jumping, projectile;
-    private float animationSpeed, elapsedTime;
+    private float animationSpeed, elapsedTime, damegeTime;
     private boolean isJumping, isRunning, isAttacking, isHurt, isFalling, canShoot, isDead, watingCamera;
     private String name;
 
@@ -42,6 +42,7 @@ public class GenericCharacter extends Rectangle{
 
         animationSpeed = 0.10f;
         elapsedTime = 0;
+        damegeTime = 0;
 
         health = 100;
 
@@ -67,8 +68,12 @@ public class GenericCharacter extends Rectangle{
         CheckStates(vel, pos, camera);
 
         if(pos.y < 0){
-            isDead = true;
+            Hurt(1);
+            if(!(isDead)){
+                body.setTransform((camera.position.x / GameInfo.PPM), (GameInfo.HEIGHT/2f) / GameInfo.PPM, 0f);
+            }
         }
+
         updatePostion();
     }
 
@@ -96,7 +101,7 @@ public class GenericCharacter extends Rectangle{
 
     private void CheckStates(Vector2 vel,Vector2 pos, Camera camera)
     {
-        if(elapsedTime > 0.5 && isHurt && !(isAttacking)){
+        if(elapsedTime > 0.75 && isHurt && !(isAttacking)){
             isHurt = false;
             elapsedTime = 0;
         }
@@ -144,8 +149,13 @@ public class GenericCharacter extends Rectangle{
         return isDead;
     }
 
+    public boolean isAttacking (){
+        return isAttacking;
+    }
+
     public void Hurt(float damage){
         Vector2 pos = body.getPosition();
+        System.out.println(health);
         if(!(isHurt)){
             health -= damage;
             if(health <= 0){

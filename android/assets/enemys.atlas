@@ -1,145 +1,362 @@
 
 enemys.png
-size: 64, 128
+size: 1024, 32
 format: RGBA8888
 filter: Nearest, Nearest
 repeat: none
+Bird_attack
+  rotate: false
+  xy: 488, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+Bird_hurt
+  rotate: false
+  xy: 884, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+Bird_run
+  rotate: false
+  xy: 56, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+Bird_run
+  rotate: false
+  xy: 308, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 3
+Bird_run
+  rotate: false
+  xy: 614, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+BlockyBub_hurt
+  rotate: false
+  xy: 344, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+BlockyBub_run
+  rotate: false
+  xy: 200, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 5
+BlockyBub_run
+  rotate: false
+  xy: 362, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+BlockyBub_run
+  rotate: false
+  xy: 560, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 4
+BlockyBub_run
+  rotate: false
+  xy: 650, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+BlockyBub_run
+  rotate: false
+  xy: 740, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 6
+BlockyBub_run
+  rotate: false
+  xy: 902, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 3
+Bub_hurt
+  rotate: false
+  xy: 326, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+Bub_run
+  rotate: false
+  xy: 110, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 5
+Bub_run
+  rotate: false
+  xy: 254, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+Bub_run
+  rotate: false
+  xy: 470, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 4
+Bub_run
+  rotate: false
+  xy: 578, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+Bub_run
+  rotate: false
+  xy: 632, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 6
+Bub_run
+  rotate: false
+  xy: 794, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 3
+Devil_attack
+  rotate: false
+  xy: 74, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+Devil_falling
+  rotate: false
+  xy: 416, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+Devil_hurt
+  rotate: false
+  xy: 182, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+Devil_run
+  rotate: false
+  xy: 92, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 4
+Devil_run
+  rotate: false
+  xy: 218, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+Devil_run
+  rotate: false
+  xy: 434, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 3
+Devil_run
+  rotate: false
+  xy: 758, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+GloppySlimehurt
+  rotate: false
+  xy: 776, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+GloppySlimerun
+  rotate: false
+  xy: 38, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+GloppySlimerun
+  rotate: false
+  xy: 272, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 3
+GloppySlimerun
+  rotate: false
+  xy: 596, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+GloppySlimerun
+  rotate: false
+  xy: 812, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 4
 Octi_hurt
   rotate: false
-  xy: 38, 110
+  xy: 236, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 Octi_run
   rotate: false
-  xy: 2, 74
+  xy: 146, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 2
 Octi_run
   rotate: false
-  xy: 20, 56
+  xy: 524, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 1
 PokeyBub_hurt
   rotate: false
-  xy: 2, 38
+  xy: 452, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-PokeyBub_run
-  rotate: false
-  xy: 2, 110
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: 6
-PokeyBub_run
-  rotate: false
-  xy: 20, 92
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: 3
-PokeyBub_run
-  rotate: false
-  xy: 20, 74
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: 5
-PokeyBub_run
-  rotate: false
-  xy: 38, 74
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: 2
 PokeyBub_run
   rotate: false
   xy: 2, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
+  index: 6
+PokeyBub_run
+  rotate: false
+  xy: 164, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 3
+PokeyBub_run
+  rotate: false
+  xy: 380, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 5
+PokeyBub_run
+  rotate: false
+  xy: 542, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+PokeyBub_run
+  rotate: false
+  xy: 668, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
   index: 4
 PokeyBub_run
   rotate: false
-  xy: 38, 38
+  xy: 848, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 1
 RoboPumpkin_hurt
   rotate: false
-  xy: 20, 38
+  xy: 704, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 RoboPumpkin_run
   rotate: false
-  xy: 2, 56
+  xy: 290, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 1
 RoboPumpkin_run
   rotate: false
-  xy: 20, 2
+  xy: 830, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 2
 SpikeyBub_hurt
   rotate: false
-  xy: 20, 20
+  xy: 722, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 SpikeyBub_run
   rotate: false
-  xy: 2, 92
+  xy: 20, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 6
 SpikeyBub_run
   rotate: false
-  xy: 20, 110
+  xy: 128, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 3
 SpikeyBub_run
   rotate: false
-  xy: 38, 92
+  xy: 398, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 5
 SpikeyBub_run
   rotate: false
-  xy: 2, 20
+  xy: 506, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 2
 SpikeyBub_run
   rotate: false
-  xy: 38, 56
+  xy: 686, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 4
 SpikeyBub_run
   rotate: false
-  xy: 38, 20
+  xy: 866, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0

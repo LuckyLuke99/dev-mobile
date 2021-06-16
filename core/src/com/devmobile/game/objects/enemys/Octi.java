@@ -12,6 +12,7 @@ public class Octi extends JustRun {
 
     @Override
     public void update() {
+        super.update();
         movement.update();
     }
 }
