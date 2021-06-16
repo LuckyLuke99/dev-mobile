@@ -5,6 +5,10 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ObjectMap;
 import com.devmobile.game.helpers.GameInfo;
+import com.devmobile.game.objects.enemys.Bird;
+import com.devmobile.game.objects.enemys.BlockyBub;
+import com.devmobile.game.objects.enemys.Bub;
+import com.devmobile.game.objects.enemys.Devil;
 import com.devmobile.game.objects.enemys.Octi;
 import com.devmobile.game.objects.enemys.PokeyBub;
 import com.devmobile.game.objects.enemys.RoboPumpkin;
@@ -63,6 +67,18 @@ public class EnemyManager {
                     case "SpikeyBub":
                         enemy = new SpikeyBub(x, y, width);
                         break;
+                    case "Bub":
+                        enemy = new Bub(x, y, width);
+                        break;
+                    case "BlockyBub":
+                        enemy = new BlockyBub(x, y, width);
+                        break;
+                    case "Devil":
+                        enemy = new Devil(x, y, width);
+                        break;
+                    case "Bird":
+                        enemy = new Bird(x, y, width);
+                        break;
                 }
                 if (enemy != null) {
                     add(enemy);
@@ -104,5 +120,9 @@ public class EnemyManager {
         allNames.put("PokeyBub", GameInfo.enemyPokeyBubChance);
         allNames.put("RoboPumpkin", GameInfo.enemyRoboPumpkinChance);
         allNames.put("SpikeyBub", GameInfo.enemySpikeyBubChance);
+        allNames.put("Bird", GameInfo.enemyBirdChance);
+        allNames.put("Devil", GameInfo.enemyDevilChance);
+        allNames.put("BlockyBub", GameInfo.enemyBlockyBubChance);
+        allNames.put("Bub", GameInfo.enemyBubChance);
     }
 }

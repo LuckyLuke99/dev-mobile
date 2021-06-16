@@ -14,8 +14,8 @@ public class GameInfo {
     //------------------------------------------------------
     //---------------CONFIGURAÇÔES-PRINCIPAIS---------------
     //------------------------------------------------------
-    public final static int WIDHT = 800;
-    public final static int HEIGHT = 480;
+    public final static int WIDHT = 800 / 2;
+    public final static int HEIGHT = 480 / 2;
     public final static int sizeTexture = 16; //Tamanho dos tiles 16x16
     public static float PPM = 100; // Pixel per Meters
 
@@ -44,6 +44,10 @@ public class GameInfo {
     public static int enemyPokeyBubChance = 0;
     public static int enemyRoboPumpkinChance = 0;
     public static int enemySpikeyBubChance = 0;
+    public static int enemyBirdChance = 0;
+    public static int enemyDevilChance = 0;
+    public static int enemyBlockyBubChance = 0;
+    public static int enemyBubChance = 0;
 
     //------------------------------------------------------
     //-----------------------MANAGERS-----------------------

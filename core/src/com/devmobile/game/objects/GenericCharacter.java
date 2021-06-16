@@ -155,7 +155,6 @@ public class GenericCharacter extends Rectangle{
 
     public void Hurt(float damage){
         Vector2 pos = body.getPosition();
-        System.out.println(health);
         if(!(isHurt)){
             health -= damage;
             if(health <= 0){

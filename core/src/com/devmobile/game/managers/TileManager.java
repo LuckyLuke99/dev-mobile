@@ -82,6 +82,24 @@ public class TileManager {
         //SpikeyBub
         enemys.put("SpikeyBub_run", textureEnemys.findRegions("SpikeyBub_run"));
         enemys.put("SpikeyBub_hurt", textureEnemys.findRegions("SpikeyBub_hurt"));
+
+        //Bird
+        enemys.put("Bird_run", textureEnemys.findRegions("Bird_run"));
+        enemys.put("Bird_hurt", textureEnemys.findRegions("Bird_hurt"));
+        enemys.put("Bird_attack", textureEnemys.findRegions("Bird_attack"));
+        //Devil
+        enemys.put("Devil_run", textureEnemys.findRegions("Devil_run"));
+        enemys.put("Devil_hurt", textureEnemys.findRegions("Devil_hurt"));
+        enemys.put("Devil_attack", textureEnemys.findRegions("Devil_attack"));
+        //BlockyBub
+        enemys.put("BlockyBub_run", textureEnemys.findRegions("BlockyBub_run"));
+        enemys.put("BlockyBub_hurt", textureEnemys.findRegions("BlockyBub_hurt"));
+        //Bub
+        enemys.put("Bub_run", textureEnemys.findRegions("Bub_run"));
+        enemys.put("Bub_hurt", textureEnemys.findRegions("Bub_hurt"));
+        //GloppySlime
+        enemys.put("GloppySlime_run", textureEnemys.findRegions("GloppySlime_run"));
+        enemys.put("GloppySlime_hurt", textureEnemys.findRegions("GloppySlime_hurt"));
     }
 
     //Find all items animations
