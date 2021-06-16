@@ -44,6 +44,7 @@ public class MenuScreen implements Screen {
         mainTable.setBounds(0, 0, Gdx.graphics.getWidth()*1.50f, Gdx.graphics.getHeight());
 
         fonte = GameInfo.criarFonte("FreePixel.ttf", 20);
+        fonte.getData().setScale(1f);
 
         //Button Play
         buttonPlay = new Play(game, fonte, 6);
