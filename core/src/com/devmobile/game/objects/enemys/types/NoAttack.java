@@ -33,7 +33,11 @@ public class NoAttack extends GenericEnemy {
             currentFrame = (TextureAtlas.AtlasRegion) run.getKeyFrame(elapsedTime);
         }
         //batch.draw(currentFrame, getX(), getY());
-        batch.draw(currentFrame, getX(), getY(), (isFlipped ? -1 : 1) * getWidth(), getHeight());
+        draw(batch);
+    }
+
+    private void draw(SpriteBatch batch){
+        batch.draw(currentFrame, (isFlipped ? getX() + getWidth() : getX()), getY(), (isFlipped ? -getWidth() : getWidth()), getHeight());
     }
 
     //Configura as animações de acordo com o nome passado no começo
