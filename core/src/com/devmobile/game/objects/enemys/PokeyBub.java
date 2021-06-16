@@ -1,9 +1,9 @@
 package com.devmobile.game.objects.enemys;
 
-import com.devmobile.game.objects.enemys.types.NoAttack;
+import com.devmobile.game.objects.enemys.types.JustRun;
 import com.devmobile.game.objects.enemys.types.SideToSide;
 
-public class PokeyBub extends NoAttack {
+public class PokeyBub extends JustRun {
     private SideToSide movement;
     public PokeyBub(float x, float y, float range) {
         super("PokeyBub", 16, 16, x, y);

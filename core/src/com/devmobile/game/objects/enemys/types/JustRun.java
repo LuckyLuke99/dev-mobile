@@ -9,21 +9,19 @@ import com.badlogic.gdx.utils.ObjectMap;
 import com.devmobile.game.helpers.GameInfo;
 import com.devmobile.game.objects.enemys.types.GenericEnemy;
 
-public class NoAttack extends GenericEnemy {
+public class JustRun extends GenericEnemy {
     protected Animation hurt, run;
-    protected boolean isHurt, isFlipped;
-    private float animationSpeed, elapsedTime;
-    TextureAtlas.AtlasRegion currentFrame;
+    protected boolean isHurt;
+    private float animationSpeed;
 
-    public NoAttack(String name, float width, float height, float x, float y) {
+    public JustRun(String name, float width, float height, float x, float y) {
         super(name, width, height, x, y);
         animationSpeed = 0.10f;
-        isFlipped = false;
         configAnimations(GameInfo.tileManager.getEnemys());
     }
 
     @Override
-    public void drawAnimation(SpriteBatch batch) {
+    public void changeAnimation() {
         elapsedTime += Gdx.graphics.getDeltaTime();
         //Muda a animação conforme o estado atual
         if(isHurt){
@@ -32,12 +30,6 @@ public class NoAttack extends GenericEnemy {
         else {
             currentFrame = (TextureAtlas.AtlasRegion) run.getKeyFrame(elapsedTime);
         }
-        //batch.draw(currentFrame, getX(), getY());
-        draw(batch);
-    }
-
-    private void draw(SpriteBatch batch){
-        batch.draw(currentFrame, (isFlipped ? getX() + getWidth() : getX()), getY(), (isFlipped ? -getWidth() : getWidth()), getHeight());
     }
 
     //Configura as animações de acordo com o nome passado no começo

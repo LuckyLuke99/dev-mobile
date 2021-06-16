@@ -38,7 +38,7 @@ public class EnemyManager {
                 enemys.removeIndex(i);
             }
             else {
-                enemy.drawAnimation(batch);
+                enemy.draw(batch);
             }
         }
     }

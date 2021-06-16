@@ -1,9 +1,9 @@
 package com.devmobile.game.objects.enemys;
 
-import com.devmobile.game.objects.enemys.types.NoAttack;
+import com.devmobile.game.objects.enemys.types.JustRun;
 import com.devmobile.game.objects.enemys.types.SideToSide;
 
-public class RoboPumpkin extends NoAttack {
+public class RoboPumpkin extends JustRun {
     private SideToSide movement;
     public RoboPumpkin(float x, float y,float range) {
         super("RoboPumpkin", 16, 16, x, y);

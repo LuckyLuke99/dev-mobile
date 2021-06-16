@@ -41,9 +41,9 @@ public class GameInfo {
     //------------------------------------------------------
     public static int enemyChance = 100;
     public static int enemyOctiChance = 1;
-    public static int enemyPokeyBubChance = 1;
-    public static int enemyRoboPumpkinChance = 1;
-    public static int enemySpikeyBubChance = 1;
+    public static int enemyPokeyBubChance = 0;
+    public static int enemyRoboPumpkinChance = 0;
+    public static int enemySpikeyBubChance = 0;
 
     //------------------------------------------------------
     //-----------------------MANAGERS-----------------------
@@ -53,8 +53,6 @@ public class GameInfo {
     public static ItemManager itemManager;
     public static EnemyManager enemyManager;
     public static Skin menuSkin;
-
-
 
 
     //------------------------------------------------------
