@@ -6,10 +6,6 @@ import com.badlogic.gdx.utils.Array;
 import com.devmobile.game.helpers.GameInfo;
 import com.devmobile.game.objects.GenericTile;
 import com.devmobile.game.objects.Terrains;
-import com.devmobile.game.objects.items.CoinLarger;
-import com.devmobile.game.objects.items.CoinMedium;
-import com.devmobile.game.objects.items.CoinSmall;
-import com.devmobile.game.objects.items.GenericItem;
 
 //Classe retorna qual vai ser o próximo tile gerado baseado na posição atual do gerador
 

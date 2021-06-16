@@ -1,4 +1,4 @@
-package com.devmobile.game.objects.enemys.types;
+package com.devmobile.game.objects.enemys;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;

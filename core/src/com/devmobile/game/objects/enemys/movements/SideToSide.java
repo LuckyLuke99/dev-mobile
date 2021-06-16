@@ -1,4 +1,4 @@
-package com.devmobile.game.objects.enemys.types;
+package com.devmobile.game.objects.enemys.movements;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Rectangle;

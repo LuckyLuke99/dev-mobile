@@ -1,10 +1,11 @@
-package com.devmobile.game.objects.items;
+package com.devmobile.game.objects.items.coins;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.utils.Array;
 import com.devmobile.game.helpers.GameInfo;
+import com.devmobile.game.objects.items.GenericItem;
 
-public class GenericCoin extends GenericItem{
+public class GenericCoin extends GenericItem {
     float value;
     boolean isUsable;
 

@@ -1,13 +1,12 @@
-package com.devmobile.game.objects.enemys.types;
+package com.devmobile.game.objects.enemys.animations;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Animation;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ObjectMap;
 import com.devmobile.game.helpers.GameInfo;
-import com.devmobile.game.objects.enemys.types.GenericEnemy;
+import com.devmobile.game.objects.enemys.GenericEnemy;
 
 public class JustRun extends GenericEnemy {
     protected Animation hurt, run;

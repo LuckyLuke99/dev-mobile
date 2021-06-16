@@ -1,14 +1,13 @@
 package com.devmobile.game.objects.enemys;
 
-import com.devmobile.game.objects.enemys.types.JustRun;
-import com.devmobile.game.objects.enemys.types.SideToSide;
-import com.devmobile.game.objects.enemys.types.UpAndDown;
+import com.devmobile.game.objects.enemys.animations.JustRun;
+import com.devmobile.game.objects.enemys.movements.ToPlayer;
 
 public class Octi extends JustRun {
-    private UpAndDown movement;
+    private ToPlayer movement;
     public Octi(float x, float y, float range) {
         super("Octi", 16, 16, x, y);
-        movement = new UpAndDown(this, range, 30);
+        movement = new ToPlayer(this, range, 30, 1);
     }
 
     @Override

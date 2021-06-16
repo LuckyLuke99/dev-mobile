@@ -1,7 +1,7 @@
 package com.devmobile.game.objects.enemys;
 
-import com.devmobile.game.objects.enemys.types.JustRun;
-import com.devmobile.game.objects.enemys.types.SideToSide;
+import com.devmobile.game.objects.enemys.animations.JustRun;
+import com.devmobile.game.objects.enemys.movements.SideToSide;
 
 public class PokeyBub extends JustRun {
     private SideToSide movement;

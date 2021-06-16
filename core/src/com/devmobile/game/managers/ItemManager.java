@@ -5,9 +5,9 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ObjectMap;
 import com.devmobile.game.helpers.GameInfo;
-import com.devmobile.game.objects.items.CoinLarger;
-import com.devmobile.game.objects.items.CoinMedium;
-import com.devmobile.game.objects.items.CoinSmall;
+import com.devmobile.game.objects.items.coins.CoinLarger;
+import com.devmobile.game.objects.items.coins.CoinMedium;
+import com.devmobile.game.objects.items.coins.CoinSmall;
 import com.devmobile.game.objects.items.GenericItem;
 
 public class ItemManager {

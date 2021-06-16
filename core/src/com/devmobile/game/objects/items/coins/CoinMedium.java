@@ -1,4 +1,4 @@
-package com.devmobile.game.objects.items;
+package com.devmobile.game.objects.items.coins;
 import com.devmobile.game.helpers.GameInfo;
 
 public class CoinMedium extends GenericCoin{

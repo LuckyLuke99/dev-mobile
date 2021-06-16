@@ -9,7 +9,7 @@ import com.devmobile.game.objects.enemys.Octi;
 import com.devmobile.game.objects.enemys.PokeyBub;
 import com.devmobile.game.objects.enemys.RoboPumpkin;
 import com.devmobile.game.objects.enemys.SpikeyBub;
-import com.devmobile.game.objects.enemys.types.GenericEnemy;
+import com.devmobile.game.objects.enemys.GenericEnemy;
 
 public class EnemyManager {
     private Array<GenericEnemy> enemys;

@@ -1,4 +1,4 @@
-package com.devmobile.game.objects.enemys.types;
+package com.devmobile.game.objects.enemys.movements;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.MathUtils;
@@ -38,6 +38,14 @@ public class UpAndDown {
         float max = min + ((range - 1) * GameInfo.sizeTexture);
         float randomNum = MathUtils.random(min, max);
         rectangle.setX(randomNum);
+    }
+
+    public float getMinRange (){
+        return minRange;
+    }
+
+    public float getMaxRange (){
+        return maxRange;
     }
 
     //Mantem o objeto dentro do limite
