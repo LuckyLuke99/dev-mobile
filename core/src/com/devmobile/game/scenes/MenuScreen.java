@@ -12,6 +12,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.devmobile.game.DevMobile;
+import com.devmobile.game.helpers.GameInfo;
 import com.devmobile.game.managers.ButtonsManager;
 import com.devmobile.game.tiles.buttons.Exit;
 import com.devmobile.game.tiles.buttons.Play;
@@ -34,12 +35,20 @@ public class MenuScreen implements Screen {
     private ButtonsManager manager;
 
     public MenuScreen (final DevMobile game){
+        this.game = game;
+
         manager = new ButtonsManager(game);
+        stage = new Stage();
+
+        mainTable = new Table(GameInfo.menuSkin);
+        mainTable.setBounds(0, 0, Gdx.graphics.getWidth()*1.50f, Gdx.graphics.getHeight());
+
+        fonte = GameInfo.criarFonte("FreePixel.ttf", 20);
 
         //Button Play
         buttonPlay = new Play(game, fonte, 6);
-
-        //Button Exit
+//
+//        //Button Exit
         buttonExit = new Exit(game, fonte, 6);
 
         //Só adicionando
