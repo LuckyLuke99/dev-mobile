@@ -7,7 +7,6 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
-import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.devmobile.game.DevMobile;
 import com.devmobile.game.helpers.GameInfo;
 
@@ -22,7 +21,7 @@ public class ButtonsManager {
     public ButtonsManager (final DevMobile game){
         this.game = game;
 
-        //Configuração da camera e do viewport da tela
+        //Configuração da camera
         mainCamera = new OrthographicCamera(GameInfo.WIDHT, GameInfo.HEIGHT);
         mainCamera.position.set(GameInfo.WIDHT/2f, GameInfo.HEIGHT/2f, 0f);
 
@@ -53,4 +52,10 @@ public class ButtonsManager {
         stage.act(Gdx.graphics.getDeltaTime());
         stage.draw();
     }
+
+    public void configCamera(){
+        game.batch.setProjectionMatrix(mainCamera.combined);
+        mainCamera.update();
+    }
+
 }
