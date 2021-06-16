@@ -1,4 +1,4 @@
-package com.devmobile.game.objects.enemys;
+package com.devmobile.game.objects.enemys.types;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Animation;
@@ -7,27 +7,33 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ObjectMap;
 import com.devmobile.game.helpers.GameInfo;
+import com.devmobile.game.objects.enemys.types.GenericEnemy;
 
-public class NoAttack extends GenericEnemy{
+public class NoAttack extends GenericEnemy {
     protected Animation hurt, run;
-    protected boolean isHurt;
+    protected boolean isHurt, isFlipped;
     private float animationSpeed, elapsedTime;
+    TextureAtlas.AtlasRegion currentFrame;
+
     public NoAttack(String name, float width, float height, float x, float y) {
         super(name, width, height, x, y);
         animationSpeed = 0.10f;
+        isFlipped = false;
         configAnimations(GameInfo.tileManager.getEnemys());
     }
 
     @Override
-    public void drawAnimations(SpriteBatch batch) {
+    public void drawAnimation(SpriteBatch batch) {
         elapsedTime += Gdx.graphics.getDeltaTime();
         //Muda a animação conforme o estado atual
         if(isHurt){
-            batch.draw((TextureAtlas.AtlasRegion)hurt.getKeyFrame(elapsedTime), getX(), getY());
+            currentFrame = (TextureAtlas.AtlasRegion) hurt.getKeyFrame(elapsedTime);
         }
         else {
-            batch.draw((TextureAtlas.AtlasRegion)run.getKeyFrame(elapsedTime), getX(), getY());
+            currentFrame = (TextureAtlas.AtlasRegion) run.getKeyFrame(elapsedTime);
         }
+        //batch.draw(currentFrame, getX(), getY());
+        batch.draw(currentFrame, getX(), getY(), (isFlipped ? -1 : 1) * getWidth(), getHeight());
     }
 
     //Configura as animações de acordo com o nome passado no começo

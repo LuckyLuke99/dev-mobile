@@ -13,6 +13,7 @@ import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.devmobile.game.DevMobile;
 import com.devmobile.game.helpers.GameInfo;
+import com.devmobile.game.managers.EnemyManager;
 import com.devmobile.game.managers.ItemManager;
 import com.devmobile.game.managers.MapManager;
 import com.devmobile.game.managers.TileManager;
@@ -45,7 +46,8 @@ public class GameScreen implements Screen, InputProcessor {
     //Managers, controlam oque acontece no jogo
     final MapManager mapManager; //Parte ligada a geração do conteúdo no mapa
     final TileManager tileManager; //Parte ligada as texturas dos tiles
-    final ItemManager itemManager; //Parte ligada a manipulação dos items
+    final ItemManager itemManager; //Parte ligada a criação e controle dos items
+    final EnemyManager enemyManager; //Parte ligada a criação e controle dos inimigos
 
     //Personagem
     GenericCharacter character;
@@ -64,8 +66,13 @@ public class GameScreen implements Screen, InputProcessor {
         //Inicializando os managers
         tileManager = game.tileManager;
         GameInfo.tileManager = tileManager;
+
         itemManager = new ItemManager();
         GameInfo.itemManager = itemManager;
+
+        enemyManager = new EnemyManager();
+        GameInfo.enemyManager = enemyManager;
+
         mapManager = new MapManager(tileManager);
 
         //Configuração da camera e do viewport da tela
@@ -132,6 +139,7 @@ public class GameScreen implements Screen, InputProcessor {
 
         itemManager.reset();
         mapManager.reset();
+        enemyManager.reset();
         character.ResetPosition();
     }
 
@@ -148,6 +156,7 @@ public class GameScreen implements Screen, InputProcessor {
             reset();
         }
         itemManager.update();
+        enemyManager.update();
         moveCamera();
     }
 
@@ -155,6 +164,7 @@ public class GameScreen implements Screen, InputProcessor {
         mapManager.draw(game.batch, mainCamera);
         character.drawAnimation(game.batch);
         itemManager.draw(game.batch);
+        enemyManager.draw(game.batch);
     }
 
     void moveCamera(){
@@ -206,7 +216,6 @@ public class GameScreen implements Screen, InputProcessor {
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
         float screenWidth = Gdx.graphics.getWidth();
-        System.out.println("batata");
         //Caso seja o lado esquerdo pular
         if(screenX < screenWidth/2f){
             character.Jump();

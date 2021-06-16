@@ -1,4 +1,4 @@
-package com.devmobile.game.objects.enemys;
+package com.devmobile.game.objects.enemys.types;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
@@ -19,8 +19,17 @@ public class GenericEnemy extends Rectangle {
     public void update(){
     }
 
-    public void drawAnimations(SpriteBatch batch){
+    public void drawAnimation(SpriteBatch batch){
 
+    }
+
+    public boolean checkCollision(Rectangle rectangle){
+        if(this.overlaps(rectangle)){
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     public boolean isDead() {

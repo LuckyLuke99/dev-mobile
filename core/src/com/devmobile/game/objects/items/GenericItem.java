@@ -67,6 +67,8 @@ public class GenericItem extends Rectangle {
         if(this.overlaps(rectangle)){
             return true;
         }
-        return false;
+        else {
+            return false;
+        }
     }
 }

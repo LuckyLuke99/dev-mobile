@@ -88,7 +88,8 @@ public class RandomTileManager {
                 wight,
                 1
         ));
-        itemGeneration(nextTopGround, (nextY + 1) * GameInfo.sizeTexture, wight);
+        GameInfo.enemyManager.enemyGeneration(nextTopGround, (nextY + 1) * GameInfo.sizeTexture, wight);
+        //GameInfo.itemManager.itemGeneration(nextTopGround, (nextY + 1) * GameInfo.sizeTexture, wight);
         nextTopGround += (wight * GameInfo.sizeTexture) + (space * GameInfo.sizeTexture);
     }
 
@@ -105,39 +106,9 @@ public class RandomTileManager {
                 wight,
                 hight
         ));
-        itemGeneration(nextDownGround, hight * GameInfo.sizeTexture, wight);
+        GameInfo.enemyManager.enemyGeneration(nextDownGround, hight * GameInfo.sizeTexture, wight);
+        //GameInfo.itemManager.itemGeneration(nextDownGround, hight * GameInfo.sizeTexture, wight);
         nextDownGround += (wight * GameInfo.sizeTexture) + (space * GameInfo.sizeTexture);
-    }
-
-    //Parte da geração das moedas
-    private void itemGeneration(int x, int y, int width){
-        int num = MathUtils.random(0, 100);
-        if(GameInfo.coinChance >= num){
-            int _width = MathUtils.random(3, width);
-            String itemType = GameInfo.itemManager.getRandomName();
-            int nextCoin = x;
-            GenericItem coin = null;
-            for(int i = 0; i < _width; i++){
-                switch (itemType){
-                    case "Coin_Small":
-                        coin = new CoinSmall();
-                        break;
-                    case  "Coin_Medium":
-                        coin = new CoinMedium();
-                        break;
-                    case "Coin_Larger":
-                        coin = new CoinLarger();
-                        nextCoin += _width/2;
-                        i = _width;
-                        break;
-                }
-                if (coin != null) {
-                    coin.setPosition(nextCoin, y);
-                    nextCoin += coin.width;
-                    GameInfo.itemManager.add(coin);
-                }
-            }
-        }
     }
 
     //Returna os tiles caso o currentX e currentY esteja dentro de um dos terrenos
