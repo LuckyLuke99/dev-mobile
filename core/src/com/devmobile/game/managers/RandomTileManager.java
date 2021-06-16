@@ -4,16 +4,12 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.utils.Array;
 import com.devmobile.game.helpers.GameInfo;
-import com.devmobile.game.tiles.GenericCharacter;
-import com.devmobile.game.tiles.GenericTile;
-import com.devmobile.game.tiles.Terrains;
-import com.devmobile.game.tiles.items.CoinLarger;
-import com.devmobile.game.tiles.items.CoinMedium;
-import com.devmobile.game.tiles.items.CoinSmall;
-import com.devmobile.game.tiles.items.GenericItem;
-import com.sun.org.apache.bcel.internal.generic.SWITCH;
-
-import java.util.Iterator;
+import com.devmobile.game.objects.GenericTile;
+import com.devmobile.game.objects.Terrains;
+import com.devmobile.game.objects.items.CoinLarger;
+import com.devmobile.game.objects.items.CoinMedium;
+import com.devmobile.game.objects.items.CoinSmall;
+import com.devmobile.game.objects.items.GenericItem;
 
 //Classe retorna qual vai ser o próximo tile gerado baseado na posição atual do gerador
 

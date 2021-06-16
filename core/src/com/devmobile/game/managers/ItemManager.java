@@ -1,12 +1,11 @@
 package com.devmobile.game.managers;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ObjectMap;
 import com.devmobile.game.helpers.GameInfo;
-import com.devmobile.game.tiles.items.GenericItem;
+import com.devmobile.game.objects.items.GenericItem;
 
 public class ItemManager {
     private Array<GenericItem> items; //Guarda o nome dos items com a chance

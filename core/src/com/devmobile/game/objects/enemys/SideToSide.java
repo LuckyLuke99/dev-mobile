@@ -1,8 +1,6 @@
-package com.devmobile.game.tiles.enemys;
+package com.devmobile.game.objects.enemys;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.physics.box2d.Body;
 import com.devmobile.game.helpers.GameInfo;
 
 public class SideToSide {

@@ -38,10 +38,18 @@ public class ButtonsManager {
         //Guarda os buttons
         mainTable = new Table(skin);
         mainTable.setBounds(0, 0, Gdx.graphics.getWidth()*1.50f, Gdx.graphics.getHeight());
+        mainTable.debug();
+
+        stage.addActor(mainTable);
     }
 
     public void addButton(TextButton button){
         mainTable.add(button);
+        mainTable.row();
+    }
+
+    public BitmapFont getFonte (){
+        return fonte;
     }
 
     public void resetButton(){
@@ -57,5 +65,4 @@ public class ButtonsManager {
         game.batch.setProjectionMatrix(mainCamera.combined);
         mainCamera.update();
     }
-
 }

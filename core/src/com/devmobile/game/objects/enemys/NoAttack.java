@@ -1,4 +1,4 @@
-package com.devmobile.game.tiles.enemys;
+package com.devmobile.game.objects.enemys;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Animation;

@@ -1,4 +1,4 @@
-package com.devmobile.game.tiles.items;
+package com.devmobile.game.objects.items;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;

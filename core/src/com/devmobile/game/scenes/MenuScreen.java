@@ -6,16 +6,14 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.devmobile.game.DevMobile;
-import com.devmobile.game.helpers.GameInfo;
 import com.devmobile.game.managers.ButtonsManager;
-import com.devmobile.game.tiles.buttons.Exit;
-import com.devmobile.game.tiles.buttons.Play;
+import com.devmobile.game.objects.buttons.Exit;
+import com.devmobile.game.objects.buttons.Play;
 
 public class MenuScreen implements Screen {
     DevMobile game;
@@ -38,39 +36,31 @@ public class MenuScreen implements Screen {
         this.game = game;
 
         manager = new ButtonsManager(game);
-        stage = new Stage();
 
-        mainTable = new Table(GameInfo.menuSkin);
-        mainTable.setBounds(0, 0, Gdx.graphics.getWidth()*1.50f, Gdx.graphics.getHeight());
+        buttonPlay = new Play(game, manager.getFonte(), 6);
+        buttonExit = new Exit(game, manager.getFonte(), 6);
 
-        fonte = GameInfo.criarFonte("FreePixel.ttf", 20);
-        fonte.getData().setScale(1f);
-
-        //Button Play
-        buttonPlay = new Play(game, fonte, 6);
-//
-//        //Button Exit
-        buttonExit = new Exit(game, fonte, 6);
+        manager.addButton(buttonPlay.getButton());
+        manager.addButton(buttonExit.getButton());
 
         //Só adicionando
-        mainTable.add(buttonPlay.getButton());
-        mainTable.row();
-        mainTable.add(buttonExit.getButton());
-        mainTable.debug();
-        stage.addActor(mainTable);
+//        mainTable.add(buttonPlay.getButton());
+//        mainTable.add(buttonExit.getButton());
+//        mainTable.debug();
+//        stage.addActor(mainTable);
     }
 
-    private BitmapFont criarFonte(String nomeFonte, int tamanho){
-        FreeTypeFontGenerator.setMaxTextureSize(FreeTypeFontGenerator.NO_MAXIMUM);
-        FreeTypeFontGenerator gerador = new FreeTypeFontGenerator(Gdx.files.internal("Font/" + nomeFonte));
-        FreeTypeFontGenerator.FreeTypeFontParameter parametros = new FreeTypeFontGenerator.FreeTypeFontParameter();
-        parametros.size = tamanho;
-
-        BitmapFont fonte = gerador.generateFont(parametros);
-        gerador.dispose();
-
-        return(fonte);
-    }
+//    private BitmapFont criarFonte(String nomeFonte, int tamanho){
+//        FreeTypeFontGenerator.setMaxTextureSize(FreeTypeFontGenerator.NO_MAXIMUM);
+//        FreeTypeFontGenerator gerador = new FreeTypeFontGenerator(Gdx.files.internal("Font/" + nomeFonte));
+//        FreeTypeFontGenerator.FreeTypeFontParameter parametros = new FreeTypeFontGenerator.FreeTypeFontParameter();
+//        parametros.size = tamanho;
+//
+//        BitmapFont fonte = gerador.generateFont(parametros);
+//        gerador.dispose();
+//
+//        return(fonte);
+//    }
 
     @Override
     public void show() {

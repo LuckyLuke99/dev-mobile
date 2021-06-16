@@ -1,4 +1,4 @@
-package com.devmobile.game.tiles;
+package com.devmobile.game.objects;
 
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.physics.box2d.Body;
@@ -9,12 +9,12 @@ import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.devmobile.game.helpers.GameInfo;
 
-public class Terrains extends Rectangle {
+public class Terrains02 extends Rectangle {
     private Body body;
     private World world;
     float x1,y1,x2,y2;
 
-    public Terrains(int x, int y, int wight, int height){
+    public Terrains02(int x, int y, int wight, int height){
         this.world = GameInfo.world;
         setX(x);
         setY(y);
@@ -24,62 +24,15 @@ public class Terrains extends Rectangle {
         configBounds();
     }
 
-    public boolean isCenter(int currentX, int currentY){
-        // 00000000
-        // 01111110
-        // 01111110
-        // 01111110
-        return currentX >= (x1 + GameInfo.sizeTexture) &&
-                currentX <= (x2 - GameInfo.sizeTexture) &&
-                currentY >= y1 &&
-                currentY <= y2 - GameInfo.sizeTexture;
-    }
-
     public boolean isCornerRight(int currentX, int currentY){
-        // 00000001
-        // 00000000
-        // 00000000
-        // 00000000
-        return currentX == x2 &&
-                currentY == y2;
+        return isSameHight(currentY) && currentX == x1;
     }
-
     public boolean isCornerLeft(int currentX, int currentY){
-        // 10000000
-        // 00000000
-        // 00000000
-        // 00000000
-        return currentX == x1 &&
-                currentY == y2;
+        return isSameHight(currentY) && currentX == x2;
     }
 
-    public boolean isUpColumn(int currentX, int currentY){
-        // 01111110
-        // 00000000
-        // 00000000
-        // 00000000
-        return currentX >= (x1 + GameInfo.sizeTexture) &&
-                currentX <= (x2 - GameInfo.sizeTexture) &&
-                currentY == y2;
-    }
-
-    public boolean isFirstColumn(int currentX, int currentY){
-        // 00000000
-        // 10000000
-        // 10000000
-        // 10000000
-        return currentX == x1 &&
-                currentY <= y2 - GameInfo.sizeTexture;
-    }
-
-    public boolean isLastColumn(int currentX, int currentY){
-
-        return currentX == x2 &&
-                currentY <= y2 - GameInfo.sizeTexture;
-    }
-
-    public void destroyBody(){
-        world.destroyBody(body);
+    private boolean isSameHight(int currentY){
+        return currentY > y1 && currentY < y2;
     }
 
     void configBounds(){

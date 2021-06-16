@@ -1,8 +1,6 @@
-package com.devmobile.game.tiles;
+package com.devmobile.game.objects;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.devmobile.game.helpers.GameInfo;
 

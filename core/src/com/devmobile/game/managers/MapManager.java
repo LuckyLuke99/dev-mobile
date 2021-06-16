@@ -4,11 +4,9 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.physics.box2d.World;
-import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.ObjectMap;
 import com.devmobile.game.helpers.GameInfo;
-import com.devmobile.game.tiles.GenericCharacter;
-import com.devmobile.game.tiles.GenericTile;
+import com.devmobile.game.objects.GenericCharacter;
+import com.devmobile.game.objects.GenericTile;
 
 import java.util.ArrayList;
 

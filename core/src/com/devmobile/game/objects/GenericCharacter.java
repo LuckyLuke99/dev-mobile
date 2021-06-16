@@ -1,4 +1,4 @@
-package com.devmobile.game.tiles;
+package com.devmobile.game.objects;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.OrthographicCamera;

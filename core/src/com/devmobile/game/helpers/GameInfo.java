@@ -1,6 +1,5 @@
 package com.devmobile.game.helpers;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
@@ -8,7 +7,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.devmobile.game.managers.ItemManager;
 import com.devmobile.game.managers.TileManager;
-import com.devmobile.game.tiles.GenericCharacter;
+import com.devmobile.game.objects.GenericCharacter;
 
 public class GameInfo {
     //------------------------------------------------------

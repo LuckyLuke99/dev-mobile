@@ -1,15 +1,11 @@
-package com.devmobile.game.tiles.items;
+package com.devmobile.game.objects.items;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.Animation;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Array;
-
-import java.util.ArrayList;
 
 public class GenericItem extends Rectangle {
     protected float elapsedTime;

@@ -16,7 +16,7 @@ import com.devmobile.game.helpers.GameInfo;
 import com.devmobile.game.managers.ItemManager;
 import com.devmobile.game.managers.MapManager;
 import com.devmobile.game.managers.TileManager;
-import com.devmobile.game.tiles.GenericCharacter;
+import com.devmobile.game.objects.GenericCharacter;
 
 import java.util.ArrayList;
 

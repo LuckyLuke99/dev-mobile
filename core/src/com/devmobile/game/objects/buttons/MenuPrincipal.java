@@ -1,4 +1,4 @@
-package com.devmobile.game.tiles.buttons;
+package com.devmobile.game.objects.buttons;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
