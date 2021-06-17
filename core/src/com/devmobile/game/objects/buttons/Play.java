@@ -13,7 +13,6 @@ public class Play extends GenericButton{
         button.addListener(new ClickListener(){
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                System.out.println("Button Play");
                 game.setScreen(new GameScreen(game));
                 return super.touchDown(event, x, y, pointer, button);
             }

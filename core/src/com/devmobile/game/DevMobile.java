@@ -4,7 +4,6 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.devmobile.game.helpers.GameInfo;
 import com.devmobile.game.managers.TileManager;
-import com.devmobile.game.scenes.GameScreen;
 import com.devmobile.game.scenes.MenuScreen;
 
 public class DevMobile extends Game {
@@ -17,8 +16,8 @@ public class DevMobile extends Game {
 		tileManager = new TileManager();
 		GameInfo.tileManager = tileManager;
 		GameInfo.menuSkin = tileManager.getMenu();
-		//setScreen(new MenuScreen(this));
-		setScreen(new GameScreen(this));
+		setScreen(new MenuScreen(this));
+		//setScreen(new GameScreen(this));
 	}
 
 	@Override
