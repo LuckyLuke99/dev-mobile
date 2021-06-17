@@ -37,11 +37,7 @@ public class MenuScreen implements Screen {
 
         manager = new ButtonsManager(game);
 
-        buttonPlay = new Play(game, manager.getFonte(), 6);
-        buttonExit = new Exit(game, manager.getFonte(), 6);
 
-        manager.addButton(buttonPlay.getButton());
-        manager.addButton(buttonExit.getButton());
 
         //Só adicionando
 //        mainTable.add(buttonPlay.getButton());
@@ -64,7 +60,6 @@ public class MenuScreen implements Screen {
 
     @Override
     public void show() {
-        Gdx.input.setInputProcessor(stage);
     }
 
     @Override
