@@ -9,12 +9,18 @@ import com.devmobile.game.objects.items.coins.CoinLarger;
 import com.devmobile.game.objects.items.coins.CoinMedium;
 import com.devmobile.game.objects.items.coins.CoinSmall;
 import com.devmobile.game.objects.items.GenericItem;
+import com.devmobile.game.objects.musics.GenericSom;
 
 public class ItemManager {
-    private Array<GenericItem> items; //Guarda o nome dos items com a chance
-    private ObjectMap<String, Integer> allNames;
+    private Array<GenericItem> items; //Guarda todos os items gerados até aquele momento
+    private ObjectMap<String, Integer> itemsTop; // Guarda o nome dos items que podem ser gerados na regiao de cima
+    private ObjectMap<String, Integer> itemsDown; // Guarda o nome dos items que podem ser gerados na regiao de baixo
+
+    //Sounds
+    private GenericSom coinSound;
 
     public ItemManager (){
+        coinSound = new GenericSom("coin.wav", 0.1f, false);
         reset();
         config();
     }
@@ -37,7 +43,7 @@ public class ItemManager {
                 items.removeIndex(i);
             }
             else {
-                item.drawAnimation(batch);
+                item.draw(batch);
             }
         }
     }
@@ -52,6 +58,7 @@ public class ItemManager {
         for(GenericItem item : items){
             if(item.checkCollision(GameInfo.mainCharacter)){
                 item.use();
+                coinSound.play();
             }
         }
     }
@@ -61,11 +68,17 @@ public class ItemManager {
         int num = MathUtils.random(0, 100);
         if(GameInfo.coinChance >= num){
             int _width = MathUtils.random(3, width);
-            String itemType = getRandomName();
+            String itemType;
+            if(y >= GameInfo.topGroundMinPosition * GameInfo.sizeTexture){
+                itemType = getRandomName(itemsTop);
+            }
+            else {
+                itemType = getRandomName(itemsDown);
+            }
             int nextCoin = x;
             GenericItem coin = null;
 
-            for(int i = 0; i < _width; i++){
+            for(int i = 0; i < width; i++){
                 switch (itemType){
                     case "Coin_Small":
                         coin = new CoinSmall();
@@ -75,11 +88,10 @@ public class ItemManager {
                         break;
                     case "Coin_Larger":
                         coin = new CoinLarger();
-                        nextCoin += _width/2;
-                        i = _width;
+                        nextCoin += (((width - 1) * GameInfo.sizeTexture) / 2) - GameInfo.sizeTexture;
+                        i = width;
                         break;
                 }
-
                 if (coin != null) {
                     coin.setPosition(nextCoin, y);
                     nextCoin += coin.width;
@@ -90,12 +102,12 @@ public class ItemManager {
     }
 
     //Retorna um nome aleátorio baseado na chance no GameInfo
-    public String getRandomName(){
+    public String getRandomName(ObjectMap<String, Integer> items){
         float num = 0f;
         String name = "";
-        for (String key : allNames.keys()){
+        for (String key : items.keys()){
             float randomNum = MathUtils.random(0f, 1f);
-            randomNum *= allNames.get(key);
+            randomNum *= items.get(key);
             if(randomNum > num){
                 num = randomNum;
                 name = key;
@@ -106,9 +118,12 @@ public class ItemManager {
 
     //Adiciona os nomes dos items e suas chances
     private void config (){
-        allNames = new ObjectMap<>();
-        allNames.put("Coin_Small", GameInfo.coinSmallChance);
-        allNames.put("Coin_Medium", GameInfo.coinMediumChance);
-        allNames.put("Coin_Larger", GameInfo.coinLargerChance);
+        itemsTop = new ObjectMap<>();
+        itemsTop.put("Coin_Medium", GameInfo.coinMediumChance);
+        itemsTop.put("Coin_Larger", GameInfo.coinLargerChance);
+
+        itemsDown = new ObjectMap<>();
+        itemsDown.put("Coin_Small", GameInfo.coinSmallChance);
+        itemsDown.put("Coin_Medium", GameInfo.coinMediumChance);
     }
 }

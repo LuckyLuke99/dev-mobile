@@ -84,8 +84,8 @@ public class RandomTileManager {
                 wight,
                 1
         ));
-        GameInfo.enemyManager.enemyGeneration(nextTopGround, (nextY + 1) * GameInfo.sizeTexture, wight);
-        //GameInfo.itemManager.itemGeneration(nextTopGround, (nextY + 1) * GameInfo.sizeTexture, wight);
+        //GameInfo.enemyManager.enemyGeneration(nextTopGround, (nextY + 1) * GameInfo.sizeTexture, wight);
+        GameInfo.itemManager.itemGeneration(nextTopGround, (nextY + 1) * GameInfo.sizeTexture, wight);
         nextTopGround += (wight * GameInfo.sizeTexture) + (space * GameInfo.sizeTexture);
     }
 
@@ -102,8 +102,8 @@ public class RandomTileManager {
                 wight,
                 hight
         ));
-        GameInfo.enemyManager.enemyGeneration(nextDownGround, hight * GameInfo.sizeTexture, wight);
-        //GameInfo.itemManager.itemGeneration(nextDownGround, hight * GameInfo.sizeTexture, wight);
+        //GameInfo.enemyManager.enemyGeneration(nextDownGround, hight * GameInfo.sizeTexture, wight);
+        GameInfo.itemManager.itemGeneration(nextDownGround, hight * GameInfo.sizeTexture, wight);
         nextDownGround += (wight * GameInfo.sizeTexture) + (space * GameInfo.sizeTexture);
     }
 

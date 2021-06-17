@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.utils.Array;
 import com.devmobile.game.helpers.GameInfo;
 import com.devmobile.game.objects.items.GenericItem;
+import com.devmobile.game.objects.musics.GenericSom;
 
 public class GenericCoin extends GenericItem {
     float value;

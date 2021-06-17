@@ -27,6 +27,7 @@ public class GameInfo {
     public static float mainScore;
     public static GenericCharacter mainCharacter;
     public static float velCamera = 120f; // Velocidade da camera
+    public static float runningTime;
 
     //------------------------------------------------------
     //---------------------COIN-CHANCE----------------------

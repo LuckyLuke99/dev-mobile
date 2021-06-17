@@ -18,6 +18,8 @@ import com.devmobile.game.managers.ItemManager;
 import com.devmobile.game.managers.MapManager;
 import com.devmobile.game.managers.TileManager;
 import com.devmobile.game.objects.GenericCharacter;
+import com.devmobile.game.objects.musics.MusicMain01;
+import com.devmobile.game.objects.musics.MusicMain02;
 
 import java.util.ArrayList;
 
@@ -54,6 +56,11 @@ public class GameScreen implements Screen, InputProcessor {
     ArrayList<String> randomCharacter; // Nomes dos personagens dispóniveis
     int randomNum; // Número aleátoria que irá escolher qual vai ser o personagem pelo randomCharacter
 
+    //Sons
+    MusicMain01 musicMain01;
+    MusicMain02 musicMain02;
+
+
     //------------------------------------------------------
     //---------METODOS-EXECUTADOS-AO-INICIALIZAR------------
     //------------------------------------------------------
@@ -80,6 +87,11 @@ public class GameScreen implements Screen, InputProcessor {
 
         GameInfo.mainScore = 0;
         currentState = states.START;
+
+        //musicMain01 = new MusicMain01();
+        musicMain02 = new MusicMain02();
+
+        GameInfo.runningTime = 0f;
     }
 
     //Sorteando um personagem e inicializando o personagem principal
@@ -141,6 +153,7 @@ public class GameScreen implements Screen, InputProcessor {
         mapManager.reset();
         enemyManager.reset();
         character.ResetPosition();
+        GameInfo.runningTime = 0f;
     }
 
     //------------------------------------------------------
@@ -158,6 +171,7 @@ public class GameScreen implements Screen, InputProcessor {
         itemManager.update();
         enemyManager.update();
         moveCamera();
+        GameInfo.runningTime += Gdx.graphics.getDeltaTime();
     }
 
     void draw(){

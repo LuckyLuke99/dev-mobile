@@ -13,6 +13,7 @@ public class GenericItem extends Rectangle {
     protected Animation animation;
     protected boolean isPlaying;
     protected boolean isDead;
+    protected TextureAtlas.AtlasRegion currentFrame;
 
     public GenericItem (Array<TextureAtlas.AtlasRegion> animation, Boolean isLooping, int width, int height){
         animationSpeed = 0.10f;
@@ -34,16 +35,23 @@ public class GenericItem extends Rectangle {
         setHeight(height);
     }
 
-    public void drawAnimation(SpriteBatch batch){
+    public void changeAnimation(SpriteBatch batch){
         if(!(isDead)){
             if(isPlaying){
                 elapsedTime += Gdx.graphics.getDeltaTime();
-                batch.draw((TextureAtlas.AtlasRegion)animation.getKeyFrame(elapsedTime), getX(), getY());
+                currentFrame = (TextureAtlas.AtlasRegion)animation.getKeyFrame(elapsedTime);
             }
             else {
                 elapsedTime = 0;
-                batch.draw((TextureAtlas.AtlasRegion)animation.getKeyFrame(elapsedTime), getX(), getY());
+                currentFrame =(TextureAtlas.AtlasRegion)animation.getKeyFrame(elapsedTime);
             }
+        }
+    }
+
+    public void draw(SpriteBatch batch) {
+        changeAnimation(batch);
+        if(currentFrame != null || !(isDead)){
+            batch.draw(currentFrame, getX(), getY(), getWidth(), getHeight());
         }
     }
 
