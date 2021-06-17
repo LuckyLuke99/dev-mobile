@@ -36,7 +36,7 @@ public class RandomTileManager {
         downTerrains = new Array<>();
         topTerrains = new Array<>();
         firstGeneration = true;
-        nextDownGround = 0;
+        nextDownGround = - GameInfo.WIDHT / 2;
         nextTopGround = 0;
     }
 
@@ -53,7 +53,7 @@ public class RandomTileManager {
             int hight = GameInfo.downGroundMaxHeight;
             int space = 3;
 
-            downTerrains.add(new Terrains(0, 0, wight, hight));
+            downTerrains.add(new Terrains(nextDownGround, 0, wight, hight));
             nextDownGround += (wight * GameInfo.sizeTexture) + (space * GameInfo.sizeTexture);
             nextTopGround += nextDownGround;
             firstGeneration = false;

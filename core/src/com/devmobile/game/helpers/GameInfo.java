@@ -14,8 +14,8 @@ public class GameInfo {
     //------------------------------------------------------
     //---------------CONFIGURAÇÔES-PRINCIPAIS---------------
     //------------------------------------------------------
-    public final static int WIDHT = 800 / 2;
-    public final static int HEIGHT = 480 / 2;
+    public final static int WIDHT = 640;
+    public final static int HEIGHT = 360;
     public final static int sizeTexture = 16; //Tamanho dos tiles 16x16
     public static float PPM = 100; // Pixel per Meters
 
@@ -83,15 +83,15 @@ public class GameInfo {
     //-----------------------TERRENOS-----------------------
     //------------------------------------------------------
     //Configuração da geração do terreno de baixo
-    public static int downGroundMaxHeight = 8;
-    public static int downGroundMinHeight = 2;
+    public static int downGroundMaxHeight = 5;
+    public static int downGroundMinHeight = 1;
     public static int downGroundMaxWight = 30;
     public static int downGroundMaxSpace = 8;
     public static int downGroundMinSpace = 4;
 
     //Configuração da geração do terreno de cima
-    public static int topGroundMinPosition = 11; //minY
-    public static int topGroundMaxPosition = 20; //maxY
+    public static int topGroundMinPosition = 8; //minY
+    public static int topGroundMaxPosition = 16; //maxY
     public static int topGroundMaxSpace = 6; // Tamanho máximo do espaco entre os tiles
     public static int topGroundMaxWight = 15;
 

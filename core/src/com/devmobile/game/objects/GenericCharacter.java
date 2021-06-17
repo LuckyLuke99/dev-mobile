@@ -26,6 +26,8 @@ public class GenericCharacter extends Rectangle{
     private Body body;
     private World world;
 
+
+    int characterOffSetX;
     float MAX_VELOCITY;
     float health;
 
@@ -38,11 +40,12 @@ public class GenericCharacter extends Rectangle{
         setWidth(32);
         setHeight(32);
 
-        setPosition(GameInfo.WIDHT/2, GameInfo.HEIGHT/2);
+        setPosition(-GameInfo.WIDHT/2, GameInfo.HEIGHT/2);
 
         animationSpeed = 0.10f;
         elapsedTime = 0;
         damegeTime = 0;
+        characterOffSetX = 15 * GameInfo.sizeTexture;
 
         health = 100;
 
@@ -70,7 +73,7 @@ public class GenericCharacter extends Rectangle{
         if(pos.y < 0){
             Hurt(1);
             if(!(isDead)){
-                body.setTransform((camera.position.x / GameInfo.PPM), (GameInfo.HEIGHT/2f) / GameInfo.PPM, 0f);
+                body.setTransform(((camera.position.x - characterOffSetX) / GameInfo.PPM), (GameInfo.HEIGHT/2f) / GameInfo.PPM, 0f);
             }
         }
 
@@ -113,7 +116,7 @@ public class GenericCharacter extends Rectangle{
         }
 
         //Personagem só segue a camera quando a posição dele for menor
-        if(camera.position.x < pos.x * GameInfo.PPM){
+        if(camera.position.x - characterOffSetX < pos.x * GameInfo.PPM){
             watingCamera = true;
         }
         else {
@@ -193,11 +196,11 @@ public class GenericCharacter extends Rectangle{
     private void characterToCamera(Camera camera){
         Vector2 pos = body.getPosition();
         //Centraliza o personagem baseado na câmera
-        if(!(isHurt) && camera.position.x > getX() + 32){
-            body.setTransform(pos.x + 0.08f, pos.y, 0f);
+        if(!(isHurt) && camera.position.x - characterOffSetX > getX() + 32){
+            body.setTransform(pos.x + 0.06f, pos.y, 0f);
         }
         else if(!(watingCamera) && !(isAttacking) && !(isHurt)){
-            body.setTransform((camera.position.x / GameInfo.PPM), pos.y, 0f);
+            body.setTransform(((camera.position.x - characterOffSetX) / GameInfo.PPM), pos.y, 0f);
         }
     }
 
