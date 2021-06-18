@@ -7,37 +7,35 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.utils.viewport.StretchViewport;
+import com.badlogic.gdx.utils.viewport.Viewport;
 import com.devmobile.game.DevMobile;
 import com.devmobile.game.helpers.GameInfo;
 import com.devmobile.game.objects.buttons.Exit;
+import com.devmobile.game.objects.tables.GamePausedTable;
 import com.devmobile.game.objects.tables.GameTable;
 import com.devmobile.game.objects.tables.MenuTable;
 
 public class ButtonsManager {
     final DevMobile game;
     private OrthographicCamera mainCamera;
-    private Stage stage, stage2;
+    private Stage stage, stage2, stage3;
     private BitmapFont fonte, fonte2;
     private Skin skin;
-    private Table mainTable, gameTable;
-
-    public enum states{
-        MENU,
-        GAME
-    }
-
-    private states currentState;
+    private Table mainTable, gameTable, gamePausedTable;
 
     public ButtonsManager (final DevMobile game){
         this.game = game;
 
         //Configuração da camera
-        mainCamera = new OrthographicCamera(GameInfo.WIDHT, GameInfo.HEIGHT);
-        mainCamera.position.set(GameInfo.WIDHT/2f, GameInfo.HEIGHT/2f, 0f);
+        mainCamera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        mainCamera.position.set(Gdx.graphics.getWidth()/2f, Gdx.graphics.getHeight()/2f, 0f);
+        mainCamera.update();
 
         //Não sei
         stage = new Stage();
         stage2 = new Stage();
+        stage3 = new Stage();
 
         //Aparencia
         skin = GameInfo.tileManager.getMenu();
@@ -49,21 +47,14 @@ public class ButtonsManager {
         fonte2 = GameInfo.criarFonte("FreePixel.ttf", Gdx.graphics.getWidth()/20);
         fonte2.getData().setScale(0.5f);
 
-        currentState = states.MENU;
 
-        if (currentState == states.MENU){
-            iniciarMenuUI();
-            Gdx.input.setInputProcessor(stage);
-        }else if(Exit.isPressed == true){
-            currentState = states.GAME;
-            iniciarGameUI();
-            Gdx.input.setInputProcessor(stage2);
-        }
+        mainTable = new MenuTable(skin, stage, game, fonte);
+        gameTable = new GameTable(skin, stage2, game, fonte, fonte2);
+        gamePausedTable = new GamePausedTable(skin, stage3, game, fonte, fonte2);
 
-//        InputMultiplexer im = new InputMultiplexer(stage, stage2);
-//
-//        Gdx.input.setInputProcessor(im);
-
+        game.multiplexer.addProcessor(stage);
+        game.multiplexer.addProcessor(stage2);
+        game.multiplexer.addProcessor(stage3);
     }
 
     public void iniciarMenuUI(){
@@ -88,19 +79,23 @@ public class ButtonsManager {
     }
 
     public void draw(){
-        switch (currentState) {
+        game.batch.setProjectionMatrix(mainCamera.combined);
+        switch (GameInfo.currentScreen) {
             case MENU:
+                System.out.println("Stage 1");
                 stage.act(Gdx.graphics.getDeltaTime());
                 stage.draw();
-            case GAME:
+                break;
+            case GAMERUNNING:
+                System.out.println("Stage 2");
                 stage2.act(Gdx.graphics.getDeltaTime());
                 stage2.draw();
+                break;
+            case GAMEPAUSE:
+                System.out.println("Stage ");
+                stage3.act(Gdx.graphics.getDeltaTime());
+                stage3.draw();
         }
 
-    }
-
-    public void configCamera(){
-        game.batch.setProjectionMatrix(mainCamera.combined);
-        mainCamera.update();
     }
 }

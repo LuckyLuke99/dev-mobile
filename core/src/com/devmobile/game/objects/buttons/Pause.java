@@ -14,7 +14,7 @@ public class Pause extends GenericButton{
         button.addListener(new ClickListener(){
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-
+                GameInfo.currentScreen = GameInfo.states.GAMEPAUSE;
 //              game.setScreen(new MenuScreen(game));
                 return super.touchDown(event, x, y, pointer, button);
             }

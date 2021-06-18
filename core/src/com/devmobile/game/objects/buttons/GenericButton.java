@@ -7,6 +7,7 @@ public class GenericButton {
     protected TextButton button, buttonPause;
     TextButton.TextButtonStyle style;
     String tamanho = "";
+    protected boolean isPressed;
 
     public GenericButton (Drawable skinUp, Drawable skinDown, BitmapFont fonte, int tamanho){
         style = new TextButton.TextButtonStyle();
@@ -17,6 +18,7 @@ public class GenericButton {
             this.tamanho += " ";
         }
         button = new TextButton(this.tamanho, style);
+        isPressed = false;
     }
 
     public GenericButton (Drawable skinUp, BitmapFont fonte, int tamanho){
@@ -37,5 +39,9 @@ public class GenericButton {
 
     public TextButton getButton(){
         return button;
+    }
+
+    public boolean isPressed(){
+        return isPressed;
     }
 }

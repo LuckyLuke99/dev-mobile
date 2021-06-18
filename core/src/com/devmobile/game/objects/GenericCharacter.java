@@ -70,10 +70,7 @@ public class GenericCharacter extends Rectangle{
         CheckStates(vel, pos, camera);
 
         if(pos.y < 0){
-            Hurt(1);
-            if(!(isDead)){
-                body.setTransform(((camera.position.x - characterOffSetX) / GameInfo.PPM), (GameInfo.HEIGHT/2f) / GameInfo.PPM, 0f);
-            }
+            isDead = true;
         }
 
         updatePostion();

@@ -10,6 +10,18 @@ public class GenericMusic {
         music = Gdx.audio.newMusic(Gdx.files.internal("Sons/" + musicName));
         music.setVolume(1);
         music.setLooping(true);
-        music.play();
+    }
+
+    public void update(){
+        if(music.isPlaying()){
+
+        }
+        else {
+            music.play();
+        }
+    }
+
+    public void stop(){
+        music.stop();
     }
 }

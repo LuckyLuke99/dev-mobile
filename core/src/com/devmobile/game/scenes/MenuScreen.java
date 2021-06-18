@@ -11,6 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.devmobile.game.DevMobile;
+import com.devmobile.game.helpers.GameInfo;
 import com.devmobile.game.managers.ButtonsManager;
 import com.devmobile.game.objects.buttons.Exit;
 import com.devmobile.game.objects.buttons.Play;
@@ -30,12 +31,11 @@ public class MenuScreen implements Screen {
 
     private Play buttonPlay;
     private Exit buttonExit;
-    private ButtonsManager manager;
+
 
     public MenuScreen (final DevMobile game){
         this.game = game;
-
-        manager = new ButtonsManager(game);
+        GameInfo.currentScreen = GameInfo.states.MENU;
     }
 
 
@@ -48,9 +48,8 @@ public class MenuScreen implements Screen {
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        manager.configCamera();
         game.batch.begin();
-        manager.draw();
+        game.manager.draw();
         game.batch.end();
     }
 

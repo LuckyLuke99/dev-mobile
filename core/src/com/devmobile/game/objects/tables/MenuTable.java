@@ -16,7 +16,6 @@ public class MenuTable extends Table{
     public MenuTable(Skin skin, Stage stage, final DevMobile game, BitmapFont font){
         super(skin);
         setPosition(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2);
-        debug();
         buttonPlay = new Play(game, font, 6);
         buttonExit = new Exit(game, font, 6);
         this.add(buttonPlay.getButton());
@@ -24,6 +23,4 @@ public class MenuTable extends Table{
         this.add(buttonExit.getButton());
         stage.addActor(this);
     }
-
-
 }

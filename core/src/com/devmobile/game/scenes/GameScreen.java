@@ -1,6 +1,7 @@
 package com.devmobile.game.scenes;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
@@ -31,15 +32,10 @@ public class GameScreen implements Screen, InputProcessor {
     public enum states {
         START,
         WAITING,
-        PAUSED,
         RUNNING,
         END
     }
-
     private states currentState;
-
-    //Configuraçao UI
-    private UIManager uimanager;
 
     //Configuração da câmera
     private OrthographicCamera mainCamera;
@@ -65,7 +61,6 @@ public class GameScreen implements Screen, InputProcessor {
     MusicMain01 musicMain01;
     MusicMain02 musicMain02;
 
-
     //------------------------------------------------------
     //---------METODOS-EXECUTADOS-AO-INICIALIZAR------------
     //------------------------------------------------------
@@ -87,19 +82,14 @@ public class GameScreen implements Screen, InputProcessor {
 
         mapManager = new MapManager(tileManager);
 
-        uimanager = new UIManager(game);
-
         //Configuração da camera e do viewport da tela
         configCharacter();
 
         GameInfo.mainScore = 0;
         currentState = states.START;
 
-        //musicMain01 = new MusicMain01();
         musicMain02 = new MusicMain02();
-
-        GameInfo.runningTime = 0f;
-
+        GameInfo.currentScreen = GameInfo.states.GAMERUNNING;
     }
 
     //Sorteando um personagem e inicializando o personagem principal
@@ -120,9 +110,10 @@ public class GameScreen implements Screen, InputProcessor {
 
     //Inicializando a mainCamera, box2DCamera, debugRenderer, world, InputProcessor e UI
     void config(){
-        //Configuração da camera e do viewport da tela]
+        //Configuração da camera e do viewport da tela
         mainCamera = new OrthographicCamera( GameInfo.WIDHT, GameInfo.HEIGHT);
         mainCamera.position.set(GameInfo.WIDHT/2f, GameInfo.HEIGHT/2f, 0f);
+        mainCamera.update();
         gameViewport = new StretchViewport(GameInfo.WIDHT, GameInfo.HEIGHT, mainCamera);
 
         //Configuração do Box2D
@@ -133,16 +124,11 @@ public class GameScreen implements Screen, InputProcessor {
         //Debug camera para o box2D
         debugRenderer = new Box2DDebugRenderer();
 
-        //Configuração da camera UI
-        UICamera = new OrthographicCamera(Gdx.graphics.getWidth(), GameInfo.HEIGHT);
-        UICamera.position.set(GameInfo.WIDHT/2f, GameInfo.HEIGHT/2f, 0f);
-
         //Criando o mundo e colocando gravidade nele da terra
         world = new World(new Vector2(0, -10), true);
         GameInfo.world = world;
 
-//      InputMultiplexer im = new InputMultiplexer(stage,this);
-        Gdx.input.setInputProcessor(this);
+        game.multiplexer.addProcessor(this);
     }
 
     void reset(){
@@ -163,6 +149,8 @@ public class GameScreen implements Screen, InputProcessor {
         enemyManager.reset();
         character.ResetPosition();
         GameInfo.runningTime = 0f;
+        currentState = states.START;
+        musicMain02.stop();
     }
 
     //------------------------------------------------------
@@ -172,15 +160,15 @@ public class GameScreen implements Screen, InputProcessor {
     void update(float dt){
         mapManager.update(mainCamera, character);
         character.update(mainCamera);
-
+        musicMain02.update();
         //O personagem está morto caso o y seja menor que 0
         if(character.isDead()){
             reset();
         }
         itemManager.update();
         enemyManager.update();
-        moveCamera();
         GameInfo.runningTime += Gdx.graphics.getDeltaTime();
+        moveCamera();
     }
 
     void draw(){
@@ -188,12 +176,12 @@ public class GameScreen implements Screen, InputProcessor {
         character.drawAnimation(game.batch);
         itemManager.draw(game.batch);
         enemyManager.draw(game.batch);
-//        uimanager.draw(game.batch);
+        game.manager.draw();
     }
 
     void moveCamera(){
         mainCamera.position.x += GameInfo.velCamera * Gdx.graphics.getDeltaTime();
-        //UICamera.position.x += GameInfo.velCamera * Gdx.graphics.getDeltaTime();
+        mainCamera.update();
     }
 
 
@@ -209,31 +197,31 @@ public class GameScreen implements Screen, InputProcessor {
             case WAITING:
                 if(Gdx.input.isTouched()){
                     currentState = states.RUNNING;
+                    break;
                 }
                 break;
-            case PAUSED:
-                 pause();
             case RUNNING:
-                update(delta); // Atualiza todas os objetos
+                switch (GameInfo.currentScreen){
+                    case GAMERUNNING:
+                        update(delta); // Atualiza todas os objetos
+                        break;
+                    case GAMEPAUSE:
+                        break;
+                }
                 break;
             case END:
                 break;
         }
         //Atualizando todas as classes
-
         game.batch.begin();
+        game.batch.setProjectionMatrix(mainCamera.combined);
         draw(); // Desenha todos os objetos
         game.batch.end();
 
         //Debug câmera só funciona com a camera parada
         //debugRenderer.render(world, box2DCamera.combined);
 
-        game.batch.setProjectionMatrix(mainCamera.combined);
-        //game.batch.setProjectionMatrix(UICamera.combined);
-
         world.step(1/60f, 6, 2);
-        mainCamera.update();
-        UICamera.update();
     }
 
     @Override
