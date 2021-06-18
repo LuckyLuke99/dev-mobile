@@ -92,14 +92,17 @@ public class GameInfo {
     //Configuração da geração do terreno de baixo
     public static int downGroundMaxHeight = 5;
     public static int downGroundMinHeight = 1;
+    public static int downGroundMinWight = 3;
     public static int downGroundMaxWight = 30;
-    public static int downGroundMaxSpace = 8;
     public static int downGroundMinSpace = 4;
+    public static int downGroundMaxSpace = 8;
 
     //Configuração da geração do terreno de cima
     public static int topGroundMinPosition = 8; //minY
     public static int topGroundMaxPosition = 16; //maxY
+    public static int topGroundMinSpace = 6; // Tamanho máximo do espaco entre os tiles
     public static int topGroundMaxSpace = 6; // Tamanho máximo do espaco entre os tiles
+    public static int topGroundMinWight = 15;
     public static int topGroundMaxWight = 15;
 
     //------------------------------------------------------

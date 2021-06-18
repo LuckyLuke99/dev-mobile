@@ -75,8 +75,8 @@ public class RandomTileManager {
     private void nextTopGround(){
         int nextY, wight, space;
         nextY = MathUtils.random(GameInfo.topGroundMinPosition, GameInfo.topGroundMaxPosition);
-        wight = MathUtils.random(3, GameInfo.topGroundMaxWight);
-        space = MathUtils.random(1, GameInfo.topGroundMaxSpace);
+        wight = MathUtils.random(GameInfo.topGroundMinWight, GameInfo.topGroundMaxWight);
+        space = MathUtils.random(GameInfo.topGroundMinSpace, GameInfo.topGroundMaxSpace);
 
         topTerrains.add(new Terrains(
                 nextTopGround,
@@ -93,7 +93,7 @@ public class RandomTileManager {
     private void nextDownGround(){
         int hight, wight, space;
         hight = MathUtils.random(GameInfo.downGroundMinHeight, GameInfo.downGroundMaxHeight);
-        wight = MathUtils.random(3, GameInfo.downGroundMaxWight);
+        wight = MathUtils.random(GameInfo.downGroundMinWight, GameInfo.downGroundMaxWight);
         space = MathUtils.random(GameInfo.downGroundMinSpace, GameInfo.downGroundMaxSpace);
 
         downTerrains.add(new Terrains(
