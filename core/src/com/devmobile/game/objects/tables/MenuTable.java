@@ -9,13 +9,13 @@ import com.devmobile.game.DevMobile;
 import com.devmobile.game.objects.buttons.Exit;
 import com.devmobile.game.objects.buttons.Play;
 
-public class MainTable extends Table{
+public class MenuTable extends Table{
     private Play buttonPlay;
     private Exit buttonExit;
 
-    public MainTable(Skin skin, Stage stage, final DevMobile game, BitmapFont font){
+    public MenuTable(Skin skin, Stage stage, final DevMobile game, BitmapFont font){
         super(skin);
-        setBounds(0, 0, Gdx.graphics.getWidth()*1.50f, Gdx.graphics.getHeight());
+        setPosition(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2);
         debug();
         buttonPlay = new Play(game, font, 6);
         buttonExit = new Exit(game, font, 6);

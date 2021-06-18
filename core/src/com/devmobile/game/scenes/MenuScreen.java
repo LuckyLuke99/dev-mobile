@@ -36,27 +36,8 @@ public class MenuScreen implements Screen {
         this.game = game;
 
         manager = new ButtonsManager(game);
-
-
-
-        //Só adicionando
-//        mainTable.add(buttonPlay.getButton());
-//        mainTable.add(buttonExit.getButton());
-//        mainTable.debug();
-//        stage.addActor(mainTable);
     }
 
-//    private BitmapFont criarFonte(String nomeFonte, int tamanho){
-//        FreeTypeFontGenerator.setMaxTextureSize(FreeTypeFontGenerator.NO_MAXIMUM);
-//        FreeTypeFontGenerator gerador = new FreeTypeFontGenerator(Gdx.files.internal("Font/" + nomeFonte));
-//        FreeTypeFontGenerator.FreeTypeFontParameter parametros = new FreeTypeFontGenerator.FreeTypeFontParameter();
-//        parametros.size = tamanho;
-//
-//        BitmapFont fonte = gerador.generateFont(parametros);
-//        gerador.dispose();
-//
-//        return(fonte);
-//    }
 
     @Override
     public void show() {

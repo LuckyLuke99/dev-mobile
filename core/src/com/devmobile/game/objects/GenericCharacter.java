@@ -26,7 +26,6 @@ public class GenericCharacter extends Rectangle{
     private Body body;
     private World world;
 
-
     int characterOffSetX;
     float MAX_VELOCITY;
     float health;
@@ -233,6 +232,7 @@ public class GenericCharacter extends Rectangle{
         setX((body.getPosition().x * GameInfo.PPM) - getWidth() / 2f);
         setY((body.getPosition().y * GameInfo.PPM) - getHeight() / 2f);
     }
+
 
     private void createBody(){
         BodyDef bodyDef = new BodyDef();

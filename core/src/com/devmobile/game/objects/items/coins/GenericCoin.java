@@ -4,11 +4,11 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.utils.Array;
 import com.devmobile.game.helpers.GameInfo;
 import com.devmobile.game.objects.items.GenericItem;
-import com.devmobile.game.objects.musics.GenericSom;
 
 public class GenericCoin extends GenericItem {
     float value;
     boolean isUsable;
+    String coin;
 
     public GenericCoin(Array<TextureAtlas.AtlasRegion> animation,Boolean isLooping, int width, int height, float value) {
         super(animation, isLooping,  width, height);
@@ -25,10 +25,19 @@ public class GenericCoin extends GenericItem {
     @Override
     public void use() {
         if(isUsable){
-            GameInfo.mainScore += value;
+            if(coin.equals("CoinSmall")){
+                GameInfo.mainScore += value+1;
+            }
+            else if(coin.equals("CoinMedium")){
+                GameInfo.mainScore += value+3;
+            }
+            else if(coin.equals("CoinLarger")){
+                GameInfo.mainScore += value+5;
+            }
             System.out.println(GameInfo.mainScore);
             setUsable(false);
             setDead(true);
+            
         }
     }
 

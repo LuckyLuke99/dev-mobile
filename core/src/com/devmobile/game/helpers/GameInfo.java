@@ -32,7 +32,7 @@ public class GameInfo {
     //------------------------------------------------------
     //---------------------COIN-CHANCE----------------------
     //------------------------------------------------------
-    public static int coinChance = 100; // Chence de gerar as moedas encima de um terreno;
+    public static int coinChance = 100; // Chance de gerar as moedas em cima de um terreno;
     public static int coinSmallChance = 1;
     public static int coinMediumChance = 1;
     public static int coinLargerChance = 1;

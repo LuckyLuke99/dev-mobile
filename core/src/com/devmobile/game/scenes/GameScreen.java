@@ -36,6 +36,12 @@ public class GameScreen implements Screen, InputProcessor {
 
     private states currentState;
 
+    //Configuraçao UI
+//    private UITable Table;
+//    private Stage stage;
+//    private BitmapFont fonte;
+//    private Skin skin;
+
     //Configuração da câmera
     private OrthographicCamera mainCamera;
     private Viewport gameViewport;
@@ -92,6 +98,10 @@ public class GameScreen implements Screen, InputProcessor {
         musicMain02 = new MusicMain02();
 
         GameInfo.runningTime = 0f;
+
+        //UITable = new UITable(skin, stage, game, fonte);
+
+        //Gdx.input.setInputProcessor(stage);
     }
 
     //Sorteando um personagem e inicializando o personagem principal
@@ -128,12 +138,14 @@ public class GameScreen implements Screen, InputProcessor {
         //Configuração da camera UI
         UICamera = new OrthographicCamera(Gdx.graphics.getWidth(), GameInfo.HEIGHT);
         UICamera.position.set(GameInfo.WIDHT/2f, GameInfo.HEIGHT/2f, 0f);
+        //UITable = new UITable(skin, stage, game, fonte);
 
         //Criando o mundo e colocando gravidade nele da terra
         world = new World(new Vector2(0, -10), true);
         GameInfo.world = world;
 
         Gdx.input.setInputProcessor(this);
+        //Gdx.input.setInputProcessor(stage);
     }
 
     void reset(){
