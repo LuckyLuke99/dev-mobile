@@ -25,15 +25,7 @@ public class GenericCoin extends GenericItem {
     @Override
     public void use() {
         if(isUsable){
-            if(coin.equals("CoinSmall")){
-                GameInfo.mainScore += value+1;
-            }
-            else if(coin.equals("CoinMedium")){
-                GameInfo.mainScore += value+3;
-            }
-            else if(coin.equals("CoinLarger")){
-                GameInfo.mainScore += value+5;
-            }
+            GameInfo.mainScore += value;
             System.out.println(GameInfo.mainScore);
             setUsable(false);
             setDead(true);
