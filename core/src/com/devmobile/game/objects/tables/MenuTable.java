@@ -25,4 +25,5 @@ public class MenuTable extends Table{
         stage.addActor(this);
     }
 
+
 }

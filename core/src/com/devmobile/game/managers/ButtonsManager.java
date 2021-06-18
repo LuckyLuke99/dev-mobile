@@ -9,16 +9,24 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.devmobile.game.DevMobile;
 import com.devmobile.game.helpers.GameInfo;
+import com.devmobile.game.objects.buttons.Exit;
 import com.devmobile.game.objects.tables.GameTable;
 import com.devmobile.game.objects.tables.MenuTable;
 
 public class ButtonsManager {
     final DevMobile game;
     private OrthographicCamera mainCamera;
-    private Stage stage;
+    private Stage stage, stage2;
     private BitmapFont fonte, fonte2;
     private Skin skin;
     private Table mainTable, gameTable;
+
+    public enum states{
+        MENU,
+        GAME
+    }
+
+    private states currentState;
 
     public ButtonsManager (final DevMobile game){
         this.game = game;
@@ -29,6 +37,7 @@ public class ButtonsManager {
 
         //Não sei
         stage = new Stage();
+        stage2 = new Stage();
 
         //Aparencia
         skin = GameInfo.tileManager.getMenu();
@@ -40,14 +49,29 @@ public class ButtonsManager {
         fonte2 = GameInfo.criarFonte("FreePixel.ttf", Gdx.graphics.getWidth()/20);
         fonte2.getData().setScale(0.5f);
 
-        gameTable = new GameTable(skin, stage, game, fonte, fonte2);
+        currentState = states.MENU;
 
+        if (currentState == states.MENU){
+            iniciarMenuUI();
+            Gdx.input.setInputProcessor(stage);
+        }else if(Exit.isPressed == true){
+            currentState = states.GAME;
+            iniciarGameUI();
+            Gdx.input.setInputProcessor(stage2);
+        }
+
+//        InputMultiplexer im = new InputMultiplexer(stage, stage2);
+//
+//        Gdx.input.setInputProcessor(im);
+
+    }
+
+    public void iniciarMenuUI(){
         mainTable = new MenuTable(skin, stage, game, fonte);
+    }
 
-
-
-
-        Gdx.input.setInputProcessor(stage);
+    public void iniciarGameUI(){
+        gameTable = new GameTable(skin, stage2, game, fonte, fonte2);
     }
 
     public void addButton(TextButton button){
@@ -64,8 +88,15 @@ public class ButtonsManager {
     }
 
     public void draw(){
-        stage.act(Gdx.graphics.getDeltaTime());
-        stage.draw();
+        switch (currentState) {
+            case MENU:
+                stage.act(Gdx.graphics.getDeltaTime());
+                stage.draw();
+            case GAME:
+                stage2.act(Gdx.graphics.getDeltaTime());
+                stage2.draw();
+        }
+
     }
 
     public void configCamera(){

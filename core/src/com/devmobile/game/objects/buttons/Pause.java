@@ -5,7 +5,6 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.devmobile.game.DevMobile;
 import com.devmobile.game.helpers.GameInfo;
-import com.devmobile.game.scenes.MenuScreen;
 
 public class Pause extends GenericButton{
     public static boolean isPressed;
@@ -15,7 +14,8 @@ public class Pause extends GenericButton{
         button.addListener(new ClickListener(){
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                game.setScreen(new MenuScreen(game));
+
+//              game.setScreen(new MenuScreen(game));
                 return super.touchDown(event, x, y, pointer, button);
             }
         });
