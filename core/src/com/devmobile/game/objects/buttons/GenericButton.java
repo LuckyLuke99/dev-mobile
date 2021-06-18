@@ -3,8 +3,11 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 
+import java.awt.Button;
+
 public class GenericButton {
     protected TextButton button, buttonPause;
+    Button botao;
     TextButton.TextButtonStyle style;
     String tamanho = "";
 
@@ -27,6 +30,12 @@ public class GenericButton {
             this.tamanho += " ";
         }
         button = new TextButton(this.tamanho, style);
+    }
+
+    public GenericButton (String texto, BitmapFont fonte){
+        style = new TextButton.TextButtonStyle();
+        style.font = fonte;
+        button = new TextButton(texto, style);
     }
 
     public TextButton getButton(){

@@ -9,15 +9,16 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.devmobile.game.DevMobile;
 import com.devmobile.game.helpers.GameInfo;
+import com.devmobile.game.objects.tables.GameTable;
 import com.devmobile.game.objects.tables.MenuTable;
 
 public class ButtonsManager {
     final DevMobile game;
     private OrthographicCamera mainCamera;
     private Stage stage;
-    private BitmapFont fonte;
+    private BitmapFont fonte, fonte2;
     private Skin skin;
-    private Table mainTable;
+    private Table mainTable, gameTable;
 
     public ButtonsManager (final DevMobile game){
         this.game = game;
@@ -36,7 +37,15 @@ public class ButtonsManager {
         fonte = GameInfo.criarFonte("FreePixel.ttf", Gdx.graphics.getWidth()/20);
         fonte.getData().setScale(1f);
 
+        fonte2 = GameInfo.criarFonte("FreePixel.ttf", Gdx.graphics.getWidth()/20);
+        fonte2.getData().setScale(0.5f);
+
+        gameTable = new GameTable(skin, stage, game, fonte, fonte2);
+
         mainTable = new MenuTable(skin, stage, game, fonte);
+
+
+
 
         Gdx.input.setInputProcessor(stage);
     }

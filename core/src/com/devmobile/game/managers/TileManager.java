@@ -1,8 +1,6 @@
 package com.devmobile.game.managers;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
@@ -39,6 +37,9 @@ public class TileManager {
         configItems();
         configEnemys();
     }
+
+//    public TileManager(Drawable pause, BitmapFont font, int tamanho) {
+//    }
 
     public Skin getMenu (){
         return menuSkin;

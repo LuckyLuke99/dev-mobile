@@ -32,7 +32,7 @@ public class CoinLarger extends GenericCoin{
     //Mudando o use para não alterar o isDead mas sim o isPlaying
     public void use() {
         if(isUsable){
-            GameInfo.mainScore += value;
+            GameInfo.mainScore += value*5;
             System.out.println(GameInfo.mainScore);
             setUsable(false);
             setPlaying(true);

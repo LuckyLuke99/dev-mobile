@@ -17,6 +17,7 @@ import com.devmobile.game.managers.EnemyManager;
 import com.devmobile.game.managers.ItemManager;
 import com.devmobile.game.managers.MapManager;
 import com.devmobile.game.managers.TileManager;
+import com.devmobile.game.managers.UIManager;
 import com.devmobile.game.objects.GenericCharacter;
 import com.devmobile.game.objects.musics.MusicMain01;
 import com.devmobile.game.objects.musics.MusicMain02;
@@ -30,6 +31,7 @@ public class GameScreen implements Screen, InputProcessor {
     public enum states {
         START,
         WAITING,
+        PAUSED,
         RUNNING,
         END
     }
@@ -37,10 +39,7 @@ public class GameScreen implements Screen, InputProcessor {
     private states currentState;
 
     //Configuraçao UI
-//    private UITable Table;
-//    private Stage stage;
-//    private BitmapFont fonte;
-//    private Skin skin;
+    private UIManager uimanager;
 
     //Configuração da câmera
     private OrthographicCamera mainCamera;
@@ -88,6 +87,8 @@ public class GameScreen implements Screen, InputProcessor {
 
         mapManager = new MapManager(tileManager);
 
+        uimanager = new UIManager(game);
+
         //Configuração da camera e do viewport da tela
         configCharacter();
 
@@ -99,9 +100,6 @@ public class GameScreen implements Screen, InputProcessor {
 
         GameInfo.runningTime = 0f;
 
-        //UITable = new UITable(skin, stage, game, fonte);
-
-        //Gdx.input.setInputProcessor(stage);
     }
 
     //Sorteando um personagem e inicializando o personagem principal
@@ -138,14 +136,13 @@ public class GameScreen implements Screen, InputProcessor {
         //Configuração da camera UI
         UICamera = new OrthographicCamera(Gdx.graphics.getWidth(), GameInfo.HEIGHT);
         UICamera.position.set(GameInfo.WIDHT/2f, GameInfo.HEIGHT/2f, 0f);
-        //UITable = new UITable(skin, stage, game, fonte);
 
         //Criando o mundo e colocando gravidade nele da terra
         world = new World(new Vector2(0, -10), true);
         GameInfo.world = world;
 
+//      InputMultiplexer im = new InputMultiplexer(stage,this);
         Gdx.input.setInputProcessor(this);
-        //Gdx.input.setInputProcessor(stage);
     }
 
     void reset(){
@@ -191,6 +188,7 @@ public class GameScreen implements Screen, InputProcessor {
         character.drawAnimation(game.batch);
         itemManager.draw(game.batch);
         enemyManager.draw(game.batch);
+//        uimanager.draw(game.batch);
     }
 
     void moveCamera(){
@@ -198,9 +196,6 @@ public class GameScreen implements Screen, InputProcessor {
         //UICamera.position.x += GameInfo.velCamera * Gdx.graphics.getDeltaTime();
     }
 
-    private void buttonsManager() {
-
-    }
 
     @Override
     public void render(float delta) {
@@ -216,6 +211,8 @@ public class GameScreen implements Screen, InputProcessor {
                     currentState = states.RUNNING;
                 }
                 break;
+            case PAUSED:
+                 pause();
             case RUNNING:
                 update(delta); // Atualiza todas os objetos
                 break;
