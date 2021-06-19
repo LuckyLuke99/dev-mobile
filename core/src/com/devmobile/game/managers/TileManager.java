@@ -20,7 +20,7 @@ public class TileManager {
     private Skin menuSkin;
 
     public TileManager(){
-        textureAtlas = new TextureAtlas(Gdx.files.internal("TesteAtlas.atlas"));
+        textureAtlas = new TextureAtlas(Gdx.files.internal("Tiles.atlas"));
         textureAnimations = new TextureAtlas(Gdx.files.internal("Animations.atlas"));
         textureEnemys = new TextureAtlas(Gdx.files.internal("enemys.atlas"));
         textureMenu = new TextureAtlas(Gdx.files.internal("Menu.atlas"));
