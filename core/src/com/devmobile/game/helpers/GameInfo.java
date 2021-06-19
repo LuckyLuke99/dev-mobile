@@ -26,7 +26,7 @@ public class GameInfo {
     public static World world;
     public static float mainScore;
     public static GenericCharacter mainCharacter;
-    public static float velCamera = 100f; // Velocidade da camera
+    public static float velCamera = 160f; // Velocidade da camera
     public static float runningTime;
 
     public  enum states{
@@ -47,7 +47,7 @@ public class GameInfo {
     //------------------------------------------------------
     //--------------------ENEMY-CHANCE----------------------
     //------------------------------------------------------
-    public static int enemyChance = 20;
+    public static int enemyChance = 100;
     public static int enemyOctiChance = 1;
     public static int enemyPokeyBubChance = 2;
     public static int enemyRoboPumpkinChance = 2;

@@ -7,6 +7,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.devmobile.game.DevMobile;
 import com.devmobile.game.objects.buttons.Exit;
+import com.devmobile.game.objects.buttons.Life;
 import com.devmobile.game.objects.buttons.Play;
 
 public class MenuTable extends Table{

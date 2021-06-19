@@ -6,6 +6,5 @@ public class Score extends GenericButton {
     public Score(String texto, BitmapFont font) {
         super(texto, font);
     }
-
 }
 

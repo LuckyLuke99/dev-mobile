@@ -206,6 +206,7 @@ public class GameScreen implements Screen, InputProcessor {
                         update(delta); // Atualiza todas os objetos
                         break;
                     case GAMEPAUSE:
+                        musicMain02.stop();
                         break;
                 }
                 break;

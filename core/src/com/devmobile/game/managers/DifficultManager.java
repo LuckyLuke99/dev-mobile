@@ -46,4 +46,16 @@ public class DifficultManager {
                 }
         }
     }
+
+    private void configLevel01(){
+
+    }
+
+    private void configLevel02(){
+
+    }
+
+    private void configLevel03(){
+
+    }
 }

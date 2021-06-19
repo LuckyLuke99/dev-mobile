@@ -28,7 +28,7 @@ public class GenericCharacter extends Rectangle{
 
     int characterOffSetX;
     float MAX_VELOCITY;
-    float health;
+    int health;
 
     public GenericCharacter (ObjectMap<String, Array<TextureAtlas.AtlasRegion>> animations, String name){
         this.name = name;
@@ -46,7 +46,7 @@ public class GenericCharacter extends Rectangle{
         damegeTime = 0;
         characterOffSetX = 15 * GameInfo.sizeTexture;
 
-        health = 100;
+        health = 3;
 
         isRunning = true;
         isJumping = false;
@@ -162,7 +162,7 @@ public class GenericCharacter extends Rectangle{
             else {
                 isHurt = true;
                 elapsedTime = 0;
-                body.applyLinearImpulse(-0.2f, 0.2f, pos.x, pos.y, true);
+                body.applyLinearImpulse(0.2f, 0f, pos.x, pos.y, true);
             }
         }
     }
