@@ -20,7 +20,7 @@ public class ItemManager {
     private GenericSom coinSound;
 
     public ItemManager (){
-        coinSound = new GenericSom("coin.wav", 0.1f, false);
+        coinSound = new GenericSom("coin.wav", 0.01f, false);
         reset();
         config();
     }

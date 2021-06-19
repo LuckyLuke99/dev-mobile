@@ -26,7 +26,7 @@ public class GameInfo {
     public static World world;
     public static float mainScore;
     public static GenericCharacter mainCharacter;
-    public static float velCamera = 160f; // Velocidade da camera
+    public static float velCamera = 100f; // Velocidade da camera
     public static float runningTime;
 
     public  enum states{
@@ -39,16 +39,16 @@ public class GameInfo {
     //------------------------------------------------------
     //---------------------COIN-CHANCE----------------------
     //------------------------------------------------------
-    public static int coinChance = 20; // Chance de gerar as moedas em cima de um terreno;
-    public static int coinSmallChance = 1;
+    public static int coinChance = 40; // Chance de gerar as moedas em cima de um terreno;
+    public static int coinSmallChance = 5;
     public static int coinMediumChance = 2;
     public static int coinLargerChance = 1;
 
     //------------------------------------------------------
     //--------------------ENEMY-CHANCE----------------------
     //------------------------------------------------------
-    public static int enemyChance = 100;
-    public static int enemyOctiChance = 1;
+    public static int enemyChance = 30;
+    public static int enemyOctiChance = 3;
     public static int enemyPokeyBubChance = 2;
     public static int enemyRoboPumpkinChance = 2;
     public static int enemySpikeyBubChance = 2;

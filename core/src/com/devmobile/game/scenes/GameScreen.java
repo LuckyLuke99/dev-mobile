@@ -14,6 +14,7 @@ import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.devmobile.game.DevMobile;
 import com.devmobile.game.helpers.GameInfo;
+import com.devmobile.game.managers.DifficultManager;
 import com.devmobile.game.managers.EnemyManager;
 import com.devmobile.game.managers.ItemManager;
 import com.devmobile.game.managers.MapManager;
@@ -51,6 +52,7 @@ public class GameScreen implements Screen, InputProcessor {
     final TileManager tileManager; //Parte ligada as texturas dos tiles
     final ItemManager itemManager; //Parte ligada a criação e controle dos items
     final EnemyManager enemyManager; //Parte ligada a criação e controle dos inimigos
+    final DifficultManager difficultManager;
 
     //Personagem
     GenericCharacter character;
@@ -81,6 +83,8 @@ public class GameScreen implements Screen, InputProcessor {
         GameInfo.enemyManager = enemyManager;
 
         mapManager = new MapManager(tileManager);
+
+        difficultManager = new DifficultManager();
 
         //Configuração da camera e do viewport da tela
         configCharacter();
@@ -147,6 +151,7 @@ public class GameScreen implements Screen, InputProcessor {
         itemManager.reset();
         mapManager.reset();
         enemyManager.reset();
+        difficultManager.reset();
         character.ResetPosition();
         GameInfo.runningTime = 0f;
         currentState = states.START;
@@ -169,6 +174,7 @@ public class GameScreen implements Screen, InputProcessor {
         enemyManager.update();
         GameInfo.runningTime += Gdx.graphics.getDeltaTime();
         moveCamera();
+        difficultManager.update();
     }
 
     void draw(){

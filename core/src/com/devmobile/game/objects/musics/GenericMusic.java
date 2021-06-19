@@ -8,7 +8,7 @@ public class GenericMusic {
 
     public GenericMusic (String musicName){
         music = Gdx.audio.newMusic(Gdx.files.internal("Sons/" + musicName));
-        music.setVolume(1);
+        music.setVolume(0.25f);
         music.setLooping(true);
     }
 
