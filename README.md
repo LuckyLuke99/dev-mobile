@@ -12,5 +12,5 @@
 <img src="project-img/gameplay-02.gif" width="455,11" height="256" />
 
 ### Feito por
-#### Kevin Maia
-#### Lucas da Silva
+Kevin Maia
+Lucas da Silva
