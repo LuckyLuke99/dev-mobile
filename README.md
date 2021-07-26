@@ -1,2 +1,2 @@
 # dev-mobile
-![Alt Text](project-img/starting.gif =128x128)
+![](project-img/starting.gif |widht=100)
