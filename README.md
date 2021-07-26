@@ -1,2 +1,2 @@
 # dev-mobile
-![](project-img/starting.gif |widht=100)
+<img src="project-img/starting.gif." width="200" height="400" />
