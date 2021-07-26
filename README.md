@@ -1,3 +1,3 @@
 # dev-mobile
-![Alt Text](project-img/starting.gif)
+![Alt Text] <img src="project-img/starting.gif" width="40" height="40" />
 
