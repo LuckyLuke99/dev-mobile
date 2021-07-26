@@ -1,4 +1,5 @@
 # dev-mobile
+### O objetivo desse projeto foi criar um jogo mobile usando o Android Studio junto com o libGdx para a matéria de desenvolvimento mobile
 
 ## Gameplay
 ### Toda vez que começa o jogo o personagem muda e o fundo troca.
