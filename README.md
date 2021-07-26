@@ -1,2 +1,2 @@
 # dev-mobile
-<img src="project-img/starting.gif" width="227,56" height="128" />
+<img src="project-img/starting.gif" width="455,11" height="256" />
